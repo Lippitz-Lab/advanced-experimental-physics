@@ -1,0 +1,11 @@
+Absorption von TDBC in NaOH (1 mM) in Wasser
+Daten von Tobias Kroh, Bayreuth
+
+
+Die Absorptionsspektren geben die optische Dichte =  - log(Transmission) durch eine 10 mm Küvette an (Datensatz C2 abweichend 1 mm). Die Konzentrationen sind
+	C2 = 1e-5 M
+	C3 = 5e-6 M
+	C4 = 1e-6 M
+	C5 = 5e-7 M
+
+Ein Untergrund wurde nicht abgezogen. Sie können alle Kurven bei einer passenden Wellenlänge auf 0 ziehen. Bei 800 nm Wellenlänge wird der Detektor umgeschaltet. Ignorieren sie Werte bei größerer Wellenlänge.

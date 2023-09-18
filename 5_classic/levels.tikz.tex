@@ -1,0 +1,51 @@
+%\documentclass[margin=0mm]{standalone}
+%\usepackage{tikz}
+%\usepackage{pgfplots}
+% \pgfplotsset{compat=newest}
+%
+%
+%\usepackage{currfile,hyperxmp}
+%\usetikzlibrary{math,matrix,fit,positioning}
+%\usepgfplotslibrary{groupplots}
+%
+%
+%
+%\begin{document}
+
+
+  
+\begin{tikzpicture}
+%\useasboundingbox (0,-1) rectangle (5,4);
+
+%\draw(-2.5,-2.5) rectangle ++ (5,5);
+
+\draw[->] (-2.5, -2) -- node[rotate=90,below]{energy} ++ (0, 4);
+
+\tikzmath{\dx = 1; \dg = 1; \dy1 = 1; \dy2 = 2;};
+
+\draw[thick] (\dg,0) -- ++ (\dx,0);
+\draw[thick]  (-\dg,0) -- ++ (-\dx,0);
+
+\draw[thick]  (-\dx/2, \dy1) --  node[above]  {$\uparrow \uparrow$}  ++ (\dx,0);
+\draw[thick]  (-\dx/2, \dy2) -- node[above]  {$\rightarrow \leftarrow$} ++ (\dx,0);
+    
+    
+\draw[thick]  (-\dx/2, -\dy1) -- node[above]  {$\uparrow \downarrow$} ++ (\dx,0);
+\draw[thick]  (-\dx/2, -\dy2) -- node[above]  {$\rightarrow \rightarrow$}  ++ (\dx,0);
+
+\draw[dotted] (\dg,0) --  (\dx/2, -\dy1);
+\draw[dotted] (\dg,0) --  (\dx/2, -\dy2);
+
+\draw[dotted] (\dg,0) --  (\dx/2, \dy1);
+\draw[dotted] (\dg,0) --  (\dx/2, \dy2);
+
+\draw[dotted] (-\dg,0) --  (-\dx/2, -\dy1);
+\draw[dotted] (-\dg,0) --  (-\dx/2, -\dy2);
+
+\draw[dotted] (-\dg,0) --  (-\dx/2, \dy1);
+\draw[dotted] (-\dg,0) --  (-\dx/2, \dy2);
+
+ 
+\end{tikzpicture}
+
+%\end{document}

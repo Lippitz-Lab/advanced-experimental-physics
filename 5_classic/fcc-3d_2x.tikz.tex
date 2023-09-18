@@ -1,0 +1,208 @@
+
+
+\begin{tikzpicture}
+%\useasboundingbox (0,0) rectangle (5,5);
+%\draw (2,2) rectangle ++(5,5);
+
+
+	   \tikzmath{\lx=1.8; \xs=27mm; \ys=23mm;}
+		
+			\tikzmath{\ly = \lx; \lz=\lx;}
+			\tikzmath{\wxz=90; \wxy=90; \wyz=90;}
+			\tikzmath{\fc=0; \bc=1;\sc=0;}
+
+ \begin{axis}[
+   axis lines=none,
+    xmin=-1.1,
+    xmax=3.1,
+    ymin=-1.1,
+    ymax=3.1,
+    zmin=-1.1,
+    zmax=3.1,
+    xtick=\empty,
+    ytick=\empty,
+    ztick=\empty,
+    axis equal , rotate around z=40 ,rotate around x=-2 ,
+    font=\footnotesize]
+
+	
+			
+			\tikzmath{	\sy1 =  cos(\wxy) * sin(\wyz);
+							    \sy2 =  sin(\wxy) * sin(\wyz);
+							    \sy3 =				        cos(\wyz);
+							}
+	
+	
+		\tikzmath{	\sz1 =  cos(\wxz) ;
+							\sz2 =   0;
+							\sz3 =  sin(\wxz) ;				
+							}
+							
+							
+							
+		% basis vectors
+		\coordinate (O)  at         (axis cs: 0 ,  0,    0) ;
+		\coordinate (X2)  at         (axis cs: \lx ,  0,   0) ;
+		\coordinate (Y2)  at         (axis cs: \sy1 * \ly ,  \sy2 * \ly,   \sy3 * \ly)  ;
+		\coordinate (Z2)  at         (axis cs: \sz1 * \lz ,  \sz2 * \lz,   \sz3 * \lz) ;
+		%
+		\coordinate (X) at ( $ (X2) + (X2) - (O) $);
+		\coordinate (Y) at ( $ (Y2) + (Y2) - (O) $);
+		\coordinate (Z) at ( $ (Z2) + (Z2) - (O) $);
+		
+		% NB: cooridnates are transformed into canvas coordinates,
+		% vector sums need to be corrected ... 
+		
+		% remaining corners
+		\coordinate (XY)  at        ($ (X) + (Y) - (O)$) ;
+		\coordinate (XZ)  at        ($ (X) + (Z) - (O)$) ;
+		\coordinate (YZ)  at        ($ (Y) + (Z) - (O)$) ;
+		\coordinate (XYZ)  at        ($ (X) + (Y) + (Z) -(O) - (O)$) ;
+		
+		%face centers
+		\coordinate (fXY)  at        ( $  (X2) + (Y2) - (O)   $) ;
+		\coordinate (fYZ)  at        ( $  (Z2) + (Y2) - (O)   $) ;
+		\coordinate (fXZ)  at        ( $  (Z2) + (X2) - (O)   $) ;
+		\coordinate (fXY2)  at        ( $  (X2) + (Y2) - (O) + (Z) - (O)  $) ;
+		\coordinate (fYZ2)  at        ( $  (Z2) + (Y2) - (O)  + (X) - (O)  $) ;
+		\coordinate (fXZ2)  at        ( $  (Z2) + (X2) - (O)  + (Y) - (O)  $) ;
+			
+		%body center
+		\coordinate (bc)  at        ( $  (X2) + (Y2) + (Z2) - (O) - (O)  $) ;
+
+
+    %WSC
+ 
+   \tikzmath{\dx = 0.5 * \lx;}
+	\coordinate (wXZ1)  at        ( $  (fXZ) + (\dx,0,0) - (O)   $) ;
+	\coordinate (wXZ2)  at        ( $  (fXZ) + (0,0, \dx) - (O)   $) ;
+	\coordinate (wXZ3)  at        ( $  (fXZ) + (-\dx,0,0) - (O)   $) ;
+	\coordinate (wXZ4)  at        ( $  (fXZ) + (0,0, -\dx) - (O)   $) ;
+
+	\coordinate (wYZ1)  at        ( $  (fYZ) + (0,\dx,0) - (O)   $) ;
+	\coordinate (wYZ2)  at        ( $  (fYZ) + (0,0, \dx) - (O)   $) ;
+	\coordinate (wYZ3)  at        ( $  (fYZ) + (0,-\dx,0) - (O)   $) ;
+	\coordinate (wYZ4)  at        ( $  (fYZ) + (0,0, -\dx) - (O)   $) ;
+	
+	\coordinate (wXY1)  at        ( $  (fXY2) + (\dx,0,0) - (O)   $) ;
+	\coordinate (wXY2)  at        ( $  (fXY2) + (0, \dx,0) - (O)   $) ;
+	\coordinate (wXY3)  at        ( $  (fXY2) + (-\dx,0,0) - (O)   $) ;
+	\coordinate (wXY4)  at        ( $  (fXY2) + (0, -\dx,0) - (O)   $) ;
+
+
+
+	\coordinate (wXZ1h)  at        ( $  (fXZ2) + (\dx,0,0) - (O)   $) ;
+	\coordinate (wXZ2h)  at        ( $  (fXZ2) + (0,0, \dx) - (O)   $) ;
+	\coordinate (wXZ3h)  at        ( $  (fXZ2) + (-\dx,0,0) - (O)   $) ;
+	\coordinate (wXZ4h)  at        ( $  (fXZ2) + (0,0, -\dx) - (O)   $) ;
+
+	\coordinate (wYZ1h)  at        ( $  (fYZ2) + (0,\dx,0) - (O)   $) ;
+	\coordinate (wYZ2h)  at        ( $  (fYZ2) + (0,0, \dx) - (O)   $) ;
+	\coordinate (wYZ3h)  at        ( $  (fYZ2) + (0,-\dx,0) - (O)   $) ;
+	\coordinate (wYZ4h)  at        ( $  (fYZ2) + (0,0, -\dx) - (O)   $) ;
+	
+	\coordinate (wXY1h)  at        ( $  (fXY) + (\dx,0,0) - (O)   $) ;
+	\coordinate (wXY2h)  at        ( $  (fXY) + (0, \dx,0) - (O)   $) ;
+	\coordinate (wXY3h)  at        ( $  (fXY) + (-\dx,0,0) - (O)   $) ;
+	\coordinate (wXY4h)  at        ( $  (fXY) + (0, -\dx,0) - (O)   $) ;
+
+
+   \coordinate (kp) at  ($ (Z2) + (\dx /2, \dx / 2,0) - (O)   $) ;
+  \coordinate (kp2) at  ($ (XYZ) + (-\dx * 3/2, - \dx * 3 / 2,0) - (O)   $) ;
+   \coordinate (lp) at  ($ (Z) + (\dx , \dx , -\dx) - (O)   $) ;
+
+   
+		% draw cube
+	%	\draw[gray] (XY) -- (XYZ);
+	%	\draw[gray]  (Y) -- (XY) --(X) ;
+		
+
+		
+		% body center
+
+%		\draw[gray] (O) -- (XYZ);
+%		\draw[gray] (X) -- (YZ);
+%		\draw[gray] (Y) -- (XZ);
+%		\draw[gray] (Z) -- (XY);
+
+			% backside square	
+     \draw[line width=0.5pt, gray, fill=gray, fill opacity=0.5] 		(wXZ1h)  --  (wXZ2h) --(wXZ3h) -- (wXZ4h) -- cycle;
+    \draw[line width=0.5pt, gray, fill=gray, fill opacity=0.5] 		(wXY1h)  --  (wXY2h) --(wXY3h) -- (wXY4h) -- cycle;
+	 \draw[line width=0.5pt, gray, fill=gray, fill opacity=0.5] 		(wYZ1h)  --  (wYZ2h) --(wYZ3h) -- (wYZ4h) -- cycle;
+%
+     \draw[line width=0.5pt, gray, fill=gray, fill opacity=0.5] 		(wXY1)  --  (wXY2) --(wXY3) -- (wXY4) -- cycle;
+
+  % backside hexagon 
+   \draw[line width=0.5pt, gray, fill=gray, fill opacity=0.5] (wXY1) -- (wYZ2h) --  (wYZ1h) -- (wXZ1h) -- (wXZ2h) -- (wXY2) -- cycle;
+   
+     \draw[line width=0.5pt, gray, fill=gray, fill opacity=0.5]  (wYZ4h) -- (wYZ1h) -- (wXZ1h) -- (wXZ4h) -- (wXY2h) -- (wXY1h) -- cycle;
+   
+  \draw[line width=0.5pt, gray, fill=gray, fill opacity=0.5] (wXY2) -- (wXY3) -- (wYZ2) -- (wYZ1) --(wXZ3h) -- (wXZ2h) -- cycle;   
+   
+  \draw[line width=0.5pt, gray, fill=gray, fill opacity=0.5] (wXY2h) -- (wXY3h) -- (wYZ4) -- (wYZ1) --(wXZ3h) -- (wXZ4h) -- cycle;      
+   
+	% front side square	
+     \draw[line width=0.5pt, fill=gray, fill opacity=0.5] 		(wXZ1)  --  (wXZ2) --(wXZ3) -- (wXZ4) -- cycle;
+     \draw[line width=0.5pt, fill=gray, fill opacity=0.5] 		(wXY1)  --  (wXY2) --(wXY3) -- (wXY4) -- cycle;
+	 \draw[line width=0.5pt, fill=gray, fill opacity=0.5] 		(wYZ1)  --  (wYZ2) --(wYZ3) -- (wYZ4) -- cycle;
+		
+		
+
+% front side hexagon
+   \draw[line width=0.5pt, fill=gray, fill opacity=0.5] 		(wXZ2) --  (wXZ3) -- (wYZ3) --(wYZ2)  -- (wXY3)  -- (wXY4) -- cycle;
+   
+ \draw[line width=0.5pt, fill=gray, fill opacity=0.5]  		(wYZ2h) --  (wYZ3h) -- (wXZ1) -- (wXZ2) -- (wXY4)  -- (wXY1)  -- cycle;
+   \draw[line width=0.5pt, fill=gray, fill opacity=0.5]  (wXZ3) --  (wXZ4)  -- (wXY4h)   -- (wXY3h) --(wYZ4) --(wYZ3)   -- cycle;	  
+	   \draw[line width=0.5pt, fill=gray, fill opacity=0.5]   (wYZ4h) -- (wYZ3h) --  (wXZ1) -- (wXZ4) --(wXY4h) --(wXY1h)  -- cycle;
+		
+		
+		% draw cube
+%		\draw (O) -- node[anchor=north] (na) {} (X) -- node[anchor=west] (nc) {} (XZ) --   (Z) -- (O);
+%		\draw (Z) -- (XZ) -- (XYZ) -- (YZ) -- (Z);
+%		\draw (O) -- node[anchor=east] (nb) {} (Y) -- (YZ) ;
+%
+	
+		
+
+
+		
+\end{axis}
+		
+		\tikzmath{\atom=0.05;}
+		
+
+		
+		% body center atom
+		% body center
+	
+	\fill [gray] (bc) circle (\atom) node[right, black] {\footnotesize $\Gamma$};
+	
+
+\fill [black] (fXZ) circle (\atom) node[right, black] {\footnotesize X};	
+\fill [black] (fXY2) circle (\atom) node[right, black] {\footnotesize X};	
+	
+	\fill [black] (kp) circle (\atom) node[right, black] {\footnotesize K};	
+	\fill [black] (kp2) circle (\atom) node[right, black] {\footnotesize K};	
+	\fill [black] (lp) circle (\atom) node[right, black] {\footnotesize L};	
+	
+		
+\draw[red] (bc) -- (fXY2) -- (kp2);	
+	\draw[red] (kp)-- (bc) -- (lp) ;	
+	
+		% corner atom
+	%\fill [gray] (XY) circle (\atom);
+		
+	  
+	
+%		\fill [black] (O) circle (\atom);
+%		\fill [black] (X) circle (\atom);
+%		\fill [black] (Z) circle (\atom);
+%		\fill [black] (XZ) circle (\atom);
+%		\fill [black] (XYZ) circle (\atom);
+%		\fill [black] (YZ) circle (\atom);
+%		\fill [black] (Y) circle (\atom);	                  	    
+%
+  
+  \end{tikzpicture}
+
+

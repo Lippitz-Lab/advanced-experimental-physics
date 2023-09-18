@@ -1,0 +1,25 @@
+% \documentclass{standalone}
+% \usepackage{tikz}
+% \input{../tikz_header}
+
+% \begin{document}
+% %\pgfkeys{tikzorbital/drawLevel/width = 0.1}
+
+
+\begin{tikzpicture} 
+ \useasboundingbox (-2,-0.5) rectangle (4,7.5);
+% %\draw (-2,-0.5) rectangle (4,7.5);
+
+% %((1, 1, 1, 1, 1, 1), (1, 0, -1, -1, 0, 1), (-1, -1, 0, 1, 1, 0), (-1, 1, 0, -1, 1, 0), (-1, 0, 1, -1, 0, 1), (-1, 1, -1, 1, -1, 1)) 
+ \benzene{0}{0}      {1}{1}{1}{1}{1}{1}
+\benzene{-1.5}{2} {1}{0}{-1}{-1}{0}{1}
+\benzene{1.5}{2}   {-1}{-1}{0}{1}{1}{0}
+\benzene{-1.5}{4} {-1}{1}{0}{-1}{1}{0}
+\benzene{1.5}{4}  {-1}{0}{1}{-1}{0}{1}
+\benzene{0}{6}{1} {-1}{1}{-1}{1}{-1}{1}
+
+\end{tikzpicture}
+
+
+
+%\end{document}

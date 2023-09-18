@@ -1,0 +1,99 @@
+%\documentclass[margin=0mm]{standalone}
+%\usepackage{tikz}
+%\usepackage{pgfplots}
+% \pgfplotsset{compat=newest}
+%
+%
+%\usepackage{currfile,hyperxmp}
+%\usetikzlibrary{math,matrix,fit,positioning}
+%\usepgfplotslibrary{groupplots}
+%
+%
+%\begin{document}
+
+%plot "nm5nm10_ext_beta_drudesolo_n1_2748.dat"   u (1240 /$1):8  lt single lw mylw with lines, \
+%     "nm5nm10_ext_beta_drudesolo_n1_2748.dat"   u (1240 /$1):($8 * 5**3 /(5**3 + 9**3))  lt single lw mylw with filledcurve, \
+%     "" u (1240 /$1):2 lt perp lw mylw, \
+%      "nm5nm10_ext_alpha_drudesolo_n1_2748.dat"   u (1240 /$1):2  lt par lw mylw 
+%
+%
+
+%  #  plot    "ML_singles.dat"  u (1240 /$1):($3 + $4) with lines lt single lw mylw axis x1y2, \
+%        "ML_singles.dat"  u (1240 /$1):($3 ) with  filledcurve y2=0  lt single lw mylw axis x1y2, \
+%    "ext_big_dists_beta_no_exp.dat"   u (1240 /$1) :2  lt perp lw mylw axis x1y2, \
+%     "ext_big_dists_alpha_no_exp.dat"   u (1240 /$1):2  lt par lw mylw axis x1y2
+   
+
+\begin{tikzpicture}
+%\useasboundingbox (-1.0,-1.0) rectangle (10.2,4.2);
+%\draw (-1,-1.0) rectangle (10.2,4.2);
+%
+
+
+\pgfmathsetmacro\plotw{45mm} % width of subplots
+\pgfmathsetmacro\ploth{32mm} % height of smaller subplots
+\pgfmathsetmacro\vsep{15pt}  % vertical separation between subplots
+\pgfmathsetmacro\hsep{5pt}  % horizontal separation between subplots
+
+\begin{groupplot}[
+    group style={
+       group size=2 by 1,
+       vertical sep=\vsep,
+       horizontal sep=\hsep,
+       x descriptions at=edge bottom},
+    height=\ploth,
+    width=\plotw,
+  %  ymax = 5,
+    ymin = 0,
+    xtick pos = bottom,
+    scale only axis,
+      x tick label style={/pgf/number format/.cd,%
+          scaled x ticks = false,
+          set thousands separator={},
+          fixed},
+    ]
+    
+
+
+
+\nextgroupplot[ytick = \empty, yticklabel = \empty,
+ylabel = {extinktion}, xlabel = {energy (eV)},
+%ytick pos = left, ytick = {0}, 
+ xmin=3.45, xmax = 4.6,
+ ]
+ \addplot[no markers, gray,thick] table [x expr={1240 / \thisrowno{0}}, y index=7] {\currfiledir raw_data/nm5nm10_ext_beta_drudesolo_n1_2748.dat};
+\addplot[no markers, red,thick] table [x expr={1240 / \thisrowno{0}}, y index=1] {\currfiledir raw_data/nm5nm10_ext_beta_drudesolo_n1_2748.dat};
+\addplot[no markers, blue,thick] table [x expr={1240 / \thisrowno{0}}, y index=1] {\currfiledir raw_data/nm5nm10_ext_alpha_drudesolo_n1_2748.dat};
+
+
+\node at ( rel axis cs: 0.3, 0.7) {\footnotesize $\rightarrow\rightarrow$};
+\node at ( rel axis cs: 0.83, 0.23) {\footnotesize $\rightarrow\leftarrow$};
+
+\node at ( rel axis cs: 0.67, 0.85) {\footnotesize $\uparrow\uparrow$};
+\node at ( rel axis cs: 0.46, 0.25) {\footnotesize $\uparrow\downarrow$};
+
+\node at ( rel axis cs: 0, 1)[below right] {Drude};
+
+	 	
+\nextgroupplot[ytick = \empty, yticklabel = \empty,
+xlabel = {energy (eV)},
+%ytick pos = left, ytick = {0}, 
+ xmin=1.75, xmax = 2.7
+  ]
+ \addplot[no markers,gray,thick] table [x expr={1240 / \thisrowno{0}}, y expr={\thisrowno{2} + \thisrowno{3}}] {\currfiledir raw_data/ML_singles.dat};
+ \addplot[no markers, red,thick] table [x expr={1240 / \thisrowno{0}}, y index=1] {\currfiledir raw_data/ext_big_dists_beta_no_exp.dat};
+ \addplot[no markers, blue,thick] table [x expr={1240 / \thisrowno{0}}, y index=1] {\currfiledir raw_data/ext_big_dists_alpha_no_exp.dat};
+
+	 	\node at ( rel axis cs: 0, 1)[below right] {gold};
+
+\node at ( rel axis cs: 0.4, 0.94) {\footnotesize $\rightarrow\rightarrow$};
+\node at ( rel axis cs: 0.5, 0.5) {\footnotesize $\uparrow\uparrow$};
+
+ 
+ 
+\end{groupplot}
+
+
+\end{tikzpicture}
+
+%\end{document}

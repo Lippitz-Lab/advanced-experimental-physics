@@ -1,0 +1,40 @@
+
+  
+  
+\begin{tikzpicture}
+\useasboundingbox (0,-1.0) rectangle (5.2,3.2);
+%
+%\draw (0,-1.0) rectangle (5.2,3.2);
+%
+
+\tikzmath{\c = 25; \d = 10;}
+
+\coordinate (A) at (1.5,0);
+\coordinate (B) at (1,2);
+\coordinate (C) at (4,2);
+
+\draw[fill=black] (B) circle (0.5mm);
+\draw[fill=black] (C) circle (0.5mm);
+
+\draw[dashed, shorten >= -\c , shorten <= -\c] (A) -- (B);
+\draw[dashed, shorten >= -\c , shorten <= -\c]  (C) -- (B);
+\draw[dashed, shorten >= -\c , shorten <= -\c]  (A) -- (C);
+
+\draw[thick, ->] ($(B)!\d mm!(A)$) -- ($(B)!-\d mm!(A)$) ;
+\draw[thick, ->] ($(C)!\d mm !(A)$) -- ($(C)!-\d mm!(A)$) ;
+
+\pic [draw, <->, "$\theta$", angle eccentricity=1.5] {angle = C--A--B};
+
+\coordinate (Bt) at  ($(B)!-\d mm!(A)$) ;
+\coordinate (Ct) at  ($(C)!-\d mm!(A)$) ;
+\coordinate (Ct2) at  ($(C)!-\d mm!(B)$) ;
+
+\pic [draw, <->, "$\alpha$", angle eccentricity=1.5] {angle = C--B--Bt};
+\pic [draw, <->, "$\beta$", angle eccentricity=1.5] {angle = Ct2--C--Ct};
+
+
+\draw[ <->,  shorten >= 0.6mm, shorten <= 0.6mm] (B) -- node[below] {$R$} (C);
+
+\end{tikzpicture}
+
+

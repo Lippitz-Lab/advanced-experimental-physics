@@ -1,0 +1,409 @@
+\renewcommand{\chapterauthors}{Markus Lippitz}
+\renewcommand{\lastmod}{September 13, 2023}
+
+
+\chapter{Hybridization in classical systems}
+
+
+\section{Overview}
+
+
+'Hybridization' is, according to the Cambridge dictionary, 'the process of producing a plant or animal from two different types of plant or animal'. In chemistry, 'orbital hybridization' plays an important role in describing hydrocarbons, for example. Here we want to broaden the view and describe various coupling phenomena from the point of view of hybridization. When two systems couple, they lose their original individual properties, and combined properties emerge. In this chapter we discuss systems of classical physics without quantum mechanics, namely classical mechanical pendulums, phonons in crystals, and Rayleigh scattering of assemblies of nanoparticles.
+
+
+\section{Coupled Pendulum}
+
+A mathematical pendulum of point mass $m$ and rod length $L$ is governed by the differential equation of its angular displacement $\phi$ in the approximation of small angles $|\phi| \ll 1$
+\begin{equation}
+ \ddot{\phi} + \frac{g}{L} \, \phi = 0 \quad \text{with} \quad \omega^2 = \frac{g}{L}  \quad , 
+\end{equation}
+where $g$ is the acceleration due to gravity and $\omega$ its angular eigen-frequency. When two of such pendulums are coupled by a spring between the two masses, we get a coupled system of differential equations
+\begin{eqnarray}
+ \ddot{\phi_1} + \frac{g}{L_1} \, \phi_1 + \frac{k}{m_1} \, \left( \phi_1 - \phi_2 \right) & = & 0 \\
+ \ddot{\phi_2} + \frac{g}{L_2} \, \phi_2 - \frac{k}{m_2} \, \left( \phi_1 - \phi_2 \right) & = & 0 
+\end{eqnarray}
+with the spring constant $k$.  For the moment, we assume that the pendulums are identical, i.e., $L = L_1 = L_2$ and $m = m_1 =m_2$. The eigen-frequencies are then
+\begin{equation}
+ \omega_{+}^2 = \frac{g}{L} \quad \text{and} \quad 
+  \omega_{-}^2 = \frac{g}{L} + 2 \frac{k}{m} \quad ,
+\end{equation}
+where in the mode with frequency $\omega_{+}$ both masses move to the same direction, in the $\omega_{-}$ in opposite directions. Only in the latter case the coupling spring comes into play.
+
+To investigate the general case, we assume harmonic oscillations, i.e. $\phi(t) = \phi_0 \, \exp (i \omega t)$ and write the differential equation as matrix
+\begin{equation} \boldsymbol{M \, \phi} = 
+\begin{pmatrix}
+  \frac{g}{L_1} + \frac{k}{m_1}& - \frac{k}{m_1}\\
+ - \frac{k}{m_2} & \frac{g}{L_2} + \frac{k}{m_2}
+\end{pmatrix}  \boldsymbol{\phi} =  \omega^2 \, \boldsymbol{\phi}
+\quad .
+\end{equation}
+We thus search eigen-values and eigen-vectors of $\boldsymbol{M}$. Assuming individual lengths, but identical masses, we get
+\begin{equation}
+ \omega_{\pm}^2 = \left( \frac{\omega_1^2 + \omega_2^2}{2} + \frac{k}{m} \right)
+  \pm \sqrt{ \left( \frac{\omega_1^2 - \omega_2^2}{2} \right)^2 + \left( \frac{k}{m} \right)^2 } \quad .
+\end{equation}
+For identical lengths, i.e., identical eigen-frequencies $\omega_1 = \omega_2$, this recovers the results from above.
+
+
+We see here already the common theme of hybridization: two systems couple. Depending on the ratio of coupling constant (here $k/m$) and energy difference (here $\omega_1^2 - \omega_2^2$), the new eigen-frequencies (or eigen-energies) are closer to the original ones, or split around some kind of average value.
+
+
+\section{Two coupled oscillators}
+
+Lets do the same with two springs of spring constant $K$. Each spring connects a mass $m_{1,2}$ to the wall, and the masses are connect by a third (coupling) spring of constant $\kappa$. The differential equation in matrix form for harmonic motion along $x$ reads 
+\begin{equation} \boldsymbol{M \, x} = 
+  \begin{pmatrix}
+     \frac{K + \kappa}{m_1} & - \frac{\kappa}{m_1}\\
+  -  \frac{\kappa}{m_2} &  \frac{K + \kappa}{m_2}
+  \end{pmatrix}  \boldsymbol{x} =  \omega^2 \, \boldsymbol{x}
+  \quad .
+  \end{equation}
+The solutions look very similar to above. For equal masses we get
+\begin{equation}
+  \omega_{+}^2 = \frac{K}{m} \quad \text{and} \quad 
+   \omega_{-}^2 = \frac{K + 2 \kappa}{m}  \quad .
+ \end{equation}
+
+
+
+
+ \section{Normal modes}
+ 
+ How does one handle a system of $N$ masses, all connected by more or less harmonic potentials? This is a problem of classical mechanics and leads to the normal modes.\sidenote{see for example chapter 6.3 in \cite{Demtröder_molekuelphysik}}
+ 
+ We use mass-weighted generalized coordinates $q_i = \sqrt{m_i}  \Delta \tilde{q}_i$, where the index $i$ runs over all atoms and all spatial directions, i.e., from $1$ to $3N$. $m_i$ is the mass of the associated atom and $\Delta \tilde{q}_i$ is the deviation from the equilibrium position. Thus, the kinetic energy $T$  is
+ \begin{equation}
+    T = \frac{1}{2} \sum_{i=1}^{3N} \dot{q}_i^2 \quad .
+ \end{equation}
+ For the potential we use a Taylor expansion in $q_i$. We set the zero  of the energy scale to the minimum of the potential. Thus the first two terms of the Taylor series disappear and we keep only the next one:
+ \begin{equation}
+  V \approx \frac{1}{2} \sum_{i,k = 1}^{3N} \frac{\partial V}{\partial q_i \partial q_k} \, q_i \, q_k =. 
+   \frac{1}{2} \sum_{i,k = 1}^{3N} b_{ik} \, q_i \, q_k \quad .
+ \end{equation}
+ Thus we can write the Lagrangian function $L = T - V$ and obtain in this formalism the equations of motion
+ \begin{equation}
+     \ddot{q}_i + \sum_{k = 1}^{3N} b_{ik} \, q_k = 0 \quad \text{for} \quad i = 1 \dots 3N
+ \end{equation}
+ or as a matrix with $\tilde{\mathbf{B}} = (b_{ik})$ and $\mathbf{q} = (q_i)$
+ \begin{equation}
+    \ddot{\mathbf{q}} + \tilde{\mathbf{B}}  \cdot \mathbf{q} = 0 \quad .
+ \end{equation}
+ This is a system of $3N$ coupled differential equations. To decouple them we diagonalize 
+ $\tilde{\mathbf{B}} $, and find $3N$ eigenvectors $\mathbf{q}_n^0$ and (potentially degenerate) eigenvalues $\lambda_n$ so that
+ \begin{equation}
+       \tilde{\mathbf{B}} \cdot \mathbf{q}_n^0 = \lambda_n \mathbf{q}_n^0 \quad \text{and thus} \quad
+        \mathbf{q}_n(t) = \mathbf{q}_n^0 \, e^{i \, t \, \sqrt{\lambda_n}} \quad .
+ \end{equation}
+ The eigenvectors $\mathbf{q}_n^0$ are called \emph{normal modes}. Thus, they describe the simultaneous motion of all nuclei in all spatial directions at normal mode $n$ with frequency\sidenote{some $\lambda_n$ must be zero, since there can be only $3N - 5$ (or 6) normal modes} $\omega_n = \sqrt{\lambda_n}$. Since the $b_{ik}$ are real-valued, in the normal mode all atoms oscillate in phase, thus making the zero crossing simultaneously, and of course at the same frequency. In the basis of normal modes the potential simplifies: it has only quadratic forms of the kind $\frac{1}{2} k q_i^2$ but no bi-linear ones of the kind $\frac{1}{2} k q_i q_k$, otherwise $\tilde{\mathbf{B}} $ would not be diagonalized.
+ 
+
+ \section{Chain of coupled masses}
+
+As an example, lets look at the classical chain of coupled masses. We assume all $N$ masses and springs to be equal and take only a movement along the chain into account. The potential then reads
+\begin{equation}
+    U = \frac{1}{2} \kappa \sum_{n=1}^{N-1} ( \tilde{q}_n - \tilde{q}_{n+1} )^2
+\end{equation}
+or
+\begin{equation}
+U = \frac{1}{2} \frac{\kappa}{m} \sum_{n=1}^{N-1}  ( q_n - q_{n+1} )^2
+\end{equation}
+When multiply out, we get the squared terms $q_n^2$ twice, except for the first and last mass in the chain. And we get terms of neighboring masses $- 2 q_n q_{n+1}$. 
+The matrix $B$ is thus by distribution the cross-terms the sub- and super-diagonals 
+\begin{equation}
+B =\frac{\kappa}{m} \begin{pmatrix}
+ 1 & -1 & 0 &  0 & \cdots & 0 \\
+-1 & 2 & -1 &  0 & \cdots & 0 \\
+0  & -1 & 2 &  -1 & \cdots & 0 \\
+0 & 0  & -1 & 2 &   \cdots & 0 \\
+\vdots  & & &  &  & \vdots \\
+0 &   & \cdots    &    & -1 & 1 \\
+\end{pmatrix}
+\end{equation}
+We determine the eigenvalues $\lambda_n$ and from them the eigen-frequencies $\omega_n = \sqrt{\lambda_n}$. We find that
+\begin{equation}
+  \omega_n^2 = \frac{2 \kappa}{m} \left[ 1 - \cos \left(\frac{n-1}{N} \pi \right) \right] 
+  \label{eq:5_omega_diag}
+\end{equation}
+and the eigenvectors describe oscillatory patterns.
+
+
+What happened here? We coupled oscillators, and the new hybridized system has new eigen-frequency . When we use many oscillators, we get a continuos band of eigen-frequencies that symmetrically spans around $\omega = \sqrt{2 \kappa / m}$, which is what we would get if a single mass is fixed by two springs to a wall.
+
+
+
+
+\section{Analytic approach}
+
+Matrix diagonalization is fine, but tedious for large matrices. Even the derivation of eq.~\ref{eq:5_omega_diag} is beyond my capabilities. I only knew the end of this section. So let us follow another approach.
+
+We now \emph{assume} that the deviation of the masses from their rest position follows a harmonic pattern, which we describe by a wave vector $k = 2 \pi / \lambda$. This way we know what all the masses are doing and we can use an analytical approach.
+Let $u_s$ be the deviation of the mass $s$ from its equilibrium position. The force on the mass $s$ is then
+\begin{equation}
+  F_s = \sum_p \, \kappa_p \left( u_{s+p} - u_s \right)
+\end{equation}
+with the spring constant $\kappa_p$, which describes how the mass under consideration is  linked to another mass  $p$ lattice sites away. Thus, only the relative displacement of the masses with respect to each other enters. The equation of motion thus becomes
+\begin{equation}
+    m \frac{d^2 \, u_s}{dt^2} = \sum_p \, \kappa_p \left( u_{s+p} - u_s \right)
+\end{equation}
+where we have used that all masses are equal. With the ansatz of a plane wave the deviation of the mass with the index $s+p$ becomes
+\begin{equation}
+    u_{s+p} = U_0 \, e^{-i ( \omega t - k \, a \, (s+p) )}
+\end{equation}
+with the length $k$ of the wave vector in reciprocal space and the distance $a$ of the lattice points in real space. The term $a (s+p)$ thus describes the equilibrium position of the mass under consideration in real space. If we insert this ansatz into the equation of motion we get
+\begin{equation}
+- \omega^2 \, m = \sum_p \, \kappa_p \left( e^{i k \, a \, p} - 1 \right)
+\end{equation}
+Since all masses are identical, $\kappa_p = \kappa_{-p}$ is reasonable and therefore
+\begin{equation}
+    \omega^2 = \frac{2}{m} \, \sum_{p=1}^\infty \, \kappa_p \left( 1 - \cos ( k \, a \, p ) \right)
+\end{equation}
+Such a relation between frequency $\omega$ and wave vector $k$ is called  \emph{dispersion relation}. It is equivalent to a relation between energy and momentum.
+
+Now we make the additional assumption that only nearest neighbors interact with each other, as in the last section. Thus only $\kappa_{\pm 1} = \kappa $ are different from zero and the sum is omitted. We now also take the root and get
+\begin{equation}
+\omega = \sqrt{\frac{4 \, \kappa}{m}} \left| \sin \left(\frac{1}{2} \, k \, a \right) \right| 
+\end{equation}
+
+\begin{marginfigure}
+
+\inputtikz{\currfiledir kette_1atom}
+\caption{Dispersion relation of a chain of identical masses and springs.}
+\end{marginfigure}
+
+
+
+
+\section{Three dimensions}
+
+In three dimensions, we do the same, just keeping track of all neighbors becomes a bit more demanding. Lets discuss the example of 
+copper. It has  a face-centered cubic (fcc) crystal structure with a monatomic basis. The reciprocal lattice is thus  body-centered cubic (bcc). The lattice constant is 3.6~\AA.
+
+Our ansatz for the deviation $\mathbf{u}$ from the equilibrium position now contains vectors, $\mathbf{u}_0$ for the amplitude and direction, and $\mathbf{k}$ for the wave vector:
+\begin{equation}
+  \mathbf{u} = \mathbf{u}_0 \, e^{i ( \mathbf{k} \mathbf{r} - \omega t)}
+\end{equation}
+We take only displacements of the masses in the direction $\mathbf{\hat{n}}_i$ of the spring into account and sum over all $i=1 \dots 12$ nearest neighbors. In an fcc-lattice, the neighbors are along the diagonal of each cartesian plane. The sum reads
+\begin{equation}
+m \frac{d^2 \mathbf{u}}{dt^2} = \sum \kappa_{i} \, [ (\mathbf{u}(\mathbf{r}_i) - \mathbf{u}(0) ) \cdot \mathbf{\hat{n}}_i ]\,  \mathbf{\hat{n}}_i 
+\end{equation}
+We insert our ansatz for  $\mathbf{u}$ and get
+\begin{equation}
+  - \omega^2 m \, \mathbf{u}_0 
+ = \sum \kappa_{i} \,  ( e^{i \mathbf{k} \mathbf{r}_i } - 1) [\mathbf{u}_0 \cdot \mathbf{\hat{n}}_i ]\,  \mathbf{\hat{n}}_i 
+\end{equation}
+
+This is again an eigen-value equation
+\begin{equation}
+\mathbf{A} \mathbf{u}_0 = - \omega^2 m \mathbf{u}_0
+\end{equation}
+with 
+\begin{equation}
+\mathbf{A}_{uv} = \sum C_{i} \,  ( e^{i \mathbf{k} \mathbf{r}_i } - 1)  \, \mathbf{\hat{n}}_{i, u} \, \mathbf{\hat{n}}_{i, v}
+\end{equation}
+where $\mathbf{\hat{n}}_{i, v}$ is the $v$-th cartesian component of the normal vector in direction of atom $i$.
+
+\begin{marginfigure}
+\inputtikz{\currfiledir fcc-3d_2x}
+\caption{Points of high symmetry in the Brillouin zone are marked by large letters. the $\Gamma$ point is the center of the BZ, so $k=0$. The path $\Gamma$--X--K--$\Gamma$--L takes advantage of the symmetry of the Brillouin zone. \label{fig:5_phonon_path} }
+\end{marginfigure}
+
+For each value of $\mathbf{k}$, we construct the $3 \times 3$ matrix $\mathbf{A}$ and calculate its eigen-values. We thus obtain a function $\omega(\mathbf{k})$ that has at each point three solutions that are  potentially degenerate (see also Pluto script\pluto{phonon_spring_3d}). This is the dispersion relation. This simple model fits rather nicely the measured data (Fig.\ref{fig:5_phonon_copper}). The entire figure represents the frequency of phonons along a path in reciprocal space shown in Figure \ref{fig:5_phonon_path}. One can take advantage of the fact that reciprocal lattice vectors $\mathbf{G}$ can be added without changing anything. There are only acoustic branches because there is only one atom in the base. The transverse modes are doubly degenerate along the highly symmetric directions. In the [110] direction, the degeneracy is cancelled.
+ 
+
+\begin{figure}
+\inputtikz{\currfiledir fig_copper_all_model}
+\caption{Phonon dispersion in copper (data from \cite{Svensson_cu}) compared to the spring model. The only scaling parameter is the maximum frequency. \label{fig:5_phonon_copper}}
+\end{figure}
+
+
+
+\section{Rayleigh scattering of small spheres}
+
+
+And now to something completely different. As oscillators, we use now the collective oscillation of conduction electrons in small metal spheres. These oscillators couple with each other, as each oscillating sphere radiates an electromagnetic wave that interacts with the electrons of the other spheres. We will again find hybridized states with new eigen-frequencies, now in the visible spectral range.
+
+A sphere of radius $R$ and dielectric constant $\epsilon_{in}$ is embedded in a medium of dielectric constant $\epsilon_{out}$. We assume that the radius $R$ is much smaller than the wavelength $\lambda$ of the electromagnetic light field. This means that the phase is constant across the sphere and that we can employ the quasi-static approximation. One solves the Laplace equation taking  boundary conditions and symmetry into account.\footcite{Jackson-ED}\footcite[excercise 2.4.2]{Nolting-ED}\footcite[chapter 5.2]{BH-book}
+The sphere responds to the light field with a polarization of
+\begin{equation}
+ \mathbf{p}(t) = \epsilon_0 \,  \epsilon_{out} \, \alpha \, \mathbf{E}(t)
+\end{equation}
+with the polarizability
+\begin{equation}
+ \alpha = 4 \pi  \; R^3 \; \frac{\epsilon_{in} - \epsilon_{out}}{\epsilon_{in} + 2 \epsilon_{out}} \quad .
+\end{equation}
+We find a resonance when $\epsilon_{in}(\omega) + 2 \epsilon_{out}(\omega) = 0$, which requires one dielectric function to be negative, as it is the case in metals. Small metal particles show thus exceptional strong interaction with light in a certain spectral range. This is the particle plasmon resonance.
+
+As the electric field oscillates $E(t) = E_0 \, e^{-i \omega t}$, also the polarization $p$ oscillates and radiates a secondary, scattered electromagnetic field 
+\begin{equation}
+  \mathbf{E}_S = \frac{ e^{i \, k  r} }{4\pi\epsilon_0 \, \epsilon_{out}}  \frac{1}{r^3}\left\{
+      (k r )^2 \left( \hat{\mathbf{r}} \times \mathbf{p} \right) \times \hat{\mathbf{r}} +
+      \left( 1 -  i k r \right)
+        \left( 3\hat{\mathbf{r}} \left[\hat{\mathbf{r}} \cdot \mathbf{p}\right] - \mathbf{p} \right)
+    \right\} \quad ,
+     \label{eq:5_hybrid_Escat}
+\end{equation}
+where $k = 2 \pi / \lambda$ is the length of the wave vector in the medium. The power that is absorbed by the dipole\footcite[Chapter 8]{Novotny-Hecht2012} is
+\begin{equation}
+ P_{abs} = \frac{\omega}{c} \, \Im \left( \mathbf{p} \, \mathbf{E}^\star \right)  \quad ,
+\end{equation}
+so that we get the absorption cross section
+\begin{equation}
+ \sigma_{abs} = k \, \Im ( \alpha ) =  4 \pi \, k \; R^3 \; \Im \left( \frac{\epsilon_{in} - \epsilon_{out}}{\epsilon_{in} + 2 \epsilon_{out}} \right) \quad .
+ \label{eq:5_hybrid_sigma_abs}
+\end{equation}
+We are in the Rayleigh  limit of a very small particle so that we can neglect the scattered power. 
+
+
+We  assume that the surrounding  medium  is a transparent dielectric, i.e., 
+$\epsilon_{out}$ is real-valued. The material of the nanosphere should be described by the Drude model of metals. This is often the case when one is far enough away from inter-band transitions that lead to the color of metals, i.e., when one is far enough in the infrared. The dielectric function then reads
+\begin{equation}
+ \epsilon_{in} (\omega) = \epsilon_{\infty} - \frac{\omega_P^2}{ \omega \left(\omega \;
++ \; i\, \gamma \right) } \quad , \label{eq:5_hybrid_drude}
+\end{equation}
+where $\epsilon_{\infty} $ is the  high-frequency limit,  $\gamma = 1 / \tau_\text{coll} $ the damping parameter of the plasma oscillation, and $\omega_P$ the plasma frequency 
+\begin{equation}
+\omega_P = \sqrt{\frac{n \, e^2}{m^\star \epsilon_0}} \quad.
+\end{equation}
+The plasma frequency depends on the effective electron mass $m^\star$ and number density $n$.
+
+The polarizability $\alpha$ has a resonance when its denominator equals zero, i.e., at $\epsilon_{in} (\omega_{res}) = -2 \epsilon_{out}$. For a Drude metal with low damping this happens at
+\begin{equation}
+\omega_{res} = \frac{\omega_P}{\sqrt{2 \epsilon_{out} + \epsilon_\infty}}
+\end{equation}
+The resonance wavelength in the absorption spectrum thus depends on 
+the plasma frequency of the metal and  the dielectric function of the environment. 
+
+
+
+
+ %----------
+\section{Plasmon hybridization}
+
+\begin{marginfigure}
+\inputtikz{\currfiledir sketch}
+\caption{Sketch of the light field shining on two small particles}
+\end{marginfigure}
+
+
+Now we hybridize two particle plasmons. We investigate the optical properties of two small Rayleigh particles which are brought close to each other.  The optical response of each particle is described by  a dipole $ \mathbf{p}_i(t)$, where $i = 1,2$.
+ Each dipole experiences the incident field
+$\mathbf{E}^{\text{inc}}(\mathbf{r}_i)$ and the field scattered from the other dipole.
+The sum of these two fields multiplied by the dipole's polarizability $\alpha_i$
+has to give in a self-consistent way the dipole moment (see, for example, \cite{Myroshnychenko08})
+%
+\begin{align} \label{eq:5_hbyrid_equationsystem}
+     \mathbf{p}_1 = &  \epsilon_0 \,  \epsilon_{out} \,  \alpha_1 \left[ \mathbf{E}^{\text{inc}} (\mathbf{r}_1) +
+\mathbf{E}^{\text{scat}}_2(\mathbf{r}_1) \right] \\
+  \mathbf{p}_2 = &  \epsilon_0 \,  \epsilon_{out} \,  \alpha_2 \left[ \mathbf{E}^{\text{inc}} (\mathbf{r}_2) +
+\mathbf{E}^{\text{scat}}_1(\mathbf{r}_2) \right]  \nonumber
+\end{align}
+%
+The scattered electrical near-field $ \mathbf{E}^{\text{scat}}$ of the dipole $i$ at position of the dipole $j$ is given by eq.   \ref{eq:5_hybrid_Escat} above. As we aim  for a large influence of this scattered field, we will need short distances between the dipoles and thus can focus on the near-field contribution of the scattered field
+\begin{equation}
+  \mathbf{E}^{\text{scat, nf}}_i(\mathbf{r}_j) = \frac{ 1 }{4\pi\epsilon_0 \, \epsilon_{out}}  \frac{1}{d^3}
+        \left( 3\hat{\mathbf{r}}_{ij} \left[\hat{\mathbf{r}}_{ij} \cdot \mathbf{p}_i \right] - \mathbf{p}_i \right)
+  \quad ,
+\end{equation}
+where $\hat{\mathbf{r}}_{ij}   = \mathbf{r} _j - \mathbf{r} _i$ is a vector of length one pointing from the dipole to the point where
+the field is evaluated, and $d$ is the distance between the particles
+
+
+For simplicity, we assume that both particles have the same dielectric function and are of course embedded in the same medium. 
+We  can chose the polarization direction of the incoming electric field  $\mathbf{E}^{\text{inc}}$. Things become simple when we chose it to be either parallel or perpendicular to the connecting axis of the particles. In both cases, the scattered near-field at particle $j$ has the direction of the dipole $i$, which is not the case for other polarization directions. This allows us to use scalar dipole amplitudes $p_i$ and a simplified scattered field amplitude
+\begin{equation}
+  {E}^{\text{scat, nf}}_i(\mathbf{r}_j) = \frac{ 1 }{4\pi\epsilon_0 \, \epsilon_{out}}  \frac{v}{d^3} \, p_i 
+  \quad ,
+\end{equation}
+where the factor $v$ is $-1$ for perpendicular and $+2$ for parallel polarization.
+
+We solve the equation system for $p_{1,2}$, which we write as effective polarizabilities $\alpha^\text{eff}_{1,2}$
+\begin{equation}
+ \alpha^\text{eff}_1 = \frac{p_1}{\epsilon_0 \epsilon_{out} \, E^\text{inc}} =  \frac{\alpha_1 - v \, \frac{\alpha_1 \, \alpha_2}{4 \pi d^3}}
+ {1- v^2 \, \frac{\alpha_1 \, \alpha_2 }{16 \pi^2 d^6}} 
+\end{equation}
+and vice versa.
+The total polarizability\sidenote{see \cite{Aizpurua_in_Enoch12},  Eq. 5.14}  is then the sum of $\alpha^\text{eff}_{1}$ and $\alpha^\text{eff}_{2}$
+\begin{equation}
+ \alpha^\text{eff} = \frac{\alpha_1  + \alpha_2 - v \, \frac{\alpha_1 \, \alpha_2}{2 \pi d^3}}
+ {1- v^2 \, \frac{\alpha_1 \, \alpha_2 }{16 \pi^2 d^6}} \quad .
+ \label{eq:5_hybrid_alpha_eff}
+\end{equation}
+We are interested in resonance frequencies of $\alpha^\text{eff} $. As both particles are of the same material, the individual polarizability $\alpha_i$ only differ in amplitude due to the factor $R_i^3$. The spectral shape is the same. The effective polarizability comes to resonance when the denominator vanishes, i.e.
+\begin{equation}
+R_1^3 \, R_2^3 \, \left( \frac{\epsilon_{in} - \epsilon_{out}} {\epsilon_{in} + 2 \epsilon_{out}} \right)^2 \, v^2 = d^6
+\label{eq:5_hybrid_res_cond}
+\end{equation}
+or,
+\begin{equation}
+ \frac{\epsilon_{in} - \epsilon_{out}} {\epsilon_{in} + 2 \epsilon_{out}} \, v = \pm \left( \frac{d}{\sqrt{R_1 R_2}} \right)^3
+\end{equation}
+
+\begin{marginfigure}
+\inputtikz{\currfiledir levels}
+\caption{Level scheme}
+\end{marginfigure}
+
+In total, we obtain the resonance
+frequency $\omega_{\text{res}} $ of the coupled two-particle system\footcite{Myroshnychenko08} 
+%
+\begin{equation}  \label{eq:5_hybrid_omega_coupled}
+ \omega_{\text{res}} = \frac{\omega_P}{\sqrt{2 \epsilon_{out} + \epsilon_{\infty}} }  \; \sqrt{
+\frac{1 + g}{ 1 +  \eta \; g}}
+\end{equation}
+%
+with 
+%
+\begin{equation} \label{eq:5_hybrid_omega_coupled_variables}
+ \eta = \frac{\epsilon_{\infty} - \epsilon_{out} }{\epsilon_{\infty} + 2 \epsilon_{out}  } 
+ \qquad \text{and} \qquad
+    g = m \;  \left( \frac{\sqrt{R_1 \; R_2 } } { d }  \right)^3 \quad .
+\end{equation}
+%
+In the case of gold particles in vacuum, the factor $\eta$ takes a value of about $8/11 \approx 0.73$.
+For the electric field being parallel to the pair axis, the index $m$ assumes
+the value $-2$ for parallel dipoles (head to tail) and $2$ for anti-parallel
+dipoles (head-to-head). When the electric field is perpendicular to the
+pair-axis, $m$ is $+1$ for the parallel configuration and $-1$ for the
+anti-parallel configuration.
+
+
+
+Finally, lets have a look at the amplitudes of the resonance. We evaluate the enumerator of eq.  \ref{eq:5_hybrid_alpha_eff}
+ at the resonance condition (eq. \ref{eq:5_hybrid_res_cond}).\sidenote{Without damping, the peaks would diverge, but in real material we have a non-zero $\gamma$ in the Drude model.} It becomes
+ \begin{equation}
+ \alpha^\text{eff, peak} \propto \alpha_1  + \alpha_2  \pm 2 \sqrt{\alpha_1 \alpha_2} = \left( \sqrt{\alpha_1}  \pm \sqrt{\alpha_2} \right)^2
+\end{equation}
+The absorption cross-section is $\sigma_\text{abs} = k \Im {\alpha}$. Two independent particles would just shown an absorption proportional to $\alpha_1  + \alpha_2$. The near-field coupling leads to the term $\pm 2 \sqrt{\alpha_1 \alpha_2}$. The total absorption is thus redistributed on the two new hybridized states, but in sum remains unchanged.
+ For two equal particles ($R_1 = R_2$), the symmetric mode caries twice the absorption strength of a single  particle and the antisymmetric mode does not show up in the absorption spectrum. 
+
+\begin{questions}
+
+\item Use the Pluto script\pluto{hybridization} to investigate the mode splitting in small Rayleigh particles. Compare the absorption spectrum with the analytic equations for resonance position and amplitude. Discuss differences.
+\end{questions}
+
+
+
+\section{Real metals}
+
+In the last section, we assumed a Drude metal for both particles. This allowed us to give analytical expressions for peak positions and amplitude. But of course plasmon hybridization also exists for real metals. In stead of the Drude formula (eq. \ref{eq:5_hybrid_drude}) we use measured dielectric functions $\epsilon_{in}$, for example from Johnson and Christy\footcite{JC_gold72}. We assume an incoming polarization direction $\mathbf{E}^\text{inc}$ and wavelength $\lambda$. Then we solve the equation system given by eqs. \ref{eq:5_hbyrid_equationsystem}  to obtain the dipole amplitudes and directions $\mathbf{p}_i$. With this we can calculate  the absorption cross section. To get the full absorption  spectrum we iterate over the wavelength $\lambda$.
+
+
+The effect of a real metal is additional damping due to interband absorption. For gold this happens at wavelengths below about 520 nm, leading to the color of gold. With $\omega_P = 9 eV$, $\epsilon_\infty = 9$ and vacuum as medium ($\epsilon_{out} = 1$), the plasmon resonance would appear in the Drude model at $\omega_{res} \approx 2.7$ eV or $\lambda = 460$ nm. The interband absorption shifts the resonance position to about 530 nm wavelength, just at the rim of the absorption band. Plasmon hybridization the splits the peak. The lower wavelength / higher frequency peak overlaps more with interband absorption and will be damped out. Splitting of peaks is thus difficult to observe for small gold nanoparticles.
+
+\begin{figure}
+\inputtikz{\currfiledir drude_vs_au}
+\caption{Comparison of plasmon hybridization in a Drude metal and in gold. The d-band absorption shifts the resonance and suppresses half of the modes. The simulations assume two spheres of 50 and 90 nm diameter with a gap of 10 nm. They go beyond the Rayleigh approximation and use \cite{tmatrix-book06}.}
+\end{figure}
+
+\begin{questions}
+\item Use the Pluto script\pluto{jc_gold} to investigate  difference between the Drude model and the measured dielectric function of gold.
+
+\item Plot the hybridized absorption spectrum in the Rayleigh approximation using the measured dielectric function of gold and silver.
+\end{questions}
+ 
+
+
+%-------------------
+
+\printbibliography[segment=\therefsegment,heading=subbibliography]
+

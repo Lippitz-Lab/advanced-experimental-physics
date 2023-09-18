@@ -1,0 +1,260 @@
+\renewcommand{\lastmod}{September 13, 2023}
+\renewcommand{\chapterauthors}{Markus Lippitz}
+
+\chapter{Hybridization of quantum mechanical systems}
+
+
+\section*{Overview}
+
+In this chapter we discuss the coupling of systems to be described by quantum mechanics. We start with a toy mode to get used to the formalism, and then come to the Hückl method, which is close to the chemical hybridization of atomic orbitals. Here the coupling comes from the overlap of the atomic wave functions. As a second example, we will consider coupling due to the interaction of optical transition dipole moments, leading to so-called molecular H- and J-aggregates. This is the quantum mechanical analog of the interaction of scattering particles presented in the previous chapter.
+
+%   * exciton polariton ?
+%  * temporal evolution of superposition states ?
+
+
+
+
+\section{Variational principle}
+
+The Schrödinger equation
+\begin{equation}
+ \hat{H} \ket{\Phi} = E_0 \, \ket{\Phi} 
+\end{equation}
+is a differential equation and not always easy to solve.  This is where the variational principle comes in.
+It says that for an arbitrary wave function $\ket{\Psi}$ we always have
+\begin{equation}
+ E = \frac{\braket{\Psi | H | \Psi}} {\braket{\Psi | \Psi}} \ge E_0 \quad .
+ \label{eq:6_variation}
+\end{equation}
+$E$ becomes minimal if $\ket{\Psi}$ solves Schrödinger's equation. But even if $\ket{\Psi}$ is not a solution of the Schrödinger equation, one can easily calculate Eq.~\ref{eq:6_variation}. So we try different test functions and try to minimise the energy according to Eq.~\ref{eq:6_variation}. This way we get closer and closer to the true eigenfunction, which is the solution of the Schrödinger equation. Unfortunately, we do not know if we could get even smaller values of $E$ by using even better test functions.
+
+
+We want to investigate what happens when we couple quantum mechanical systems. We already know the solutions $\phi_i$ of the individual system, so we try to express the new coupled system by a linear combination of the known individual parts:
+\begin{equation}
+ \ket{\Psi} = \sum_i  c_i \ket{\phi_i}  \label{eq:6_psi}
+\end{equation}
+with normalized $\ket{\phi_i}$ and real-valued coefficients $c_i$. This gives
+\begin{eqnarray}
+\braket{\Psi | \Psi} &= & \sum_i c_i^2 + \sum_{i,j} c_i c_j \underbrace{\braket{\phi_i| \phi_j}}_{= S_{ij}}\\
+\braket{\Psi | H | \Psi} &=& \sum_i c_i^2 \underbrace{\braket{\phi_i | H | \phi_i }}_{= H_{ii}} 
+                     + \sum_{i,j} c_i c_j \underbrace{\braket{\phi_i | H | \phi_j }}_{= H_{ij}}  \quad .
+\end{eqnarray}
+Where $S_{ij}$ are respective overlap integrals of the two wavefunctions, and $H_{ij}$ the matrix elements of the Hamilton operator.  The diagonal elements $H_{ii}$  give the Coulomb energy, and the off-diagonal elements $H_{ij}$  the exchange energy. With these abbreviations, the self-energy can be written as.
+\begin{equation}
+  E = \frac{\sum_i c_i^2 H_{ii}  + \sum_{i,j} c_i c_j h_{ij}}{1 + \sum_{ij} c_i c_j S_{ij}}
+  \quad . \label{eq:6_e_variation}
+\end{equation}
+For a minimum self-energy $E$, the partial derivatives to $c_i$ must both be zero. This can be written as 
+\begin{equation}
+   \left|   \mathbf{H} - E \mathbf{S} \right| = 0 
+\end{equation}
+The eigen-energies $E$ are solutions to this equation.
+
+
+
+% After a few transformations, we find two solutions $E_\pm$ for the minimum energy $E$ as
+% \begin{equation}
+%  \begin{vmatrix}
+%    H_{11} - E & H_{12} - E \, S \\ H_{12} - E \, S & H_{22} - E \\
+%  \end{vmatrix}
+% = 0
+% \quad
+% \text{or} \quad
+% E_\pm = \frac{H_{11} \pm H_{12}}{1 \pm S} \quad ,
+% \end{equation}
+% where in the last step we assumed that $H_{11} = H_{22}$. In this case, the coefficients $c_i$ are.
+% \begin{equation}
+% c_1 = \pm c_2 = \frac{1}{\sqrt{2 (1 \pm S)}} \quad ,
+% \end{equation}
+% because yes ${\braket{\Psi | \Psi}} = c_1^2 + c_2^2 + 2 c_1 c_2 S = 1$ should be.
+
+
+
+\section{Two Coupled States}
+
+Let us start with only two states $\psi_1$ and $\psi_2$. For simplicity, we label the diagonal entries of $\mathbf{H}$ as $E_i$ and the off-diagonal entries as $H_{ij} = J$, i.e. we assume that both are identical. Without coupling ($J=0$), the Hamiltonian reads as a matrix
+\begin{equation}
+\hat{H}_0 = \begin{pmatrix} E_1 & 0 \\ 0 & E_2 \end{pmatrix} 
+     \quad .
+\end{equation}
+ When the two states are coupled, then the energy of one state somehow depends on the other. In the matrix this results in an  off-diagonal element $J$
+\begin{equation}
+\hat{H}_{coupled} = \begin{pmatrix} E_1 & J \\ J & E_2 \end{pmatrix} 
+\quad . 
+\end{equation}
+As a consequence, the original eigen-functions $\psi_i$ are no longer eigen-functions of this coupled Hamilton operator. We find new eigen-functions and eigen-values by diagonalizing $\hat{H}_{coupled}$, so that the diagonal elements become
+\begin{equation}
+ E_\pm = \frac{E_1 + E_2}{2} \pm \sqrt{ \left( \frac{E_1 - E_2}{2} \right)^2 + J^2 }
+\end{equation}
+and the new eigen-functions are\footcite[eq. 8.10]{Parson}
+\begin{equation}
+ \psi_{\pm} = 
+\sqrt{\frac{1 \pm s}{2}} \, \psi_1 \, \, \pm \, \, \sqrt{\frac{1 \mp s}{2}}  \, \psi_2 \quad ,
+\end{equation}
+with
+\begin{equation}
+s = \frac{E_1 - E_2}{\sqrt{(E_1 - E_2)^2 + (2J)^2}} \quad .
+\end{equation}
+We can distinguish two limiting cases. The coupling energy $J$ can be larger than the energy difference between the two states, i.e. $|J| \gg |E_1 - E_2| / 2$. Then then new eigen-energies are split up by $\pm J$ around the average of the old eigen-energies $(E_1 + E_2) /2$. The eigen-functions in this situation are symmetric and anti-symmetric combinations of the old eigen-function, i.e. $\psi_\pm = \pm \psi_1 + \psi_2$. When the coupling energy is small, i.e. $|J| \ll |E_1 - E_2| / 2$, then the new eigen-energies and eigen-functions are close to the old ones.
+
+\begin{figure}
+   \inputtikz{\currfiledir anticrossing_v2}
+\caption{Eigen-energies and weights of the eigen-functions as function of the unperturbed energies ($E_2 = 1$).}
+\end{figure}
+
+
+
+
+
+
+
+
+\section{The Hückel method}
+
+A classic example of hybridized quantum mechanical wave functions is the Hückel method for describing aromatic hydrocarbons.
+ In conjugated molecules, the mechanical framework is formed by $\sigma$ bonds between carbon atoms. A chain of carbon atoms is further linked by alternating $\sigma$ and $\pi$ bonds. The electrons involved in these bonds are then delocalised throughout the chain. The Hückel approximation can be used to calculate these extended $\pi$ orbitals.
+
+Thus, we consider only a subset of all atomic orbitals, only the $\pi$ orbitals that also participate in the $\pi$ bond. We assume that
+\begin{itemize} \setlength{\itemsep}{0pt}
+\item the atomic orbitals overlap only with themselves, so $S_{ij} = \delta_{ij}$
+\item all atoms are identical, so $H_{ii} = \alpha$
+\item exchange takes place only between adjacent orbitals, so $H_{ij} = \beta < 0 $ if atoms $i$ and $j$ are adjacent, otherwise $0$. 
+\end{itemize}
+
+Analogous to equation XXX above, we calculate the self-energy according to the variation principle
+\begin{equation}
+ E = \frac{ \sum_{i,j} c_i \, c_j \, H_{i,j} }{ \sum_{i,j} c_i \, c_j \, S_{i,j} }
+\end{equation}
+The minimum self-energy $E$ is obtained when all partial derivatives to the $c_i$ are zero, or when
+\begin{equation}
+ \left| \mathbf{H} - E \, \mathbf{S}\right| = 0
+\end{equation}
+Since we have assumed $S_{ij} = \delta_{ij}$, this simplifies to 
+\begin{equation}
+ \left| \mathbf{H} - E \, \mathds{1} \right| = 0
+\end{equation}
+So we have to determine the eigenvalues and eigenvectors of $H_{i,j}$. The eigenvalues indicate the energy of the state, the eigenvectors the corresponding linear combination of the atomic orbitals.
+
+As an example we consider benzene (\ch{C6H6}). The 6 carbon atoms are sp$^2$ hybridized. $\sigma$ bonds connect the carbon atoms with each other and with the hydrogen atoms. One non-hybridized p-orbital is perpendicular to each ring. These orbitals are considered in the Hückel approximation. The Hamiltonian matrix $H_{ij}$ then has the form (zeros omitted)
+\begin{equation}
+\mathbf{H} = 
+ \begin{pmatrix}
+  \alpha & \beta & & &  & \beta \\
+  \beta & \alpha & \beta & & \\
+  & \beta & \alpha & \beta & & \\
+ & & \beta & \alpha & \beta & \\
+& & & \beta & \alpha & \beta \\
+\beta &  & & & \beta & \alpha 
+ \end{pmatrix} 
+\end{equation}
+The $\beta$ in the corners close the ring.
+If we assume $E = \alpha + x \beta$, then the eigenvalue equation simplifies to 
+\begin{equation}
+x^6 - 6 x^4 + 9x^2 - 4 = 0 \quad \text{or} \quad x = \pm 1, \pm 1, \pm 2
+\end{equation}
+How to do this numerically you can see in the  
+Pluto script\pluto{hueckel}.
+
+
+
+
+\begin{marginfigure}[20mm]
+\inputtikz{\currfiledir benzol}
+\caption{Molecular orbitals of benzene in the Hückel approximation. The colors encode the sign of the wave function. The arrangement corresponds to the self-energy.\label{fig:6_benzene}}
+\end{marginfigure}
+
+Since we have to fill a total of 6 electrons into these orbitals, and each orbital can be occupied by 2 electrons (spin up and down), the orbitals with $E=\alpha + 2 \beta$ and the two orbitals with $E = \alpha + \beta$ are occupied\sidenote{$\beta < 0$}. Thus, these orbitals also contribute to the binding, since they reduce the total energy by $8\beta$ overall. Considering the eigenfunctions, we see that the orbital with $E=\alpha \pm 2 \beta$ is delocalized over the whole ring, the two with $E = \alpha \pm \beta$ over two atoms.
+
+The Hückel approximation in molecular physics corresponds to the \emph{tight binding} method for calculating the band structure of electrons in solid state physics. In solid state physics, one makes the transition from here $N=6$ atoms to $N= 6 \cdot 10^{23}$ atoms, which then gives rise to $6 \cdot 10^{23}$ closely spaced states for electrons, all described by wave functions similar to Figure \ref{fig:6_benzene}.
+
+%https://en.wikipedia.org/wiki/H%C3%BCckel_method#Delocalization_energy,_%CF%80-bond_orders,_and_%CF%80-electron_populations
+
+\begin{questions} 
+\item Compare the electron eigenfunctions of benzene in the Hückel approximation with those of a (possibly annular) box.
+\end{questions}
+
+\ref{eq:FO_gfh_conv}
+
+
+\section{Coupling of two transition dipole moments}
+
+XXXX needs intro to absorption in QM = Fermis golden rule
+
+
+We consider two molecules, $a$ and $b$, each with a ground ($0$) and an excited ($1$) state. We write the wave function in the form $\ket{ab}$, i.e. $\ket{01}$ is molecule $a$ in the ground state, molecule $b$ in the excited state. In each molecule an optical transition dipole moment couples the ground and excited states, i.e. $\braket{10| \hat{\mu}_a | 00}$ and $\braket{01| \hat{\mu}_b | 00}$ are different from zero and describe an excitation of molecule $a$ and $b$ respectively. In addition, the two transition dipole moments interact and lead to a resonant coupling of the 
+$\ket{01}$ and $\ket{10}$ states\footcite{knoester-book}
+\begin{equation}
+\hat{H}_{coupling} = J \left( \ket{10}\bra{01} + \ket{01}\bra{10} \right) \quad .
+\end{equation}
+The coupling energy $J$ depends on the distance $\boldsymbol{r}_{ab}$ and the relative orientation of the transition dipoles $\boldsymbol{\mu}_{a,b}$. It can be thought of as the energy of one dipole in the field of another.\sidenote{does this need more details? See Parson}
+\begin{eqnarray}
+ J & = & \frac{\boldsymbol{\mu}_a \cdot \boldsymbol{\mu}_b }{|\boldsymbol{r}_{ab}|^3} 
+  + 3 \frac{ (\boldsymbol{\mu}_a \cdot \boldsymbol{r}_{ab}) (\boldsymbol{\mu}_b \cdot \boldsymbol{r}_{ab})
+  }{ |\boldsymbol{r}_{ab}|^5 } \\
+   & = & \frac{\mu_a \mu_b }{r_{ab}^3} \left( \cos \theta - 3 \cos \alpha \, \cos \beta \right) = \frac{\mu_a \mu_b }{r_{ab}^3} \, \kappa  
+\end{eqnarray}
+where the angles are defined in the sketch.
+
+\begin{marginfigure}
+   \inputtikz{\currfiledir/angles}
+
+\caption{Sketch showing 
+The angles used to calculate the coupling factor $\kappa$.}
+\end{marginfigure}
+
+A similar coupling term also exists for the non-resonant coupling\footcite{knoester-book}
+\begin{equation}
+\hat{H}_{non-res} = J \left( \ket{11}\bra{00} + \ket{00}\bra{11} \right)
+\end{equation}
+but this can be ignored, as it is non-resonant. Altogether, the Hamilton operator reads in matrix form
+\begin{equation}
+\hat{H} = \begin{pmatrix}
+0 & \mu_a & \mu_b & J  \\
+\mu_a^\star & \hbar \omega_a & J & \mu_b \\
+\mu_b^\star & J^\star & \hbar \omega_b & \mu_a \\
+J^\star & \mu_b^\star & \mu_a^\star & \hbar (\omega_a + \omega_b) \\
+\end{pmatrix} \quad .
+\end{equation}
+When we ignore the double-excited state $\bra{11}$, the essence in contained in the center $2 \times 2$ matrix which we discussed already in the preceding section.
+
+When $\ket{\psi}$ is a linear combination of $\ket{01}$ and $\ket{10}$, then also the transition dipole moment from $\ket{00}$ to $\ket{\psi}$ is a linear combination of $\mu_a$ and $\mu_b$ with the same weights. When $J \gg |E_a - E_b| / 2$ then we get
+\begin{equation}
+ \boldsymbol{\mu}_{\pm} = \sqrt{1/2} \, \left( \boldsymbol{\mu}_a \pm \boldsymbol{\mu}_b \right) \quad .
+\end{equation}
+The brightness of the absorption line is for identical molecules, i.e. $\mu = \mu_a = \mu_b$
+\begin{equation}
+ I \propto |\boldsymbol{\mu}_{\pm}|^2 = (1/2) \, \left| \boldsymbol{\mu}_a \pm \boldsymbol{\mu}_b \right|^2 = \left( 1 \pm \cos \theta \right) \, \left| \boldsymbol{\mu}   \right| ^2 \quad ,
+\end{equation}
+where $\theta$ is as above the angle between the transition dipole moments.  
+
+The spectroscopic signature of coherent coupling between two molecules is thus a splitting of the absorption line into two lines separated by twice the coupling energy $J$. The sum of the line amplitudes remains unchanged, but in some cases (H- and J-aggregates, see below) one transition takes up the whole amplitude and the other remains dark. In these cases there is no splitting but a shift of the absorption line. The coupling disappears when both dipoles are perpendicular to each other ($\theta = 90^\circ$).
+
+\section{H- and J-aggregates}
+
+\begin{marginfigure}
+   \inputtikz{\currfiledir jh}
+
+\caption{J- and H aggregates.}
+\end{marginfigure}
+
+Two important limiting cases are the H- and J-aggregates\footcite[chapters 2.1.4.3, 2.2.5.3]{KoehlerBaessler2015} In a J-aggregate the dipoles are oriented parallel and head-to-tail, i.e. $\alpha = \beta = \theta = 0$ and therefore $\kappa = -2$. A negative $\kappa$ implies that the coupling constant $J$ is negative. The state $\Psi_+$, which carries all the oscillator strength, has an energy $E_+ = (E_a + E_b) / 2 + J$, which is lower than the average energy of the uncoupled states. The absorption line therefore shifts towards the red. The same applies to the fluorescence emission spectrum.
+
+In an H-aggregate the dipoles are also parallel, but side by side, i.e. $\alpha = \beta = 90^\circ$ and $\theta = 0$. In this case $\kappa =1$ and $J$ is positive. The absorption line shifts to blue when aggregates form, as the $\Psi_+$ state again gets all the oscillator power. However, as fluorescence emission is slow compared to other relaxation processes, this high energy state does not emit light. H-aggregates appear dark in the emission.
+
+The width of the absorption line of a dye at room temperature is determined by dephasing, i.e. fluctuations in the environment that are fast compared to the lifetime of the excited state, and by static differences in the environment of different chromophores. The spectral position of the absorption line in a molecular aggregate is the average of two single chromophore transitions. As in the propagation of uncertainties in an experiment, the width of the new distribution, generated as an average over two values from the old distribution, is reduced by a factor of $\sqrt{2}$. This applies more generally\footcite{Knapp1984}, so that an aggregate of $N$ chromophores is expected to have a spectral line width reduced\sidenote{This is the same physics as motion narrowing in NMR.} by $\sqrt{N}$.
+
+
+
+%\begin{tabular}{llll}
+%$\theta$ & $0^\circ$ & $90^\circ$ & $0^\circ$ \\
+%$\alpha$ & $0^\circ$ & $0^\circ$ & $90^\circ$ \\
+%$\beta$ & $0^\circ$ & $90^\circ$ & $90^\circ$ \\
+%$\kappa$ & $-2 $ & $ 0 $ & $1$ \
+%\end{tabular}
+
+
+
+
+\printbibliography[segment=therefsegment,heading=subbibliography]
+
+

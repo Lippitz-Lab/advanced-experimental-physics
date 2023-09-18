@@ -1,0 +1,40 @@
+
+  
+\begin{tikzpicture}
+
+%\useasboundingbox (-1.3,-1.2) rectangle (11.2,4.7);
+
+%\draw (0,0) rectangle ++ (12,3);
+
+\clip (-2cm, -1.2cm) rectangle ++ (11cm, 2.4cm);
+\tikzmath{\x2=7.;}
+
+\draw[fill = gray] (0,0) circle (5mm);
+\draw[fill = gray] (\x2,0) circle (5mm);
+
+\foreach \a in {38.46, 55.54, 69.58, 82.48}{%  
+           \draw[thick]  (0,0) circle ({\a / 180 * \x2   * 1cm});
+         }
+  
+\foreach \a in {94.94, 107.64, 121.36, 137.4, 162.29}{%  
+           \draw[thick]  (\x2,0) circle ({(180 - \a) / 180 *  \x2   * 1cm});
+         }
+  
+ \tikzmath{\dx=0.1;}
+ 
+\draw[->] (-1,0) -- (\x2 + 1.5,0) node [below] {$2\Theta$};
+  
+  \draw (0,-1 * \dx) node[below] {$0^\circ$} -- (0, \dx);
+  \draw (\x2,-1 * \dx) node[below] {$180^\circ$} -- (\x2, \dx);
+  
+  
+% \clip (3mm,10mm) rectangle ++ (3cm, 3cm);  
+   
+ 
+
+ 
+  \end{tikzpicture}
+
+
+
+

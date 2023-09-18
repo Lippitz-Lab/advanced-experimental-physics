@@ -1,0 +1,70 @@
+
+
+  
+\begin{tikzpicture}[font=\footnotesize]
+
+%\useasboundingbox (-1.3,-1.2) rectangle (11.2,4.7);
+
+%	\draw (0,0) rectangle ++ (5,3);
+
+\tikzmath{\atom=0.1; \dx=-0.5;  \dy=1.5; \wi=45;}
+
+\coordinate (eins) at (0,0);
+\coordinate (zwei) at  (\dx,\dy);
+
+\coordinate (einslinks) at (-2.5,0);
+\coordinate (zweilinks) at (-2.5,\dy);
+
+\coordinate (einsrechts) at ($ (eins) + (\wi:2.7) $);
+\coordinate (zweirechts) at ($ (zwei) + (\wi:2) $);
+   
+   
+   
+ \draw[fill=gray]  (eins) circle (\atom);
+ \draw[fill=gray]  (zwei) circle (\atom);
+ 
+ \draw[thick, ->, shorten >=0.5mm] (eins) --node[anchor=west] {$\mathbf{r}$} (zwei);
+ 
+ \draw[thick] (einslinks)  -- (eins) -- (einsrechts);
+ \draw[thick] (zweilinks) -- (zwei) -- (zweirechts);
+ 
+\draw  (zwei) -- ($(eins)!(zwei)!(einslinks)$); 
+\draw  (zwei) -- ($(eins)!(zwei)!(einsrechts)$); 
+
+%
+%\draw[<->]  ([yshift=-1mm]eins) -- node[below]{$dx_1$} ([yshift=-1mm]$(eins)!(zwei)!(einslinks)$); 
+%\draw[<->]  ($(eins) + (-90+\wi:1mm)$) --   node[anchor=north west]{$dx_2$}($(eins)!(zwei)!(einsrechts) + (-90+\wi:1mm)$); 
+
+
+
+\draw[<->]  ($(eins)!(zwei)!(einslinks) + (-90:1mm)$)  -- 
+($(eins) + (-90+ \wi / 2 :1mm)$)  node[below] {$dx$} --   ($(eins)!(zwei)!(einsrechts) + (-90+\wi:1mm)$); 
+
+
+
+ \foreach \v in {1,2,3}{%  
+           \draw  ({(\v * -3mm ) + -15mm}, -5mm)  --  ++ (0, {\dy * 10mm + 10mm}) ;
+         }
+ 
+ \foreach \v in {1,2,3}{%  
+            \coordinate (ps) at  ($(zwei) + (\wi: {\v * 3mm + 10mm})$);
+            \coordinate (p1) at ($(ps)!3mm!270:(zwei)$) ;
+            \coordinate (p2) at ($(ps)!{ cos(\wi) * 20mm+ 3mm }!90:(zwei)$) ;
+           \draw  (p1) -- (p2);   
+         } 
+ 
+ 
+  \draw [<-,thick] (\dx - 0.2, \dy + 0.2) -- node[above] {$\mathbf{k}_0$} ++ (180:0.7);
+  \draw [->,thick] (\dx +0.05 , \dy + 0.3) -- node[above] {$\mathbf{k}$} ++ (\wi:0.7);
+ 
+ 
+  \draw [<-,thick] (1, 0) -- node[below] {$-\mathbf{k}_0$} ++ (0:0.7);
+  \draw [->,thick] (1 , 0) -- node[above] {$\mathbf{k}$} ++ (\wi:0.7);
+
+ \draw [->,thick] ($(1, 0) + (0:0.7)$) --  node[right] {$\mathbf{k} - \mathbf{k}_0$} ($(1, 0) + (\wi:0.7)$) ;
+
+
+  \end{tikzpicture}
+
+
+

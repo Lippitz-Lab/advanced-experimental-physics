@@ -1,0 +1,13 @@
+Emission von TDBC in NaOH (1 mM) in Wasser
+Daten von Tobias Kroh, Bayreuth
+
+Die Anregungswellenlänge betrug jeweils 560 nm. Gemessen wurde in einer 10 mm Küvette (Datensatz C0-C2 abweichend 1 mm). Die Konzentrationen sind
+	C0 = 4e-4 M
+	C1 = 1e-4 M
+	C2 = 1e-5 M
+	C3 = 5e-6 M
+	C4 = 1e-6 M
+	C5 = 5e-7 M
+
+Spielen sie entweder sehr lange mit dem Importfilter ihrer Software, oder löschen sie nicht benötigte Teile der Daten im Text-Editor ...
+

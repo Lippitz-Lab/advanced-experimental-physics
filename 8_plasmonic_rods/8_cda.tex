@@ -1,0 +1,259 @@
+\renewcommand{\lastmod}{November 18, 2021}
+\renewcommand{\chapterauthors}{Markus Lippitz}
+
+
+\chapter{Lattices of plasmonic particles}
+
+\section{Overview}
+
+
+
+\section{How this is  measured}
+
+\begin{figure}
+\includegraphics[width=\textwidth]{\currfiledir field_ag2.pdf}
+\caption{Angle-dependent extinction spectrum of an array of plasmonic particles (Figure by S. Durst). \label{fig:8_intro} }
+\end{figure}
+
+
+
+The samples consist of a rectangular lattice of gold particles on a glass substrate. The lattice constant $p_y$ is always 200 nm, $p_x$ varies and is given in the data set. In our data set, the particles are squares with a size of $ 80 \times 80$ nm. To simplify things, we assume them to be small spheres. The lattice is coated with immersion oil ($n=1.5$) and covered by a second glass substrate so that the particles are embedded in a homogeneous dielectric environment.
+
+\begin{marginfigure}
+\includegraphics[width=30mm]{\currfiledir sample.pdf}
+\caption{SEM micrograph of the gold nanorods in the lattice. Indicated are the dimensions of the rods and the lattice constants (Figure by S. Durst).}
+\end{marginfigure}
+
+We measure transmission spectra for white light as function of angle of incidence. As for technical reasons the lattice has only a finite size of $30 \times 30$ \textmu m, it is difficult to keep the sample in the beam when rotating either the sample or the beam. We thus keep everything fixed and measure all angles at the same time. To this end, we illuminate the sample by a cone of light with large opening angle (NA = 0.9, max. angle = $64^\circ$). The transmitted light is collected by a second microscope objective. In its back focal plane, i.e. at one focal length behind the lens, rays of equal angle of incidence cross at the same point at a height $h$, which is according to the Abbé sine condition
+\begin{equation}
+ h = f \sin \theta \quad .
+\end{equation}
+
+\begin{marginfigure}
+\includegraphics[width=45mm]{\currfiledir bfp.pdf}
+\caption{The back focal plane sorts rays by their angle in the front focal plane.  (Figure by S. Durst).}
+\end{marginfigure}
+
+We image this back-focal plane (BFP) on the entrance slit of a spectrometer and thus get an image on the CCD camera which in one direction is angle of incidence, in the other wavelength of the light beam. This is converted into a energy-$k_x$ scale, where $k_x$ is the component of the wave vector that is parallel to the sample surface along the x-coordinate. The light beam is polarized before the sample such that we image the s polarization on the entrance slit of the spectrometer, i.e. along the x-direction of the sample coordinate system.
+
+
+\begin{figure}
+\includegraphics[width=\textwidth]{\currfiledir SetupTransmission_v3.pdf}
+\caption{Setup to measure angle-dependent transmission spectra without moving parts.  (Figure by S. Durst). }
+\end{figure}
+
+
+\section{How to understand the dispersion relation}
+
+Each panel in Fig. \ref{fig:8_intro} shows a dispersion relation, i.e., the relation between (in-plane) momentum and energy. Two features combine: the particle plasmon resonance and a lattice resonance. The particle resonance is at a given eigen-frequency (or energy), spectrally rather broad, and independent of the angle of incidence or $k_x$, as the particles are rather spherical. This gives the broad, medium gray band around an energy of 2~eV. The second feature is the lattice resonance.  An optical wave travels parallel to the interface. Its dispersion relation is
+\begin{equation}
+ E =   \hbar  \, \left(  k_x + m \cdot G \right)
+\end{equation}
+where $G = 2 \pi / p_x$ is the fundamental reciprocal lattice vector and $m$ an integer. The lattice resonance is spatially extended over the whole lattice and spectrally narrow. The interaction of a broad and a narrow resonance leads to characteristic spectral features that are visible in Fig. \ref{fig:8_intro}  and could be described in a Fano model. But that is (currently) beyond the scope of this chapter.
+
+Here we follow a more microscopic approach. We calculate the extinction spectrum of a  arrangement of  many small particles at positions $\mathbf{r}_i$.
+Each  particle is modelled as sphere  with a  polarizability $\alpha_i$ given by the material properties and the volume of the small particle. We want to calculate the absorption, scattering and extinction spectrum of this  ensemble.
+
+
+\section{Radiating electric dipole}
+
+Let us first look at a single electric dipole $\boldsymbol{\mu}$ at the position $\mathbf{r}_0$. Its field at the position $\mathbf{r}$ is given by\footcite[eq. 8.52]{Novotny-Hecht2012} 
+\begin{equation}
+\mathbf{E}(\mathbf{r}) = \frac{k^2}{\epsilon_0 \, \epsilon_{out}} \, \mathbf{G}(\mathbf{r}, \mathbf{r}_0) \,  \boldsymbol{\mu}
+\end{equation}
+with the length $k$ of the wave vector in the medium of dielectric function $\epsilon_{out}$.
+The Greens function $\mathbf{G}$ is given by\sidenote{This follows \cite{Novotny-Hecht2012}  eq. 8.55 and differs by $4 \pi k^2$ from eq. 2 in \cite{Yurkin07}}
+\begin{equation}
+\mathbf{G}(\mathbf{r}, \mathbf{r}_0) = \frac{e^{i k R} }{4 \pi \, k^2 \, R^3 } 
+\left[  
+ \left( k^2 R^2 + i k R  - 1 \right) \mathbf{1}  +    
+  \left( 3 - 3 i k R - k^2 R^2  \right) \frac{\mathbf{RR}}{R^2}   
+  \right] \label{eq:8_greens_dipole}
+\end{equation}
+with $\mathbf{R} = \mathbf{r} - \mathbf{r}_0$, $R = |\mathbf{R}|$, $\mathbf{1}$ the unity $3 \times 3$-tensor, and $\mathbf{RR}$ the outer product of $\mathbf{R}$ with itself, i.e.
+\begin{equation}
+\mathbf{RR} = 
+\begin{pmatrix}
+R_x R_x &  R_x R_y & R_x R_z \\
+R_y R_x &  R_y R_y & R_y R_z \\
+R_z R_x &  R_z R_y & R_z R_z \\
+\end{pmatrix} \quad .
+\end{equation}
+This is a convenient method to describe the full vectorial field emitted by a dipole at position  $\mathbf{r}_0$ everywhere in space, including both near- and far-field components.
+
+\begin{questions}
+\item Convince yourself that eq. \ref{eq:8_greens_dipole} agrees with the other commonly used form 
+\begin{equation}
+  \mathbf{E} = \frac{ e^{i \, k  r} }{4\pi\epsilon_0 \, \epsilon_{out}}  \frac{1}{r^3}\left\{
+      (k r )^2 \left( \hat{\mathbf{r}} \times \boldsymbol{\mu} \right) \times \hat{\mathbf{r}} +
+      \left( 1 -  i k r \right)
+        \left( 3\hat{\mathbf{r}} \left[\hat{\mathbf{r}} \cdot \boldsymbol{\mu}\right] - \boldsymbol{\mu} \right)
+    \right\} \quad .
+\end{equation}
+\end{questions}
+
+\section{Scattering sphere}
+
+We need to know the oscillation amplitude of the emitting dipole $\mathbf{p}$ to use eq. \ref{eq:8_greens_dipole}. It is related by the  polarizability $\alpha$  to the incoming optical field $\mathbf{E}_{inc}$
+\begin{equation}
+\mathbf{p} = \epsilon_0 \, \epsilon_{out} \, \alpha \, \mathbf{E}_{inc}
+\end{equation}
+with the dielectric function $\epsilon_{out}$ of the embedding medium. 
+When we assume that the scattering nanoobject is a sphere, we can calculate
+\begin{equation}
+ \alpha = 3V \, \frac{\epsilon_{in} - \epsilon_{out}}{\epsilon_{in} + 2 \epsilon_{out}} \quad ,
+\end{equation}
+where $V$ is the volume of the sphere and  $\epsilon_{in}$ the dielectric function of it. 
+The sphere  radiates a scattered field $\mathbf{E}_S$
+\begin{align}
+\mathbf{E}_S(\mathbf{r}) & =  \frac{k^2}{\epsilon_0 \, \epsilon_{out}} \, \mathbf{G}(\mathbf{r}, \mathbf{r}_0) \,  \mathbf{p} \\
+ & =  \frac{1}{4 \pi \, \epsilon_0 \, \epsilon_{out}  }  \frac{e^{i k R} }{  R^3 } 
+\left[  \dots \right] \, \mathbf{p}
+\end{align}
+where the contents of the square brackets is the same as in eq.\ref{eq:8_greens_dipole} above. $k$ is again the length of the wave vector in a medium with dielectric function $\epsilon_{out}$.
+
+\section{Multiple particles}
+
+When we have more than one particle, each particle $i$ sees the incident field $\mathbf{E}_{i, inc}$ at the   position $\mathbf{r}_i$ plus the sum over all scattered fields $\mathbf{E}_{j, S}$ from all the other induced dipoles $j$
+\begin{equation}
+\mathbf{E}_{i, loc} = \mathbf{E}_{i, inc} + \sum_{j \neq i} \mathbf{E}_{j, S}
+ = \mathbf{E}_{0} \, e^{i \mathbf{k} \cdot \mathbf{r}_i} \, +  \, 
+ \sum_{j \neq i} \frac{k^2}{\epsilon_0 \, \epsilon_{out}} 
+ \mathbf{G}(\mathbf{r}_i, \mathbf{r}_j) \,  \mathbf{p}_j  \label{eq:8_elocal}
+\end{equation}
+with the dipole moment $ \mathbf{p}_j$ of the particle at position $\mathbf{r}_j$. The position of the 'receiving' particle $\mathbf{r}_i$ takes the role of $\mathbf{r}$ in the Greens function; the position of the scattering particle $\mathbf{r}_j$ takes the role of the dipole at position $\mathbf{r}_0$ above.
+
+The local field $\mathbf{E}_{i, loc}$ then induces a dipole moment again 
+\begin{equation}
+\mathbf{p}_i = \epsilon_0 \, \epsilon_{out} \, \alpha_i \, \mathbf{E}_{i,loc} \quad .
+\end{equation}
+Both equations together form a coupled equation system for the 
+ dipole moments $ \mathbf{p}_i$
+\begin{equation}
+\mathbf{E}_{0} \, e^{i \mathbf{k} \cdot \mathbf{r}_i} =
+\frac{1}{\epsilon_0 \epsilon_{out} \alpha_i} \, \mathbf{p}_i 
+ \,  - \, 
+ \sum_{j \neq i} \frac{k^2}{\epsilon_0 \, \epsilon_{out}} 
+ \mathbf{G}(\mathbf{r}_i, \mathbf{r}_j)  \, \mathbf{p}_j 
+\end{equation} 
+ which can be written as
+ \begin{equation}
+ \mathbf{E}_{inc} = \mathbf{A} \, \mathbf{p} \quad , \label{eq:8_eq_system_EAP}
+ \end{equation}
+where $\mathbf{p}$ and $ \mathbf{E}_{inc} $ are column vectors containing the induced dipole moment and the incident field of all dipoles and $\mathbf{A} $ is an interaction matrix. Its elements are $3 \times 3$-sub-matrices given by\sidenote{This assume an isotropic polarizability. Otherwise, the diagonal elements should be $1/\alpha_{x,y,z}$ instead of $\mathbf{1}  / \alpha$.}
+ \begin{align}
+ \mathbf{A}_{ii} = &\frac{1}{\epsilon_0 \epsilon_{out} \alpha_i} \, \mathbf{1} \\
+ \mathbf{A}_{ij} = & - \, 
+ \frac{k^2}{\epsilon_0 \, \epsilon_{out}} 
+ \mathbf{G}(\mathbf{r}_i, \mathbf{r}_j)  \quad .
+ \end{align}
+Some publications put the minus sign of the last equation into the Greens function. 
+
+\begin{questions} 
+\item Which size / dimension have $ \mathbf{A}$ and $\mathbf{p}$ in eq. \ref{eq:8_eq_system_EAP} ?
+\item Sketch the interaction matrix $ \mathbf{A}$ and its components.
+\end{questions}
+
+\section{Absorption, scattering and extinction} 
+ 
+The extinction cross-section can be calculated by the optical theorem from the interference of the forward-scattered wave with the incident wave. We get\footcite{Draine88,Yurkin07}
+\begin{equation}
+\sigma_{ext} = \frac{k}{\epsilon_0 \epsilon_{out}  \, |\mathbf{E}_{inc}|^2} \, \sum_i \, \Im ( \mathbf{p}_i \cdot \mathbf{E}_{i, inc}^\star ) \quad .
+\end{equation}
+ The absorption can be calculated from the field acting on each dipole\footcite{Yurkin07}, i.e., replacing $\mathbf{E}_{i, inc} $ by $\mathbf{E}_{i, loc} $ 
+ \begin{equation}
+\sigma_{abs} = \frac{k}{\epsilon_0 \epsilon_{out}  \, |\mathbf{E}_{0}|^2} \, \sum_i \, \Im ( \mathbf{p}_i \cdot \mathbf{E}_{i, loc}^\star ) \quad .
+\end{equation}
+The scattering cross section is the difference of both
+\begin{equation}
+\sigma_{scat} = \sigma_{ext}  - \sigma_{abs} \quad .
+\end{equation}
+ 
+With this we have now everything at hand to calculate the absorption, scattering and extinction cross-sections and spectra of arrangements  of small scattering spheres or dipoles. We solve eq. \ref{eq:8_eq_system_EAP} for $\mathbf{p}$ and then calculate the cross-sections. Depending on the community (and the distance between the dipoles) this is called discrete dipole approximation (DDA) or coupled dipole approximate (CDA).
+ 
+ 
+\begin{questions}
+\item Why do $\sigma_{ext}$ and $\sigma_{abs}$ differ only in  the choice of the field that is multiplied on $\mathbf{p}_i$? How can we understand this choice?
+\end{questions}
+
+ 
+% \section{Improvements: Radiation reaction} 
+
+% When we would have only a single dipole, then $\sigma_{scat}$ as defined above would vanish. This problem finds its roots in our definition of the polarizability $\alpha$. We need to take the radiation reaction into account\sidenote{see chapter 8.4.2. in \cite{Novotny-Hecht2012}}. When we call the 'old' definition $\alpha^{CM}$, as Clausius-Mossotti, then we define\sidenote{here in SI, in contrast to \cite{Yurkin07}} 
+% \begin{equation}
+% \alpha^{RR} = \frac{\alpha^{CM}}{1 - \frac{i k^3}{6 \pi} \alpha^{CM}}
+% \approx
+% \alpha^{CM} -  \frac{i k^3}{6 \pi} \left(\alpha^{CM}\right)^2 \quad .
+% \end{equation}
+
+% Along the same lines, an improved relation for the absorption cross-section should be used\sidenote{see \cite{Draine88}  for a derivation, and \cite{Yurkin07} for a discussion}
+%  \begin{equation}
+% \sigma_{abs} = \frac{k}{\epsilon_0 \epsilon_{out}  \, |\mathbf{E}_{0}|^2} \, \sum_i \, \Im \left( \mathbf{p}_i \cdot \left( \frac{\mathbf{p}_i}{\epsilon_0 \epsilon_{out}  \, \alpha_{RR}} \right) ^\star \right) 
+% - \frac{2}{3} \, \frac{1}{4 \pi \epsilon_0 \epsilon_{out}} \,  k^3 \, |  \mathbf{p}_i |^2 \quad .
+% \end{equation}
+
+
+% \section{Side note: Polarizability of  a Lorentz oscillator}
+
+% We started above with the polarizability $\alpha$ of a sphere
+% \begin{equation}
+%  \alpha = 3V \, \frac{\epsilon_{in} - \epsilon_{out}}{\epsilon_{in} + 2 \epsilon_{out}} \quad .
+% \end{equation}
+% We could also assume a Lorentz oscillator, taking into account our definition 
+%  \begin{equation}
+% \mathbf{p} = \epsilon_0 \, \epsilon_{out} \, \alpha_L \, \mathbf{E}_{inc} = e \, \mathbf{x} \quad .
+% \end{equation}
+% With this we find 
+%  \begin{equation}
+%  \alpha_L = \frac{e^2 }{ \epsilon_0 \, \epsilon_{out}  \, m} \,  \, \frac{1}{\omega_0^2 - \omega^2 +2  i \gamma \omega }  \quad 
+% \end{equation}
+% with the eigen-frequency $\omega_0$, the damping $\gamma$ and the mass $m$ of the oscillator.
+
+\section{Lattice sum}
+
+Things become easier when we are interested in infinite lattices of identical scatterers. As we are on a lattice, all lattice points are equal, especially in the amplitude and vectorial direction $\mathbf{\hat{n}}$ of the local field. It is then 
+ convenient to re-arrange eq. \ref{eq:8_elocal}
+\begin{equation}
+\mathbf{E}_{i, loc} =\mathbf{E}_{0} \, e^{i \mathbf{k} \cdot \mathbf{r}_i} \, +  \, 
+ \sum_{j \neq i} k^2 \, 
+\mathbf{G}(\mathbf{r}_i, \mathbf{r}_j) \,    \alpha \, \mathbf{E}_{j,loc}
+\end{equation}
+to
+\begin{equation}
+E_{i, loc}  \, e^{-i \mathbf{k} \cdot \mathbf{r}_i} =\mathbf{\hat{n}} \cdot \mathbf{E}_{0}  +  \, 
+ \sum_{j \neq i} k^2 \, 
+ \mathbf{\hat{n}} \mathbf{G}(\mathbf{r}_i, \mathbf{r}_j)  \mathbf{\hat{n}}\,    \alpha \, E_{j,loc} \, e^{-i \mathbf{k} \cdot \mathbf{r}_i} \,
+\end{equation}
+so that we get
+\begin{equation}
+\mathbf{\hat{n}} \cdot \mathbf{E}_{0} = 
+E_{loc} \left( 1 -     \alpha  \,
+ \sum_{j \neq i} k^2 \, 
+ \mathbf{\hat{n}} \mathbf{G}(\mathbf{r}_i, \mathbf{r}_j)  \mathbf{\hat{n}}\,     \, e^{i \mathbf{k} \cdot ( \mathbf{r}_i - \mathbf{r}_j  ) } \right)
+ = 
+ {E}_{loc} \left( 1 -     \alpha  \, S \right)
+\end{equation}
+with the retarded lattice sum $S$. The induced
+dipole moment becomes 
+\begin{equation}
+\mathbf{p} = \epsilon_0 \, \epsilon_{out} \, \alpha \, \mathbf{E}_{loc} =  \epsilon_0 \, \epsilon_{out} \, \frac{\alpha}{ 1 -     \alpha  \, S } \,
+  \mathbf{E}_{0} 
+\end{equation} 
+or  we define an effective (lattice) polarizability
+\begin{equation}
+\alpha_\text{lattice} = \frac{\alpha}{ 1 -     \alpha  \, S }  \quad .
+\end{equation} 
+The extinction cross-section becomes then\sidenote{somehow a $4 \pi$ is missing here....}
+\begin{equation}
+\sigma_{ext} = k \, \Im(\alpha_\text{lattice})  \quad .
+\end{equation}
+
+%-------------------
+
+
+\printbibliography[segment=\therefsegment,heading=subbibliography]
+
+%\printbibliography
+
+
+

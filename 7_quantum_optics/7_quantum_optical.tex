@@ -1,0 +1,208 @@
+\renewcommand{\lastmod}{September 13, 2023}
+\renewcommand{\chapterauthors}{Markus Lippitz}
+
+
+\chapter{Hybridization of quantum optical systems}
+
+
+
+
+
+\section{Overview}
+
+In the previous chapter, it was the electron that was quantized and described by quantum mechanics. The light field was taken as a classical field, continuous in its amplitude. Now we also quantify the optical field into photons, the so-called second quantization. We let an atom, or better an emitter as described by quantum mechanics, interact with a light field that contains so few photons that every single photon counts. This is the field of quantum optics. Again, the two systems "atom" and "light field" couple and hybridize, creating a new system. We will no longer be able to say where the quantum of energy is at any given moment, in the atom or in a photon.
+
+
+
+\section{Experiment}
+
+\cite{Reithmaier04}, observed strong coupling between a single emitter in solid state (an InGaAs quantum dot) and a micro-cavity. This is again an analogue of a coupled pendulum. One cannot say anymore if the excitation is in the dot or in the cavity. On resonance, both cease to exist and new coupled states emerge. The new states are in all properties mixtures of the old ones, for example in line width or intensity, see Fig. 4 in the manuscript.
+
+\section{Quantization of the light field}
+The Rabi model assumed a classical electrical field in which the particle nature of light is not relevant. But now we need to take the quantized nature of light into account. In quantum mechanics this is often called 'second quantization' and we will briefly have a look at the main results.
+
+The principle idea is very similar to a quantum mechanical harmonic oscillator, i.e. a series of equidistant states that has a bottom boundary. We describe the states by a quantum number $n$, starting from $n=0$. The Hamiltonian reads
+\begin{equation}
+\hat{H} \ket{n} = E_n \ket{n} = \left( n + \frac{1}{2} \right) \, \hbar \omega \, \ket{n} \quad ,
+\end{equation}
+where $\hbar \omega$ is the energy distance between the states.
+
+It is convenient to use ladder operators for the creation ($\hat{a}^\dagger$) and annihilation ($\hat{a}$) of  a quantum of energy, i.e.
+\begin{equation}
+ \hat{a}^\dagger \ket{n} = \sqrt{n+1}\, \ket{n+1}  \quad \text{and} \quad
+  \hat{a} \ket{n} = \sqrt{n}\, \ket{n-1} \quad .
+\end{equation}
+Useful properties are 
+\begin{equation}
+ \hat{a} \ket{0} = \ket{0}  \quad \text{and} \quad
+  \hat{a}^\dagger  \hat{a} \ket{n} = n \ket{n} \quad .
+\end{equation}
+
+Now this needs to be connected to  classical electrodynamics. We assume a single optical mode in a small optical resonator, similar to a laser cavity. In the dark, i.e. in the state $\ket{0}$, quantum mechanics gives an eigen-energy $E_0 = 1/2 \, \hbar \omega$. This is what we require also from classical electrodynamics\footcite[chap. 7.5]{Fox}
+\begin{equation}
+E_0 = 
+ \int_\text{cavity} \frac{1}{2} 
+ \left( \boldsymbol{H} \cdot  \boldsymbol{B} + \boldsymbol{E} \cdot  \boldsymbol{D} \right) \, d\boldsymbol{r} = 
+  \int_\text{cavity}  \epsilon_0 \boldsymbol{E}^2 \, d\boldsymbol{r} = \frac{1}{2} \, \hbar \omega
+\end{equation}
+so that
+\begin{equation}
+E_{vac} = \sqrt{\frac{\hbar \omega}{2 \epsilon_0 \, V}}
+\end{equation}
+is the amplitude of the field in the dark vacuum, with $V$ being the volume of the cavity.\sidenote{This is the reason we require a cavity. Otherwise the integral would diverge.} One obtains the volume by integrating over full space, weighted by the local intensity
+\begin{equation}
+V =  \frac{1}{\text{max}(\boldsymbol{E}_c)^2} \, \int_\text{cavity} \boldsymbol{E}_c^2\, d\boldsymbol{r} \quad ,
+\end{equation}
+where $\boldsymbol{E}_c$ can be a field of any amplitude inside the cavity. It just defines the spatial distribution of the optical mode. The vacuum field in total is thus
+\begin{equation}
+\boldsymbol{E}( \boldsymbol{r} ) = 
+\frac{  E_{vac}  }{\text{max}(\boldsymbol{E}_c)}
+ \, \boldsymbol{E}_c ( \boldsymbol{r} )
+\end{equation}
+
+
+The electrical field of a single optical mode in a cavity then becomes\footcite[chap. 2.1 and 2.4]{GerryKnight2005}\footcite[chap. 6.1]{Rand2016}
+\begin{equation}
+\hat{\boldsymbol{E}}(z,t) = \boldsymbol{x} \, E_{vac} \, \left(\hat{a} \, e^{i (k z - \omega t)} + \hat{a}^\dagger   \, e^{-i (k z - \omega t)} \right) 
+\quad ,
+\end{equation}
+where $\boldsymbol{x}$ is a unit vector defining the direction of polarization. 
+
+
+\begin{questions}
+\item Two flat perfect mirrors of diameter $d$ and distance $L$  form a resonator. Calculate its mode volume at an eigenfrequency, assuming that no field leaks out of the cylinder formed by the mirrors. How would the index of refraction of  a medium between the mirrors enter?
+
+\item In an elevator cabin, two opposing walls  are covered by mirrors. Calculate the amplitude of the electric field in the cabin. 
+\end{questions}
+
+
+
+\section{Pauli matrices for atoms}
+
+The two-level system representing our atom is a spin $1/2$ system, i.e., a Fermion, not a Boson as the photons in the cavity. We can use operators similar to the ladder operators to excite ($  \hat{\sigma}_+$) or relax ($  \hat{\sigma}_-$) the two-level system
+\begin{equation}
+ \hat{\sigma}_+ = \ket{e} \bra{g} \quad \text{and} \quad 
+  \hat{\sigma}_- = \ket{g} \bra{e} \quad .
+\end{equation}
+The third operator to complete the Pauli spin algebra is the inversion operator, i.e. the third component of the Bloch vector
+\begin{equation}
+ \hat{\sigma}_3 = \ket{e} \bra{e} - \ket{g} \bra{g} \quad .
+\end{equation} 
+
+\begin{questions}
+\item Write the operators  $  \hat{\sigma}_+$, $  \hat{\sigma}_-$ and 
+$ \hat{\sigma}_3 $ in matrix form.
+\end{questions}
+
+
+
+\section{Jaynes-Cummings-Model}
+Now we put everything together to  the Jaynes-Cummings-model. Sometimes this model is also called 'dressed atom' model.\footcite[chap. 6.8]{Rand2016} \footcite[chap. 4.5]{GerryKnight2005} \footcite[chap. 10.4]{Fox}  \footcite[chap. 3.4]{HarocheRaimond2006}
+
+We construct an Hamiltonian of three parts:  atom, optical field, and light-matter interaction. The atom part is, using $\hbar \omega_0 = E_e - E_g$ 
+\begin{equation}
+\hat{H}_A = \frac{1}{2} \, \hbar \omega_0 \, \hat{\sigma}_3 \quad ,
+\end{equation}
+where we have set the zero of the energy scale half way between ground and excited state. The optical field part is
+\begin{equation}
+\hat{H}_F = \hbar \omega \, \hat{a}^\dagger  \hat{a} \quad ,
+\end{equation}
+with the optical frequency $\omega$ and the zero of the energy scale set to the vacuum energy. Light-matter interaction is given in the dipole approximation and neglecting terms that violate energy conservation by\footcite[chap. 6.7.1]{Rand2016}
+\begin{equation}
+\hat{H}_I = - \boldsymbol{\mu} \, \boldsymbol{E} =
+ \hbar g \, (\hat{\sigma}_+ \, \hat{a} + \hat{\sigma}_- \,\hat{a}^\dagger )  \quad .
+\end{equation}
+Absorption of a photon ($\hat{a}$) excites the atom ($\hat{\sigma}_+$) and the other way round.
+The coupling constant $g$ is given by
+\begin{equation}
+ g = \frac{\mu_{eg} \, E_{vac} }{\hbar}
+ =
+  \mu_{eg} \, \sqrt{\frac{\omega}{2 \hbar \, \epsilon_0 \, V}}  \quad ,
+\end{equation}
+where $\mu_{eg} $ is the projection of the transition dipole moment on the polarization direction of the light field. In total we have thus
+\begin{equation}
+ \hat{H} = \frac{1}{2} \, \hbar \omega_0 \, \hat{\sigma}_3 
+ +  \hbar \omega \, \hat{a}^\dagger \hat{a}
+ + \hbar g \, (\hat{\sigma}_+ \, \hat{a} + \hat{\sigma}_- \,\hat{a}^\dagger )  \quad .
+\end{equation}
+
+The idea of the Jaynes-Cummings-Model is to find eigen-states of this Hamiltonian. This is the same idea as in a coupled pendulum: the atom is one pendulum, the light field another, and the spring connecting the pendula is the coupling constant $g$. The uncoupled eigen-states are $\ket{g, n}$ and  $\ket{e, n-1}$, i.e. atom in ground or excited state, and either $n$ or $n-1$ photons in the cavity. For these two states, the Hamilton operator reads in matrix form
+\begin{equation}
+\hat{H} = \hbar 
+\begin{pmatrix}
+n \omega - \frac{1}{2} \omega_0  & g \sqrt{n} \\
+g \sqrt{n} & (n-1) \omega + \frac{1}{2} \omega_0 \\
+\end{pmatrix}  \quad . \label{eq:strong_JC_model}
+\end{equation}
+The new eigen-states are linear combinations of the old, obtained by diagonalizing the Hamilton operator in matrix form. For the eigen-energy we get
+\begin{equation}
+E_\pm = \left( n - \frac{1}{2} \right) \hbar \omega \, \pm \, \frac{1}{2} \hbar
+\sqrt{\Delta^2 + 4 |g|^2 n}  \quad ,
+\end{equation}
+where $\Delta = \omega_0 - \omega$
+is energy difference between the uncoupled eigen-states, or the detuning between atom and field. The square-root is called generalized Rabi frequency $\Omega_R = \sqrt{\Delta^2 + 4 |g|^2 n}$. The new eigen-states are called dressed states $\ket{D_\pm}$ as the photons are 'dressing' the atom
+\begin{eqnarray}
+\ket{D_+} &= &\sin \theta \ket{g,n} + \cos \theta \ket{e,n-1} \\
+\ket{D_-} & = &\cos \theta \ket{g,n} - \sin \theta \ket{e,n-1}   
+\end{eqnarray}
+with $\cos 2\theta = \Delta / \Omega_R$. On resonance, i.e. $\Delta = 0$, the two dressed states are the symmetric and anti-symmetric combinations of the uncoupled states.
+
+
+\begin{questions}
+\item Convince yourself that the Hamilton operators $\hat{H}_A$ and $\hat{H}_F$ indeed give the energy of atom and field.
+
+
+\item Derive the matrix form of the total Hamilton operator, eq.
+\ref{eq:strong_JC_model}, especially that the two off-diagonal element are the same.
+
+
+\item Why and how is the interaction part of the Hamiltonian $\hat{H}_I$ \emph{coupling} the two states? What is rotating with the angular frequency $g$? Compare to the spring between two pendula.
+
+\item Play with \href{https://demonstrations.wolfram.com/CavityQuantumElectrodynamicsWithBosonsEmissionSpectraInTheSt}
+{https://demonstrations.wolfram.com/CavityQuantumElectrodynamicsWithBosonsEmissionSpectraInTheSt}
+
+\end{questions}
+
+
+\section{Mollow Triplet}
+
+We now label the above dressed states by their characteristic photon number $n$ as $\ket{D_+^{(n)}}$ and $\ket{D_-^{(n)}}$. This allows us to take into account also the two states $\ket{D_+^{(n+1)}}$ and $\ket{D_-^{(n+1)}}$. 
+When $n \gg 1$ as in a laser field,  we can assume that the Rabi frequency $\Omega_R = \sqrt{\Delta^2 + 4 |g|^2 n}$ does not differ between these states. In this case, the four optical transitions that take out energy will lead to   only three different lines in the spectrum. This is called the Mollow Triplet. The (degenerate) center line is at the laser frequency, the outer two separated by the Rabi frequency.
+
+
+%https://demonstrations.wolfram.com/MollowTriplet/
+
+%https://demonstrations.wolfram.com/CavityQuantumElectrodynamicsWithBosonsEmissionSpectraInTheSt/
+
+
+\begin{questions}
+\item Draw a level scheme containing the uncoupled and the coupled states involved in the Mollow Triplet and the resulting spectrum. Which transition leads to which peak?
+
+\item Play with \href{https://demonstrations.wolfram.com/MollowTriplet/} {https://demonstrations.wolfram.com/MollowTriplet} 
+
+\end{questions}
+
+\section{Vacuum Rabi Splitting}
+
+The splitting into dressed states $\ket{D_+^{(n)}}$ and $\ket{D_-^{(n)}}$ does only exist for a photon number $n \ge 1$. The uncoupled state $\ket{g, n=0}$ cannot couple with the non-existing state   $\ket{e, n = -1}$. The lowest state in the ladder does thus not split. From there we can reach two states,  $\ket{D_+^{(1)}}$ and $\ket{D_-^{(1)}}$,
+by absorbing a single photon in the system. These two states are at  $\omega_0 \pm \hbar g$. (as $\omega_{cav} = \omega_{atom}$). This effect is called Vacuum Rabi Splitting, as it exists in the dark. The photon is only needed to detect its presence.
+
+A consequence of this effect is the photon blockade. The first photon can be absorbed at $\omega_0 \pm \hbar g$, but not a second one!  In this regime, we cannot neglect that the Rabi frequency depends on the photon number $n$. The second pair of states is at 
+$2 \omega_0 \pm \sqrt{2} \hbar g$, i.e., not at twice the energy of the first pair. Absorbing the first photon blocks this transition for any further absorption.
+
+\begin{questions}
+\item Draw a level scheme containing the uncoupled and the coupled states involved in Vacuum Rabi Splitting. Draw the absorption spectrum as seen by the first and by the second photon in the system.
+\end{questions}
+
+
+\section{Looking Back}
+
+In the last three chapters we discussed the coupling of systems in physics. After coupling, the original systems are gone. We can no longer say where an excitation is. New hybrid states emerge.
+
+But is it justified to distinguish between systems according to classical physics, first or second quantization? After all, the correspondence principle holds, and we should be able to make the transition from quantum to classical by increasing some size parameter.
+
+\begin{questions}
+\item It is now up to you to revisit the examples given. How could we make the transition to classical physics? Which parameters do we have to change? Which effects would disappear? Which would remain and could be explained without quantum mechanics?
+  \end{questions}
+  
+\printbibliography[segment=\therefsegment,heading=subbibliography]

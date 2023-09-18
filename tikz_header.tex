@@ -1,0 +1,94 @@
+\usepackage{tikz,tikz-3dplot}
+
+\DeclareUnicodeCharacter{0393}{$\Gamma$} 
+\DeclareUnicodeCharacter{03C3}{$\sigma$} 
+
+
+\newcommand{\inputtikz}[1]{%
+
+ \tikzexternalenable
+  \tikzsetnextfilename{#1}%
+  \input{#1.tikz}%
+  \tikzexternaldisable
+
+}
+
+
+\usetikzlibrary{math,matrix,fit,positioning,intersections}
+
+\usetikzlibrary{calc}
+\usetikzlibrary{arrows.meta} %needed tikz library
+
+\usepackage{standalone}
+\usepackage{pgfplots}
+ \pgfplotsset{compat=newest}
+\usepgfplotslibrary{groupplots}
+\usepgfplotslibrary{fillbetween}
+
+\tikzset{>=latex}
+
+\usepackage{tikzorbital}
+ \usepackage{tikzsymbols}
+\usetikzlibrary{quotes,angles}
+
+\usepackage{currfile,hyperxmp}
+
+
+% \pgfplotsset{
+% tufte line/.style={
+%     axis line style={draw opacity=0},
+%     ytick=\empty,
+%     axis x line*=bottom,
+%     x axis line style={
+%       draw opacity=1,
+%       gray,
+%       thick
+% },
+%  %   yticklabel=\pgfmathprintnumber{\tick}
+%   }
+%   }
+
+% \tikzset{
+% mymat/.style={
+%     matrix of math nodes,
+%     left delimiter=|, right delimiter=|,
+%     align=center,
+%     column sep=-\pgflinewidth,
+% }
+% %,mymats/.style={
+% %    mymat,
+% %    nodes={draw,fill=#1}
+% %} 
+%  }
+ 
+% \newcommand{\myarrow}[5]{\draw[#4](#1.south -| #2)  -- ++(#3 :6mm) node[above,pos=0.55]{$#5$};
+% } 
+
+% \newcommand{\interactLp}[3]{\myarrow{#1-#2-1}{#1.west}{-135}{<-}{#3}} 
+% \newcommand{\interactLm}[3]{\myarrow{#1-#2-1}{#1.west}{+135}{->}{#3}} 
+% \newcommand{\interactRp}[3]{\myarrow{#1-#2-2}{#1.east}{ -45}{<-}{#3}} 
+% \newcommand{\interactRm}[3]{\myarrow{#1-#2-2}{#1.east}{ +45}{->}{#3}}  
+
+% \newcommand{\interactout}[2]{\myarrow{#1-1-1}{#1.west}{+135}{->,dashed}{#2}} 
+
+
+\newcommand{\benzene}[8]{%
+\tikzmath{\x1 = #1; \dx1 = 0.5; \dx2 = 0.9; \ps=0.5;}
+\tikzmath{\x2 = \x1 + \dx1 ;}
+\tikzmath{\x3 = \x2 + \dx2 ;}
+\tikzmath{\x4 = \x3 + \dx1 ;}
+
+\tikzmath{\y1 = #2; \dy = 0.5;}
+\tikzmath{\y2 = \y1 + \dy ;}
+\tikzmath{\y3 = \y2 + \dy ;}
+
+\orbital[pos = {(\x1,\y2)},scale=#3 * \ps]{pz}
+\orbital[pos = {(\x2,\y1)},scale=#4 * \ps]{pz}
+\orbital[pos = {(\x3,\y1)},scale=#5 * \ps]{pz}
+\orbital[pos = {(\x4,\y2)},scale=#6 * \ps]{pz}
+\orbital[pos = {(\x3,\y3)},scale=#7 * \ps]{pz}
+\orbital[pos = {(\x2,\y3)},scale=#8 * \ps]{pz}
+
+\draw (\x1,\y2) -- (\x2,\y1) -- (\x3,\y1) -- (\x4,\y2) --(\x3,\y3) 
+-- (\x2,\y3) -- (\x1,\y2);
+}

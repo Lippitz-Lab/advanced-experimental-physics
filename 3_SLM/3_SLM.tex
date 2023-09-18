@@ -1,0 +1,234 @@
+\renewcommand{\lastmod}{September 18, 2023}
+\renewcommand{\chapterauthors}{Markus Lippitz, Christoph Schnupfhagn}
+
+\chapter{Spatial Light Modulator}
+
+\section{Overview}
+
+In optics, we not only Fourier transform between the two focal planes of a lens, but we can also Fourier transform between energy and time. A spatial light modulator (SLM) spatially modulates light (in the image plane of a grating spectrometer) to shape the temporal evolution of ultrafast ( $\approx 10$~fs) laser pulses. We follow the formalism of \cite{Traeger2012}.
+
+\section{Generation and properties of ultrashort laser pulses}
+
+To build a laser we need at least a cavity, an active medium and a pump source. The cavity has longitudinal modes if multiples of the half wavelength fit into the cavity length $l$. For integer $n$ and wavelength $\lambda$ this standing-wave condition reads ${l = n\lambda/2}$. Consequently, the resonances are equidistant in frequency space at $\omega_{n} = n\pi c/l$, where $c$ is the speed of light.  
+In general, the electric field $E(x,t)$ results from a superposition of all cavity modes $\omega_{n}$ with individual amplitudes $A(\omega_{n})$ and relative phases $\phi_{n}$
+\begin{equation}
+	E(x,t) = \Re \left[ \sum_{i} A(\omega_{i}) e^{i (\omega_{i} t - k x + \phi_{i})} \right] \quad .
+\end{equation}
+The wave vector $k$ is given by the dispersion relation $k=\omega/c$.
+The spatial dependence is dropped for simplicity. The electric field in time domain is linked to its counterpart in frequency domain by Fourier transform
+\begin{equation}
+	E(\omega) = \mathcal{F}[E(t)] = \int_{-\infty}^{\infty} E(t) e^{- i \omega t} \text{d}t \quad .
+\end{equation}
+Since $E(\omega)$ is complex-valued while $E(t)$ is a real function, it follows $E(\omega) = E^{*}(-\omega)$. Therefore, it is sufficient to look only at the positive frequencies $E^{+}(\omega)$ and  one separates them by writing
+\begin{equation}
+	E(\omega) = E^{+}(\omega) + E^{-}(\omega) \quad ,
+\end{equation}
+where
+\begin{equation}
+	E^{+}(\omega) = \left \{ 
+	\begin{aligned}
+		& E(\omega) &&\text{if } \omega \geq 0 \\
+		& 0 && \text{if } \omega < 0
+	\end{aligned} \right.
+	\qquad \text{and} \qquad
+	E^{-}(\omega) = (E^{+}(-\omega))^{*} \quad .
+	%\left \{ 
+	%\begin{aligned}
+%		& 0 &&\text{if } \omega \geq 0 \\
+%		& E(\omega) && \text{if } \omega < 0
+%	\end{aligned} \right. \quad .
+\end{equation}
+The Fourier transform of $E^{+}(\omega)$ is then
+\begin{equation}
+	E^{+}(t) = \frac{1}{2\pi} \int E^{+}(\omega) e^{ i \omega t} \text{d}t \quad .
+\end{equation}
+And of course we can decompose the complex $E^{+}(\omega)$  into phase and amplitude
+\begin{equation}
+	E^{+}(\omega) = | E^{+}(\omega) | \,  e^{- i \phi(\omega)} \quad .
+\end{equation}
+In order to generate short laser pulses, the phase relation $\phi(\omega)$ between the laser modes needs to be fixed in time. This is called \emph{mode locking}. Additionally, to generate confined pulses in time domain Fourier's theorem requires a broad distribution in the frequency domain, i.e., an active medium with a broad gain spectrum. This is expressed by the product of temporal width $\Delta t$ (full width at half maximum, FWHM) and spectral width $\Delta\nu$ (FWHM), which can not be smaller than a minimum value TBP$_{\text{min}}$
+\begin{equation}
+	\Delta t \cdot \Delta \nu \geq \text{TBP}_{\text{min}} \quad .
+\end{equation}
+This minimum \emph{time-bandwidth product} (TBP) depends on the temporal shape of the pulse. In case of a Gaussian shape the value is TBP$_{\text{min}} = 0.441$, i.e., 7 fs pulses centered at 800 nm require a minimum spectral width of approximately 135 nm.
+
+\begin{questions}
+	\item Superimpose in increasing number of harmonic functions with equidistant frequencies to synthesis a laser pulse.
+	\item Vary the phase relation between these modes to simulate a light field that is not 'mode locked'
+\end{questions}
+
+\section{Spectral phase}
+
+The actual pulse duration for a given spectrum strongly depends on the spectral phase $\phi(\omega)$. In general, the first derivative of the phase with respect to frequency is called \emph{group delay} (GD) while the second derivative is called \emph{group delay dispersion} (GDD). Expanding the phase in a Taylor series around the central frequency $\omega_{0}$ yields
+\begin{equation}
+	\begin{aligned}
+	\phi(\omega) = & \phi(\omega_{0}) + \phi'(\omega_{0})(\omega-\omega_{0}) + \frac{1}{2} \phi''(\omega_{0})(\omega-\omega_{0})^{2} \\
+	& +  \frac{1}{6} \phi'''(\omega_{0})(\omega-\omega_{0})^{3} + ... \quad ,
+	\end{aligned}
+\end{equation}
+where
+\begin{equation}
+	\phi^{(n)} = \left. \frac{\partial^{n}\phi}{\partial \omega^{n}} \right\rvert_{\omega=\omega_{0}} \quad .
+\end{equation}
+The propagation of laser pulses is determined by the optical properties of the materials, in particular the dispersion of the refractive index $n(\omega)$. As the refractive index in general varies with the frequency, the spectral colors gather different phase shifts during propagation. The variations are most pronounced in the vicinity of material resonances, affecting also higher orders in the Taylor expansion of the phase. To illustrate this, the influence of the different orders in the Taylor expansion on the temporal shape of bandwidth-limited 7~fs pulses is shown in Figure \ref{fig:3-pulses}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{\currfiledir pulses_complete.pdf}
+\caption{Dependence of the temporal pulse shape on different orders in the Taylor expansion of $\phi(\omega)$. The Gaussian shaped pulses have a bandwidth limit of 7~fs and are centered at 800~nm. }
+\label{fig:3-pulses}
+\end{figure}
+
+
+
+A constant phase term defines the phase difference between the carrier wave and the envelope, known as the carrier-envelope phase (CEP) without altering the pulse shape. Similarly, a linear phase term shifts the pulse in time without any distortions, where the value of $\phi'$ is equivalent to the introduced time offset.
+
+In contrast, applying a quadratic phase term, also called \emph{linear chirp}, stretches the pulse in time. Energy conservation then requires the peak intensity to decrease. Furthermore, the different frequencies do not arrive simultaneously: The red colors arrive before the blue in case of $\phi''>0$, which is typical for most materials. Ultrashort pulses are exceptionally affected by temporal broadening since the large spectral bandwidth allows for large spectral variations of the refractive index. 
+
+The figure shows a pulse broadening from 7~fs to 21~fs (FWHM) at $\phi'' = 50$~fs$^{2}$, corresponding to a transmission through 1.2~mm \ch{SiO_2} glass at 800 nm. This small propagation length already increases the TBP by a factor of 3 from $0.441$ to $1.323$. At the same time the peak intensity is reduced by 67~\%. Other glasses yield even higher GDD values\footcite{Traeger2012}, e.g., $\phi'' \approx 143$~fs$^{2}$ in SF10.
+
+Applying even higher orders in the phase expansion creates increasingly complex pulse shapes; a cubic phase term for instance generates multi-pulse sequences which are asymmetric in time. 
+
+In an experiment, one usually needs the shortest possible laser pulse at the sample. Optical elements between laser and sample can contribute a complex optical phase. It is one task of the spatial light modulator to compensate these phase differences.
+
+
+
+\section{Pulse shaping with spatial light modulators}
+	
+Since both the intensity spectrum and the spectral phase determine the pulse shape in time domain, it is desirable to control both parameter sets in the experiment. This can be achieved with a spatial light modulator which directly addresses the frequency domain in a $4f$ setup as illustrated in Figure \ref{fig:3-4f}: The spectral colors of incident pulses with electric field $E_{\text{in}}( \omega)$ are spatially separated by a diffraction grating. A lens with focal length $f$ focuses each color into its Fourier plane, which is again located in a distance $f$. In this plane a complex transfer function $H(\omega) = A(\omega) \, e^{i \phi(\omega)}$, consisting of amplitude and phase term $A(\omega)$ and $\phi(\omega)$, can be applied. This could, e.g., be realized with a glass plate having a spatially varying thickness to generate a frequency-dependent phase function. An additional metallic coating might, similar to a filter wheel with variable optical density, create the amplitude mask. However, a more sophisticated way to shape pulses is to use liquid crystal masks instead of static masks where each pixel controls a different frequency. After the spectral modifications, the colors are recombined and collimated with an additional lens-grating combination in distance $f$, yielding the output electric field distribution
+\begin{equation}
+	E_{\text{out}}^{+}(\omega) = H(\omega) \, E_{\text{in}}^{+}(\omega) \quad .
+\end{equation}
+A multiplication in frequency domain corresponds to a convolution in time domain, therefore
+\begin{equation}
+	E_{\text{out}}^{+}(t) = \mathcal{F}\left[H(\omega)\right] \otimes E_{\text{in}}^{+}(t) \quad ,
+\end{equation}
+where $\otimes$ denotes the convolution. 
+
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\textwidth]{\currfiledir slm_setup.pdf}
+	\caption{Sketch of a $4f$ setup consisting of two gratings and lenses. The incoming electric field $E_{\text{in}}(\omega)$ is manipulated by a transfer function $H(\omega)$ in the Fourier plane of the lens, resulting in an outgoing field $E_{\text{out}}(\omega)$. }
+	\label{fig:3-4f}
+\end{figure}
+
+
+\section{Typical masks}
+
+A \emph{linear phase}
+\begin{equation}
+	\phi(\omega) = \tau (\omega-\omega_{0})
+\end{equation}
+translates the laser pulse by the $\tau$ in time, without any further spectral modification. The maximum accessible value of $\tau$ depends on the maximum phase change of the SLM. Values around 1~ps are typical, corresponding to 300~\textmu m travel.
+
+A \emph{polynomial phase mask}
+\begin{equation}
+	\phi(\omega) = \sum_{n} \frac{a_{n}}{n!} (\omega-\omega_{0})^{n}
+\end{equation}
+will be used frequently in order to compensate the group delay dispersion of optical elements. Its parameters $a_n$ correspond the the Taylor coefficients of the phase dispersion.
+
+
+The \emph{sinusoidal phase mask}
+\begin{equation}
+	\phi(\omega) = a  \cos \left[ \tau  (\omega-\omega_{0}) - \Delta\phi \right] \quad .
+\end{equation}
+generates a  train of a few pulses\footcite{Renard04}, separated by $\tau$ in time. The amplitude of the $n$-th puls is controlled by the modulation amplitude $a$ and is proportional to the Bessel function of first kind $J_n(a)$.
+
+A \emph{V-shaped phase mask} splits the spectrum at $\omega_s$
+\begin{equation}
+	\phi(\omega) = 
+\left\{
+\begin{matrix}
+	- \tau_{-} (\omega-\omega_s) & \quad \text{for} & \omega < \omega_s \\
+	+ \tau_{+} (\omega-\omega_s) & \quad \text{for} & \omega  \ge \omega_s 
+\end{matrix}
+\right.	
+\end{equation}
+and separates both spectral components by $\tau_{+} + \tau_{-}$ in time. This is similar to pump-probe spectroscopy, where two laser pulses interact with the sample.
+
+The \emph{sinusoidal amplitude mask}
+\begin{equation}
+	A(\omega) = \cos \left[ \frac{\tau}{2} (\omega-\omega_{0}) - \Delta\phi \right] \quad .
+\end{equation}
+creates two identical copies of the pulse separated by a time delay $\tau$. The carrier-envelope phase of both pulses is the same unless $\Delta\phi \neq 0$. This amplitude mask can be used to measure the autocorrelation of a laser pulse. Note that here $A$ changes sign. Depending on the implementation, one might want to leave $A >0$ and include a $\pi$ phase shift.
+
+
+
+
+\section{Realization by liquid crystals}
+
+
+How could one change   amplitude $A$ and phase $\phi$ of the optical field at each pixel? A variation in phase is obtained from a variation of the index of refraction that is experienced by the light field. The amplitude is modified by rotating the direction of linear polarization of the field, and then letting it pass through a linear polarizer, which removes the unwanted fraction of the amplitude. So we need to briefly look into polarization optics and birefringence to understand the working of the spatial light modulator.
+
+
+First we need a birefringent material as used in polarization optics, but the amount of birefringence should be controllable from the outside. This we find in liquid crystals.
+Uniaxial liquid crystals are anisotropic materials which can be approximated by an ellipsoidal molecular shape. The anisotropic shape results in an index of refraction that depends not only on the polarization direction, but also on the angle $\Theta$ between the wave vector $\bk$ and the symmetry axis of the molecule. The latter is called 'optic axis' in polarization optics, not to be confused\sidenote{in German, \emph{both} is 'optische Achse' !} with the 'optical axis'. 
+Light is  decomposed into ordinary and extraordinary rays with refractive indices $n_{\text{o}}$ and $n_{\text{eo}}(\theta)$, respectively. While $n_{\text{o}}$ does not depend on $\Theta$, we have for $n_{\text{eo}}$
+\begin{equation}
+	\frac{1}{n_{\text{eo}}^{2}(\theta)} = \frac{\cos^{2}\theta}{n_{\text{o}}^{2}} + \frac{\sin^{2}\theta}{n_{\text{eo}}^{2}(90^{\circ})} \quad .
+\end{equation}
+ 
+By the manufacturing process of the electrodes a preferential direction, called \emph{director}, is given. Without external electric field, the molecules align in this direction.  Applying an electric field, the molecules orient in this field and turn. The angle $\Theta$ thus changes and so does the index of refraction. The phase difference $\Delta \phi$ between light polarized parallel and perpendicular to the director depends thus on the applied voltage $U$
+\begin{equation}
+	\Delta\phi(\omega,U) = \frac{\omega d}{c_{0}} \left[ n_{\text{eo}}(\omega,U) - n_{\text{o}}(\omega) \right] \quad .
+\end{equation}
+The exact relation has no analytical solution and needs to be calibrated.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{\currfiledir liquid_crystal_combined_new.pdf}
+	\caption{(a) Sketch of a single liquid crystal mask. (b) The liquid crystal molecules (gray) are aligned along the electrode surface (blue) if no voltage is applied. For voltages ${U>0}$ the tilting angle $\theta$ of the molecules changes. (c) In the experiment, two liquid crystal masks are placed between crossed polarizer.}
+	\label{fig:3-lq-display}
+	\end{figure}
+
+This gives only one degree of freedom. In the devices, two liquid crystal panels (A,B) are put directly after each other, but with directors rotated by 90 degrees. Before and after the SLM two linear and crossed polarizers are placed. The two directors are under $\pm$45 degrees to them.  The transmitted electric field is then
+\begin{equation}
+	E^{+} = E_{0}^{+} \sin\left(\frac{\Delta\phi_{\text{A}}-\Delta\phi_{\text{B}}}{2}\right) \exp\left[ i \left(\frac{\Delta\phi_{\text{A}}+\Delta\phi_{\text{B}}+\pi}{2}\right) \right].
+	\label{eq:3_theory-transmitted-E}
+\end{equation}
+It is apparent that this setup imposes an amplitude and phase term to the electric field, depending on the sum and difference of $\phi_{\text{A}}$ and $\phi_{\text{B}}$, respectively. Therefore, by varying the voltages $U_{\text{A}}$ and $U_{\text{B}}$ amplitude and phase of the transmitted field can be independently tuned. Since the SLM is positioned in the Fourier plane, this allows to shape the pulses over the complete spectral bandwidth.
+
+  
+
+
+% Due to the inherent anisotropy liquid crystals show birefringence, i.e., the refractive index of light depends on the polaization direction relative to the long axis of the molecule. This symmetry axis is called 'optic axis', which should not be confused\sidenote{in German, \emph{both} is optische Achse ...} with 'optical axis'. Not only the shape of the mocule, but also the index of refaction is represendted by an ellipsoid (see Fig XXX) When a wave travel in direction $\bk$, we intersect the index ellpsoid with a plane permedicualr to $\bk$ and going through the center of the ellispod. This intersection has the shape of an ellips. The two major axes give the direction and value of the refarctive index seen by the ordinary (o) and extraordinary (eo) polarization. As the ellipsoid is unixaliu $n_o$ is constant, idepebdet of the angle $\Theta$ begweern $\bk$ and the optic axis. For $n_\text{eo}$ we find
+% \begin{equation}
+% 	\frac{1}{n_{\text{eo}}^{2}(\theta)} = \frac{\cos^{2}\theta}{n_{\text{o}}^{2}} + \frac{\sin^{2}\theta}{n_{\text{eo}}^{2}(90^{\circ})} \quad ,
+% \end{equation}
+
+% polarized along the long axis differs from the orthogonal direction. In general, incident light is therefore decomposed into ordinary and extraordinary rays with refractive indices $n_{\text{o}}$ and $n_{\text{eo}}(\theta)$, respectively. The index $n_{\text{eo}}$ depends on the angle $\theta$ between the direction of light propagation and the optical axis which can be easily seen from the two extreme cases: If light is traveling along the optical axis, the transversely polarized light 'sees' the circular cross-section of the molecules and therefore $n_{\text{o}} = n_{\text{eo}}(0^{\circ})$. In contrast, if light travels perpendicular to the optical axis, it 'sees' an ellipsoidal cross section, yielding $n_{\text{o}} \neq n_{\text{eo}}(90^{\circ})$. This effect can be generalized by the index ellipsoid equation\cite{Saleh_Teich}
+% \begin{equation}
+% 	\frac{1}{n_{\text{eo}}^{2}(\theta)} = \frac{\cos^{2}\theta}{n_{\text{o}}^{2}} + \frac{\sin^{2}\theta}{n_{\text{eo}}^{2}(90^{\circ})} \quad ,
+% \end{equation}
+% where $n_{\text{o}}$ and $n_{\text{eo}}$ depend on the light frequency. Liquid crystal masks are in particular useful for pulse shaping since the direction of the optical axis is tunable by varying the voltage $U$ between the electrodes. The emerging electric field induces a torque on the molecules which is balanced by the torque that tries to align all molecules in the predefined direction. The functional dependence $\theta(U)$ is not known analytically and therefore has to be measured in the experiment, but qualitatively $\theta$ decreases with increasing voltage. Linearly polarized light will gather a phase difference $\Delta\phi$ between the ordinary and the extraordinary ray, depending on the frequency, the thickness $d$ of the liquid crystal cell, the vacuum speed of light $c_{o}$ and the applied voltage \cite{Jenoptik2015}
+% \begin{equation}
+% 	\Delta\phi(\omega,U) = \frac{\omega d}{c_{0}} \left[ n_{\text{eo}}(\omega,U) - n_{\text{o}}(\omega) \right] \quad .
+% \end{equation}
+
+
+
+% A Spatial light modulators needs many pixels that shoudl be controlled indiviually. To zis end a single liquid crystal layer is sandwiched between striped transparent electrodes (ITO, indium tin oxide), where the electrode periodicity defines the pixelation of the mask (see Figure \ref{fig:3-lq-display}\,(a)). Similar to an LCD screen, the volatge acorss each opixel is controlled an by this its birefringence
+
+
+
+
+% \begin{figure}
+% \centering
+% \includegraphics[width=11.5cm]{\currfiledir liquid_crystal_combined_new.pdf}
+% \caption{(a) Sketch of a single liquid crystal mask. (b) The liquid crystal molecules (gray) are aligned along the electrode surface (blue) if no voltage is applied. For voltages ${U>0}$ the tilting angle $\theta$ of the molecules changes. (c) In the experiment, two liquid crystal masks are placed between crossed polarizer.}
+% \label{fig:3-lq-display}
+% \end{figure}
+
+% \section{Amplitude and phase control}
+
+% In the experiment, two consecutive masks A and B are placed between crossed polarizes. The optical axes of the masks are perpendicular to each other, where the directions of the optical axes are rotated by $+45^{\circ}$ and $-45^{\circ}$, respectively. The first polarizer selects only the vertical polarization of the incident electric field, called $E_{0}^{+}$. Each mask introduces a phase difference $\Delta\phi_{\text{A,B}}$ between the ordinary and the extraordinary ray in the electric field. The transmitted electric field is then
+% \begin{equation}
+% 	E^{+} = E_{0}^{+} \sin\left(\frac{\Delta\phi_{\text{A}}-\Delta\phi_{\text{B}}}{2}\right) \exp\left[ i \left(\frac{\Delta\phi_{\text{A}}+\Delta\phi_{\text{B}}+\pi}{2}\right) \right].
+% 	\label{eq:3_theory-transmitted-E}
+% \end{equation}
+% It is apparent that this setup imposes an amplitude and phase term to the electric field, depending on the sum and difference of $\phi_{\text{A}}$ and $\phi_{\text{B}}$, respectively. Therefore, by varying the voltages $U_{\text{A}}$ and $U_{\text{B}}$ amplitude and phase of the transmitted field can be independently tuned. Since the SLM is positioned in the Fourier plane, this allows to shape the pulses over the complete spectral bandwidth.
+
+
+%--------------------
+\printbibliography[segment=\therefsegment,heading=subbibliography]

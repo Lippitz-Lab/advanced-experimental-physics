@@ -1,0 +1,548 @@
+\renewcommand{\lastmod}{September 18, 2023}
+\renewcommand{\chapterauthors}{Markus Lippitz}
+
+\chapter{Fourier transformation}
+
+\section{Overview}
+
+It is useful and helpful to have an intuitive approach to the Fourier transform. The bottom line is that in experimental physics one rarely needs to actually calculate a Fourier transform. Very often it is sufficient to know a few frequently occurring Fourier pairs and to combine them with simple rules. This is what I want to present here. A very nice and much more detailed presentation can be found in \cite{Butz2015}. I will follow his notation here.
+
+Before we get to Fourier pairs, however, we need to lay down some foundations.
+
+\section{Fourier series: a periodic function and its Fourier coefficients}
+
+We first consider everything here in one dimension in time or frequency space with the variables $t$ and $\omega = 2 \pi \nu$. Let the function $f(t)$ be periodic in time with period $T$, i.e. 
+\begin{equation}
+ f(t) = f (t + T) \quad .
+\end{equation}
+Then this can be written as a Fourier series
+\begin{equation}
+ f(t) = \sum_{k=-\infty}^{\infty} \, C_k \, e^{i \, \omega_k \, t}
+ \quad \text{with} \quad \omega_k = \frac{2 \pi \, k}{T}
+\end{equation}
+and the Fourier coefficients
+\begin{equation}
+ C_k = \frac{1}{T} \, \int_{-T/2}^{T/2} \, f(t) \, \, e^{-i \, \omega_k \, t} \, dt \quad .
+\end{equation}
+Note the negative sign in the exponential function in contrast to the equation before. For reel-valued functions $f(t)$, 'opposite' $C_k$ are conjugate-complex, so $C_k = C_{-k}^\star$. For $k<0$ the frequencies $\omega_k$ are negative, but this is not a problem.\sidenote{One could alternatively require $k\ge 0$ and apply a $\sin$ and $\cos$ series.} Thus, the zeroth coefficient $C_0$ is just the time average of the function $f(t)$.
+
+
+
+\section{An arbitrary function and its Fourier transform}
+
+Now we remove the restriction to periodic functions $f(t)$ by letting the period $T$ go to infinity. This turns the sum into an integral and the discrete $\omega_k$ become continuous. Thus
+\begin{align}
+ F(\omega) = & \int_{-\infty}^{+\infty} \, f(t) \, e^{- i \omega\, t} \, dt \\
+ f(t) = & \frac{1}{2 \pi } \int_{-\infty}^{+\infty} \, F(\omega) \, e^{+ i \omega\, t} \, d\omega \quad .
+\end{align}
+Here, the first equation is the forward transformation (minus sign in the exponent), and the second is the reverse transformation (plus sign in the exponent). The symmetry is broken by the $2 \pi$. But this is necessary if one wants to keep $F(\omega = 0)$ as mean\sidenote{$F( 0) = \int f(t) \, dt$ without $1/T$ in front of it is meant here by Butz as mean!}. Alternatively, we could formulate all this with $\nu$ instead of $\omega$, but then we would have a $2 \pi$ in many more places, though not before the integral.
+
+
+
+
+
+\section{Sidenote: Delta Function}
+
+The delta function can be written as
+\begin{equation}
+  \delta(x) = \lim_{a \rightarrow 0} f_a(x) \quad
+   \text{with} \quad
+    f_a(x) = \left\{ \begin{matrix}
+    a & \text{if } |x| < \frac{1}{2a} \\
+    0 & \text{other}
+    \end{matrix}
+    \right.
+\end{equation}
+or as
+\begin{equation}
+\delta(x) = \frac{1}{2 \pi}  \int_{-\infty}^{+\infty} \, e^{+ i\, x \, y} \, dy \quad .
+\end{equation}
+An important property is that the delta function selects a value, i.e. 
+\begin{equation}
+ \int_{-\infty}^{+\infty} \, \delta(x) \, f(x) \, dx = f(0) \quad .
+\end{equation}
+
+
+\section{Important Fourier pairs}
+
+It is very often sufficient to know the following pairs of functions and their Fourier transforms. I write them here, following Butz, as pairs in $t$ and $\omega$ (not $\nu = \omega / (2 \pi)$). In the same way, one could have written pairs in $x$ and $k$. The important question is whether a $2 \pi$ appears in the exponential function of the plane wave or not. So
+\begin{equation}
+e^{i \omega t} \quad \text{and} \quad e^{i k x} \quad \text{, but} \quad 
+e^{i 2 \pi \nu t} \quad .
+\end{equation}
+
+Further, I follow here the convention made above about the asymmetric distribution of the $2 \pi$ between forward and reverse transformations. If you distribute them differently, then of course the prefactors change. A good overview of many more Fourier pairs in various '$2 \pi$' conventions can be found in the English Wikipedia under 'Fourier transform'. In their nomenclature, the Butz convention used here is 'non-unitary, angular frequency'.
+
+\paragraph{constant and delta function} $f(t) = a$ becomes $F(\omega) = a \, 2 \pi \, \delta(\omega)$ and $f(t) = a \, \delta(t)$ becomes $F(\omega) = a $. This is again the asymmetric $2 \pi$.
+
+
+\paragraph{rectangle and sinc} The rectangle function of width $b$ becomes a sinc\sidenote{sometimes $\text{sinc}(x) = \sin (\pi x) / (\pi x)$ is defined, especially when $\nu$ and not $\omega$ is used as conjugate variable.}, the sinus cardinalis. So from
+\begin{equation}
+ f(t) = \text{rect} _b (t) = \left\{ 
+ \begin{array}{ll}
+ 1 & \text{for} \quad |t| < b/2 \\
+ 0 & \text{other} \\
+ \end{array}
+ \right.
+\end{equation}
+we get
+\begin{equation}
+F(\omega) = b \, \frac{\sin \omega b / 2}{\omega b /2} = b \, \text{sinc}( \omega b /2) \quad .
+\end{equation}
+
+
+
+\paragraph{Gaussian} The Gaussian function is preserved under Fourier transform. Its width changes into the reciprocal value. So from a Gauss function of area one
+\begin{equation}
+ f(t) = \frac{1}{\sigma \sqrt{2 \pi}} \, e^{- \frac{1}{2} \left( \frac{t}{\sigma} \right)^2}
+\end{equation}
+we get
+\begin{equation}
+ F(\omega) = e^{- \frac{1}{2} \left( \sigma \, \omega \right) ^2 } \quad .
+\end{equation}
+
+
+
+\paragraph{(two-sided) exponential decay and Lorentz curve} From a curve decaying exponentially at both positive and negative times
+\begin{equation}
+ f(t) = e^{- |t| / \tau}
+\end{equation}
+we obtain the Lorentz curve
+\begin{equation}
+ F(\omega) = \frac{2 \tau}{1 + \omega^2 \, \tau^2} \quad .
+\end{equation}
+
+
+\paragraph{one-sided exponential decay} As a side note, here  the one-sided exponential decay
+\begin{equation}
+ f(t) = \left\{ \begin{array}{ll}
+e^{- \lambda t } & \text{for} \quad t > 0 \\
+ 0 & \text{other} \\
+ \end{array}
+ \right. \quad .
+\end{equation}
+It will become
+\begin{equation}
+ F(\omega) = \frac{1}{\lambda + i \, \omega}
+\end{equation}
+and it is therefore complex-valued. Its magnitude squared is again a Lorentz function
+\begin{equation}
+| F(\omega)|^2 = \frac{1}{\lambda^2 + \omega^2}
+\end{equation}
+and the phase is $\phi = - \omega / \lambda$.
+
+
+\paragraph{One-dimensional point lattice} An equidistant chain of points or delta functions remains an equidistant chain under Fourier transform. The distances take  the reciprocal value. So from
+\begin{equation}
+ f(t) = \sum_n \, \delta (t - \delta t \, n)
+\end{equation}
+we get
+\begin{equation}
+ F(\omega) = \frac{2 \pi}{\delta t} \, \sum_n \, \delta \left(\omega - n\frac{2 \pi}{\Delta t} \right). \quad .
+\end{equation}
+
+
+\paragraph{Three-dimensional cubic lattice} A three-dimensional primitive cubic lattice of side length $a$ makes the transitions to a primitive cubic lattice of side length $2 \pi/a$. A face-centered cubic lattice with lattice constant $a$ of conventional unit cell is converted  to a space-centered cubic lattice with lattice constant $4 \pi / a$ and vice versa. 
+
+
+\section{Theorems and properties of the Fourier transform}
+
+In addition to the Fourier pairs, we need a few properties of the Fourier transform. In the following, let $f(t)$ and $F(\omega)$ be Fourier conjugates and likewise $g$ and $G$.
+
+\paragraph{linearity} The Fourier transform is linear
+\begin{equation}
+a \, f(t) + b \, g(t) \quad \leftrightarrow \quad 
+a \, F(\omega) + b \, G(\omega)  \quad .
+\end{equation}
+
+\paragraph{shift} A shift in time implies a modulation in frequency and vice versa.
+\begin{align}
+ f(t - a) & \quad \leftrightarrow \quad 
+F(\omega) \, e^{-i \omega a} \\
+ f(t) \, \, e^{-i \omega_0 t} & \quad \leftrightarrow \quad 
+F(\omega + \omega_0)   \quad .
+\end{align}
+
+\paragraph{scaling}  
+\begin{equation}
+ f( a \, t) \quad \leftrightarrow \quad 
+\frac{1}{|a|} \, F \left( \frac{\omega}{a} \right)   \quad .
+\end{equation}
+
+
+\paragraph{convolution and multiplication} Convolution is converted into a product, and vice versa
+\begin{equation}
+ f(t) \otimes g(t) = \int f(\zeta) g(t- \zeta) d\zeta 
+ \quad \leftrightarrow \quad 
+ F(\omega) \, G(\omega)
+\end{equation}
+and
+\begin{equation}
+ f(t) \, g(t) 
+ \quad \leftrightarrow \quad 
+\frac{1}{2 \pi} \, F(\omega) \otimes G(\omega) \quad .
+\end{equation}
+
+\paragraph{Parseval's Theorem} The total power is the same in both time and frequency domain
+\begin{equation}
+ \int |f(t) |^2 \, dt = \frac{1}{2 \pi} \, \int | F (\omega ) | ^2 \, d\omega
+\end{equation}
+
+\paragraph{time derivatives}
+\begin{equation}
+ \frac{d \, f(t)}{dt} 
+ \quad \leftrightarrow \quad 
+i \omega \, F(\omega)  \quad .
+\end{equation}
+
+
+\section{Example: Diffraction at a double slit}
+
+As an example, we consider the Fourier transform of a double slit, which describes its diffraction pattern. The slits have a width $b$ and a center distance $d$. Thus the slit is described by a convolution of the rectangular function with two delta functions at the distance $d$
+\begin{equation}
+f(x) = \text{rect} _b (x) \, \otimes \, \left( \delta (x - d/2) + \delta (x + d/2) \right) \quad .
+\end{equation}
+The Fourier transform of the rectangular function is the $\text{sinc}$, that of the delta functions a constant. However, the shift in position causes a modulation in $k$-space. Thus, the sum of the two delta functions becomes 
+\begin{equation}
+\mathcal{FT}\left\{ \delta (x - d/2) + \delta (x + d/2) \right\} =
+e^{-i k d/2} + e^{+i k d/2} = 2 \cos ( k d/2) \quad .
+\end{equation}
+The convolution with the rectangular function passes into a multiplication with the $\text{sinc}$. Together we get
+\begin{equation}
+\mathcal{FT}\left\{ f(x) \right\} = b \frac{\sin (k b/2) }{kb/2} \, 2 \cos ( k d/2) = \frac{4}{k} \, \sin (k b/2) \, \cos ( k d/2)  \quad .
+\end{equation}
+The intensity in direction $k$ is then the squared magnitude  of this.
+
+
+
+
+\begin{questions}
+  \item \emph{Temporal shift}
+    Sketch the amplitude and phase of the FT of a temporal square  pulse pulse centred on time zero!    What changes if the pulse is shifted to positive times?
+
+    \item \emph{Pulse sequence} You wonder what the Fourier transform (magnitude squared) of an infinite sequence of square pulses looks like and start searching for it on the internet. Your fellow student replies that you can "see" it immediately.
+    Sketch the Fourier transform!
+    Explain why you could derive it directly or why you should "see" it!
+
+    \item \emph{Light pulse}
+    Think of a "light pulse" as a mathematical construction of an infinitely long cosine oscillation corresponding to the frequency of light. The "pulse" is obtained by multiplying the wave by a time-limited Gaussian pulse envelope (e.g. half-width of 10 light oscillations).
+    Sketch the construction of the Fourier transform in the spectral domain.
+\end{questions}
+
+
+
+
+\section{Two-dimensional Fourier transformation}
+
+We can extend the definition of the Fourier transform to two and more dimensions. The conjugated variables are $(x,y)$ and $(k_x, k_y)$ instead of $t$ and $\omega$. The wave vector $k_i = 2\pi / \lambda_i$ contains the factor $2\pi$ as in the angular frequency $\omega$. We define
+\begin{align}
+  F(k_x, k_y) = & \iint_{-\infty}^{+\infty} \, f(x,y) \, e^{- i (k_x \, x + k_y \, y )} \, dx \, dy \\
+  f(x,y) = & \frac{1}{(2 \pi )^2} \iint_{-\infty}^{+\infty} \, F(k_x, k_y) \,\, e^{+ i (k_x \, x + k_y \, y )}  \, dk_x \,dk_y \quad .
+ \end{align}
+
+When we can separate the function $f(x,y)$ into a product of one-dimensional functions, then  the Fourier transform is simply the product of the individual Fourier transforms
+\begin{equation}
+  f(x,y) = g(x) \cdot h(y) \quad \leftrightarrow \quad 
+  F(k_x, k_y) = G(k_x) \cdot H(k_y) \quad .
+\end{equation}
+
+A rectangle of size $a \times b$ is transformed into a product of sinc functions
+\begin{align}
+  (x,y) = & \text{rect} _a (x) \cdot \text{rect} _b (y) \\
+  \leftrightarrow \quad  F(k_x, k_y) = & a b \, \text{sinc}( k_x a /2) \, \text{sinc}( k_y b /2) \quad .
+\end{align}
+
+
+A special case of this is the rotational symmetric two-dimensional Gaussian function
+\begin{equation}
+  f(x,y) = 
+  \frac{1}{2 \pi \sigma^2} \, e^{-  \frac{x^2 + y^2}{2 \sigma^2} }
+  \quad \leftrightarrow \quad 
+  F(k_x, k_y) = e^{- \frac{\sigma^2 }{2} \left(k_x^2 + k_y^2 \right)  } \quad .
+\end{equation}
+
+One important function can not be separated into a product of one-dimensional functions: a disc of radius $a$
+    \begin{equation}
+    f(x,y)  = \left\{ 
+    \begin{array}{ll}
+    1 & \text{for} \quad x^2+y^2 < a \\
+    0 & \text{other} \\
+    \end{array}
+    \right.
+   \end{equation}
+is transformed into 
+\begin{equation}
+  F(k_x, k_y) = a \, \frac{J_1(\pi \, a \, \rho )}{\rho}
+  \quad \text{width} \quad \rho = \sqrt{k_x^2 + k_y^2}
+\end{equation}
+and the (cylindrical) Bessel function of the first kind $J_1(x)$
+\begin{equation}
+  J_1(x) = \frac{1}{\pi} \int_0^\pi \cos (\tau - x \sin \tau) \,d\tau \quad ,
+\end{equation}
+which is the cylindrical analogue of a sinc function.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Discrete FT: a periodic sequence of values}
+
+
+In particular, if one collects and evaluates measurement data with a computer, then one does not know the measured function $f(t)$ on a continuous axis $t$, but only at discrete times $t_k = k \, \delta t$, nor does one know the function from $t = - \infty$ to $t = + \infty$. So we have only a finite sequence of numbers $f_k$ as a starting point.
+Because we do not know the sequence of numbers outside the measured interval we make the assumption that it is periodic. With $N$ measured values the period is $T = N \Delta t$. For simplicity, we also define $f_k = f_{k + N}$ and thus $f_{-k} = f_{N - k}$ with $k= 0, 1, \dots, N-1$. Thus the Fourier transform becomes\sidenote{see \cite{Butz2015} chap. 4, \cite{Horowitz_Hill}, chap. 1.08, 7.20, 15.18}
+\begin{equation}
+  F_j =  \frac{1}{N} \, \sum_{k=0}^{N-1} \, f_k \, e^{- k \, j \, 2 \pi i / N } 
+ \end{equation}
+and its inverse transform
+ \begin{equation}
+ f_k =   \sum_{j=0}^{N-1} \, F_j \, e^{+ k \,  j \, 2 \pi i / N } \quad .
+ \end{equation}
+The definition is again such that $F_0$ corresponds to the mean. Because of $f_{-k} = f_{N - k}$, the positive frequencies are in the first half of $F_j$ as the frequency increases. After that come the negative frequencies, starting at the 'most negative' frequency and increasing to the last frequency before zero. So the maximum frequency that can be represented is the Nyquist (angular) frequency
+\begin{equation}
+\Omega_\text{Nyquist} = \frac{\pi}{\delta t} \quad .
+\end{equation}
+%
+This frequency is such that we take two samples per period of the
+oscillation. Faster oscillations or fewer samples per period cannot be
+represented. Even with $f_\text{Nyquist}$ the imaginary part is always zero, because we always sample the sine at the 
+zero crossing.
+
+
+% \begin{jllisting}
+%   using Plots
+%   x = range(0, 2 * pi; length=100)
+%   plot(x, sin.(x); label="ein Sinus")
+% \end{jllisting}
+
+
+\section{FFTW}
+
+The most used package for numerical Fourier transform is probably FFTW\sidenote{\url{https://www.fftw.org/}}. You have to pay attention to the details of the definition. In particular, the prefactors may differ between different packages. In FFTW, the prefactor $1/N$ changes from the forward to the backward transformation, i.e.
+%
+\begin{equation}
+ F_j =   \sum_{k=0}^{N-1} \, f_k \, e^{- k \, j \, 2 \pi i / N } 
+\end{equation}
+%
+and the inverse Fourier transform
+%
+\begin{equation}
+f_k =  \frac{1}{N} \, \sum_{j=0}^{N-1} \, F_j \, e^{+ k \,  j \, 2 \pi i / N } \quad .
+\end{equation}
+In equations, I (and Butz) use mathematical indices (starting from zero).
+Some programming languages count from one (e.g., Julia).
+
+One helpful thing of FFTW is that is supplies also a frequency axis. As mentioned above, first come the positive frequencies, starting from zero to the maximum, then the most negative frequency, again rising until just before zero. 
+Depending wether the number of samples $N$ is  even or odd, it is a little bit of a hassle 
+to calculate the respective frequencies, but FFTW   does this for us:
+\begin{jllisting}
+  fftfreq(5) # gives [0.0, 0.2, 0.4, -0.4, -0.2]
+  fftfreq(6) # gives [0.0, 0.166, 0.333, -0.5, -0.333, -0.1.66]
+\end{jllisting}
+
+\begin{questions}
+  \item Try yourself the FFT in a language of your choice. The FFT of, say, $[1 1 1 1]$ should give something like $[4 0 0 0 ]$. 
+  \item The inverse FFT is IFFT. Check that it inverts and test how the pre-factors are distributed.
+\end{questions}
+
+
+
+\subsection{Wrapping \& fftshift}
+
+Now lets look at the Fourier transform of a cosine. We evaluate the cosine at 8 points:
+\begin{align}
+  x_n = & n \frac{2 \pi}{8} \quad \text{with} \quad n = 0 \dots 7 \\
+  f_n = & \cos x_n \\
+  F = & \mathcal{FT} (f) \quad .
+\end{align}
+We find that only $F_1$ and $F_7$ are different from zero and have the same, real value.
+Two values must be different from zero because
+\begin{equation}
+ \cos(x) = \frac{1}{2} \left(e^{i x} + e^{-i x} \right) \quad .
+\end{equation}
+In general, for real  values $f_n$ we have
+\begin{equation}
+F_{N-j} = F_j^\star \quad .
+\end{equation}
+
+
+
+The position of these two non-zero values is a
+consequence of the definition of $F_k$: first come all positive
+frequencies and then all negative. For a nicer representation it is often better if the frequency zero is not the first element
+but in the middle between the positive and negative frequencies.
+frequencies. This we get by  \jlinl{fftshift} or backwards by \jlinl{ifftshift}.  
+
+\begin{questions}
+  \item Convince yourself that you understand why it is element 1 and 7 that differs from zero in the example above.
+  \item Replace the cosine with a sine in this example and
+  explain the result.
+\end{questions}
+  
+
+
+
+\section{Sampling theorem}
+
+We need at least two samples per period to describe a function by its
+   Fourier coefficients. The frequencies must be
+   below the Nyquist frequency $f_\text{Nyquist}$
+%
+\begin{equation}
+f_\text{Nyquist} = \frac{1}{2 \Delta t} \quad .
+\end{equation}
+%
+The \emph{sampling theorem} states that this is then also sufficient, i.e., we do not lose any detail by sampling.
+Let $f(t)$ be a bandwidth-limited function, i.e.
+$F(\omega)$ is different from zero only in the interval $|\omega| \le \Omega_\text{Nyquist}$. Then the sampling theorem\sidenote{for a proof see \cite{Butz2015}, chap. 4.4} applies and gives 
+%
+\begin{equation}
+f(t) \overset{!}{=} \sum_{k=-\infty}^{\infty} \, f( k \Delta t) \, \text{sinc} \left( \Omega_\text{Nyquist} \cdot [t - k \Delta t] \right) \quad .
+\end{equation}
+So it is enough to sample $f$ all $\Delta t$. At the
+times in between, $f$ is completely described by the (infinitely long) sum of the
+neighbouring values times the sinc.
+
+In measurement technology, therefore, all we need to do is ensure, for example by means of an electrical filter, that all the frequencies of a signal are below
+$\Omega_\text{Nyquist}$, and then our digital acquisition of the signal will be
+is identical to the signal itself.
+However, if we sample too infrequently, or if there are higher frequencies present, then these too high frequency components will be reflected at the 
+Nyquist frequency and end up at seemingly lower frequencies. This 'aliasing' distorts the signal.
+ 
+
+
+
+\section{Zero padding}
+
+
+We began with a repeating pattern of numerical values and their
+Fourier transform. We always picked the length of the sequence in the examples to match an integer multiple of the period.
+But of course, this isn't feasible in reality. We lack accurate knowledge of the signal's duration.
+Or sometimes, multiple signals with varying frequencies are important.
+
+The problem is then a truncation error, which leads to artefacts in the
+Fourier transform.  Fig. \ref{fig:1_clipping} shows an example. 12 data points of a cosine with period 8 are sampled. The FFT assumes periodic continuation (thick) which is not the 'true' signal (thin). In this case, the FFT of the data is far from a peak at the original frequencies. The real part is even spectrally constant (see below Fig. \ref{fig:1_zeropadding})
+
+\begin{marginfigure}
+  \inputtikz{\currfiledir clipping_artefact}
+  \caption{Clipping a cosine after 1.5 periods }
+  \label{fig:1_clipping}
+\end{marginfigure}
+
+
+
+The way out is \emph{zero-padding}. Let our actual
+measured signal sequence $f(t)$, which we know in the interval $[-T, T]$.
+Now we pretend that we measured instead
+\begin{equation}
+g(t) = f(t) \cdot w(t)
+\end{equation}
+with the window function $w(t)$
+\begin{equation}
+w(t) = 1 \quad \text{for} \quad -T < t < T \quad \text{other} = 0 \quad .
+\end{equation}
+Thus we can `measure' $g(t)$ over arbitrarily long times, because it is
+is quasi always zero. But the Fourier transform is
+\begin{equation}
+G(\omega) = F(\omega) \otimes W(\omega)
+\end{equation}
+with
+\begin{equation}
+W(\omega)= 2T \, \frac{\sin \omega T}{\omega T} = 2T \, \text{sinc}( \omega T). \quad .
+\end{equation}
+
+ 
+So we extend our data set on both sides with zeros.
+The effect is that we convolve the actual Fourier transform of our
+data set with a $\text{sinc}$ whose characteristic width is determined by the actual
+measurement duration. The
+frequency resolution does not increase. Rather, a kind of
+interpolation in Fourier space occurs, which just eliminates the artefacts of the
+truncation error.  
+
+
+We consider the same data set as above, only we 'extend' it to 10 times the length. This means that the clipping error has less
+influence and the peak is always at 1 Hz in frequency space. But this does not give
+more resolution, of course. Peaks that are close to each other cannot be
+separated by zero-padding, only the position of a peak can be be determined better .  
+
+\begin{marginfigure}
+  \inputtikz{\currfiledir zeropadding}
+  \caption{Zeropadding (line) approaches better the real spectrum (filled symbols) compared to the clipped FT (open symbols).}
+  \label{fig:1_zeropadding}
+\end{marginfigure}
+
+
+
+
+
+
+
+
+\section{Windowing}
+
+
+
+The oscillations in the spectrum in the last example are still
+artefacts. Actually, one would expect two delta functions at $\pm 1$Hz. They are a consequence of the rectangular window $w(t)$, which
+leads to the sinc in frequency space. The square-wave window is natural in the sense that we always start and stop measuring. Other window functions\sidenote{\url{https://en.wikipedia.org/wiki/Window_function}}, however, may be better.They differ the width of the peak and the steepness of the slopes. Unfortunately one must trade
+one against the other. Interesting parameters are
+the width of the central peak in frequency space, measured as a
+-3dB bandwidth, as well as the sideband suppression in \sidenote{dB = decibel = $10 \log_10 x$} dB or its
+drop in dB/octave.
+
+
+Typical window functions are (with $|x| = |t/T| < 1/2$ )
+\begin{align}
+\text{cosine} &  = \cos \pi x \\
+\text{triangle} = & 1 - 2 |x| \\
+\text{Hanning} = & \cos^2 \pi x \\
+ \text{Hamming} = & a + (1-a)\cos^2 \pi x  \\
+ \text{Gauss} = & \exp \left( - \frac{1}{2} \frac{x^2}{\sigma^2} \right) \\
+\text{Kaiser-Bessel} =  & \frac{I_0(\pi \alpha \sqrt{1-4 x^2})}{I_0(\pi \alpha)} 
+\end{align}
+with the modified Bessel function $I_0$.
+
+
+
+
+With a window, the measured values are reduced, but the Fourier
+transform is smoother, because the transition to the
+zero padding becomes smoother. This makes it possible to recognize in the example the peaks at $\pm 1$Hz
+even with very few sampled points. 
+
+\begin{marginfigure}
+  \inputtikz{\currfiledir zeropadding_window}
+  \caption{Zeropadding after windowing (thick) removes the fringes of the un-windowed data (thin) and approaches the true spectrum (solid symbols).}
+  \label{fig:1_zeropadding_window}
+\end{marginfigure}
+
+
+
+
+
+
+We consider as example\sidenote{from \cite{Butz2015}, chapter 3.10} a sum of 6 cosine functions with partly very different amplitudes $A_l$ and frequencies $f_l$:
+\begin{align}
+  f(t) = & \cos \omega t + 10^{-2} \cos 1.15 \omega t  + 10^{-3} \cos 1.25 \omega t \\
+   & + 10^{-3} \cos 2 \omega t  + 10^{-4} \cos 2.75 \omega t + 10^{-5} \cos 3 \omega t \nonumber
+\end{align}
+We sample 256 data points at intervals of $\Delta t = 1/8$, i.e. only
+$8/3 \approx 3$ data points per oscillation of the highest occurring frequency, which is 5 orders of magnitude weaker than the lowest frequency.
+Nevertheless, this peak can be found with a suitable window and
+zero-padding.  
+
+
+
+\begin{marginfigure}
+  \inputtikz{\currfiledir example_rect}
+
+  \inputtikz{\currfiledir example_hanning}
+  
+  \caption{Without windowing (top), only the main signal component is recovered. A Hanning window (bottom) allows to find even signals $10^{-5}$ below the main component.}
+  \label{fig:1_example_windowing}
+\end{marginfigure}
+
+
+
+%--------------------
+\printbibliography[segment=\therefsegment,heading=subbibliography]

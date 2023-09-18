@@ -1,0 +1,144 @@
+
+  
+\begin{tikzpicture}[thick, font=\footnotesize, millerlabel/.style={
+%font=\tiny,
+rotate=90, xshift=0mm, anchor=west},]
+
+\clip (-0.2,-2.5) rectangle (11.05,1.4);
+
+\tikzmath{\dy = -0.2; \fc = -0.3; \bc = -0.6;}
+
+\begin{scope}[scale=2.44]
+
+
+\coordinate (c000) at (0.000,0); 
+\node[millerlabel] (n000) at (0.000,0) {(000)}; 
+\coordinate (c100) at (1.000,0); 
+\node[millerlabel] (n100) at (1.000,0) {(100)}; 
+\coordinate (c110) at (1.414,0); 
+\node[millerlabel] (n110) at (1.414,0) {(110)}; 
+\coordinate (c111) at (1.732,0); 
+\node[millerlabel] (n111) at (1.732,0) {(111)}; 
+\coordinate (c200) at (2.000,0); 
+\node[millerlabel] (n200) at (2.000,0) {(200)}; 
+\coordinate (c210) at (2.236,0); 
+\node[millerlabel] (n210) at (2.236,0) {(210)}; 
+\coordinate (c211) at (2.449,0); 
+\node[millerlabel] (n211) at (2.449,0) {(211)}; 
+\coordinate (c220) at (2.828,0); 
+\node[millerlabel] (n220) at (2.828,0) {(220)}; 
+\coordinate (c221) at (3.000,0); 
+%\node[millerlabel] (n221) at (3.000,0) {(221)}; 
+\coordinate (c300) at (3.000,0); 
+\node[millerlabel] (n300) at (3.000,0) {(300)(221)}; 
+\coordinate (c310) at (3.162,0); 
+\node[millerlabel] (n310) at (3.162,0) {(310)}; 
+\coordinate (c311) at (3.317,0); 
+\node[millerlabel] (n311) at (3.317,0) {(311)}; 
+\coordinate (c222) at (3.464,0); 
+\node[millerlabel] (n222) at (3.464,0) {(222)}; 
+\coordinate (c320) at (3.606,0); 
+\node[millerlabel] (n320) at (3.606,0) {(320)}; 
+\coordinate (c321) at (3.742,0); 
+\node[millerlabel] (n321) at (3.742,0) {(321)}; 
+\coordinate (c400) at (4.000,0); 
+\node[millerlabel] (n400) at (4.000,0) {(400)}; 
+\coordinate (c322) at (4.123,0); 
+%\node[millerlabel] (n322) at (4.123,0) {(322)}; 
+\coordinate (c410) at (4.123,0); 
+\node[millerlabel] (n410) at (4.123,0) {(410)(322)}; 
+\coordinate (c330) at (4.243,0); 
+%\node[millerlabel] (n330) at (4.243,0) {(330)}; 
+\coordinate (c411) at (4.243,0); 
+\node[millerlabel] (n411) at (4.243,0) {(411)(330)}; 
+\coordinate (c331) at (4.359,0); 
+\node[millerlabel] (n331) at (4.359,0) {(331)}; 
+\coordinate (c420) at (4.472,0); 
+\node[millerlabel] (n420) at (4.472,0) {(420)}; 
+\coordinate (c421) at (4.583,0); 
+%\node[millerlabel] (n421) at (4.583,0) {(421)}; 
+\coordinate (c332) at (4.690,0); 
+%\node[millerlabel] (n332) at (4.690,0) {(332)}; 
+\coordinate (c422) at (4.899,0); 
+%\node[millerlabel] (n422) at (4.899,0) {(422)}; 
+\coordinate (c430) at (5.000,0); 
+%\node[millerlabel] (n430) at (5.000,0) {(430)}; 
+\coordinate (c431) at (5.099,0); 
+%\node[millerlabel] (n431) at (5.099,0) {(431)}; 
+\coordinate (c333) at (5.196,0); 
+%\node[millerlabel] (n333) at (5.196,0) {(333)}; 
+\coordinate (c432) at (5.385,0); 
+%\node[millerlabel] (n432) at (5.385,0) {(432)}; 
+\coordinate (c440) at (5.657,0); 
+%\node[millerlabel] (n440) at (5.657,0) {(440)}; 
+\coordinate (c441) at (5.745,0); 
+%\node[millerlabel] (n441) at (5.745,0) {(441)}; 
+\coordinate (c433) at (5.831,0); 
+%\node[millerlabel] (n433) at (5.831,0) {(433)}; 
+\coordinate (c442) at (6.000,0); 
+%\node[millerlabel] (n442) at (6.000,0) {(442)}; 
+\coordinate (c443) at (6.403,0); 
+%\node[millerlabel] (n443) at (6.403,0) {(443)}; 
+\coordinate (c444) at (6.928,0); 
+%\node[millerlabel] (n444) at (6.928,0) {(444)}; 
+
+
+% sc ---------------
+\foreach \u in {0,1,2,3,4}
+  {
+  \draw (c\u00) -- ++ (0,\dy);
+  }
+  
+\foreach \u in {1,2,3,4}
+  {
+  \draw (c\u10) -- ++ (0,\dy);
+  \draw (c\u11) -- ++ (0,\dy);
+  }
+  
+\foreach \u in {2,3,4}
+  {
+  \draw (c\u20) -- ++ (0,\dy);
+  \draw (c\u21) -- ++ (0,\dy);
+  \draw (c\u22) -- ++ (0,\dy);
+  }
+   \draw (c331) -- ++ (0,\dy);
+ 
+  % fcc ---------------
+
+  \draw ($(c000) + (0,\fc)$) -- ++ (0,\dy);
+  \draw ($(c111) + (0,\fc)$) -- ++ (0,\dy);
+  \draw ($(c200) + (0,\fc)$) -- ++ (0,\dy);
+  \draw ($(c220) + (0,\fc)$) -- ++ (0,\dy);
+  \draw ($(c311) + (0,\fc)$) -- ++ (0,\dy);
+  \draw ($(c222) + (0,\fc)$) -- ++ (0,\dy);
+  \draw ($(c400) + (0,\fc)$) -- ++ (0,\dy);
+  \draw ($(c331) + (0,\fc)$) -- ++ (0,\dy);
+  \draw ($(c420) + (0,\fc)$) -- ++ (0,\dy);
+  
+    % bcc ---------------
+
+  \draw ($(c000) + (0,\bc)$) -- ++ (0,\dy);
+  \draw ($(c110) + (0,\bc)$) -- ++ (0,\dy);
+  \draw ($(c200) + (0,\bc)$) -- ++ (0,\dy);
+  \draw ($(c211) + (0,\bc)$) -- ++ (0,\dy);
+  \draw ($(c220) + (0,\bc)$) -- ++ (0,\dy);
+  \draw ($(c310) + (0,\bc)$) -- ++ (0,\dy);
+  \draw ($(c222) + (0,\bc)$) -- ++ (0,\dy);
+  \draw ($(c321) + (0,\bc)$) -- ++ (0,\dy);
+  \draw ($(c400) + (0,\bc)$) -- ++ (0,\dy);
+  \draw ($(c411) + (0,\bc)$) -- ++ (0,\dy);
+  \draw ($(c420) + (0,\bc)$) -- ++ (0,\dy);
+  
+ \node at (0.52, {\dy/2}) {primitiv};  
+ \node at (0.52, {\fc + \dy/2}) {flächenzentriert};  
+ \node at (0.52, {\bc + \dy/2}) {raumzentriert};  
+ 
+  \end{scope}
+  
+  \draw[->,thin]  (0,-2.1) node [below] {$0$} -- ++ (11.05,0) node [anchor=north east] {$k$};
+
+  
+  \end{tikzpicture}
+
+
+
