@@ -1,4 +1,4 @@
-\renewcommand{\lastmod}{September 18, 2023}
+\renewcommand{\lastmod}{October 11, 2023}
 \renewcommand{\chapterauthors}{Markus Lippitz}
 
 \chapter{Fourier Optics}
@@ -68,7 +68,7 @@ This becomes useful when calculating the field \emph{at any point in space}, i.e
 \end{equation}
 where $k_z$ now depends on the integrating variables
 \begin{equation}
-    k_z = \sqrt{k^2 - k_x^2 - k_y^2} = 2 \pi \left( \frac{1}{\lambda^2} - \nu_x^2 - \nu_y^2 \right) \quad .
+    k_z = \sqrt{k^2 - k_x^2 - k_y^2} = 2 \pi \sqrt{ \frac{1}{\lambda^2} - \nu_x^2 - \nu_y^2 } \quad .
     \label{eq:2_Uxyz_kz}
 \end{equation}
 Again the requirement of propagating waves entails $\nu_x^2 + \nu_y^2 <  1/\lambda^2$, so not all Fourier components of $F$ play a role.
@@ -100,7 +100,7 @@ For spatial frequencies $\nu_x^2 + \nu_y^2 <  1/\lambda^2$, i.e., within a circl
 High spatial frequencies $\nu$ near $1/\lambda$ are far away from the paraxial approximation. In most cases it is sufficient to restrict ourself to low spatial frequencies $ \ll 1/\lambda$. In this case, we can use the \emph{Fresnel approximation} of the transfer function
 \begin{equation}
     H(\nu_x, \nu_y)_\text{Fresnel} = H_0 \exp \left(  
-   - 2 \pi \, i  \, d \, (
+   -  \pi \, i  \, d \lambda \, (
  \nu_x^2 + \nu_y^2 )
     \right) \quad \text{with} \quad H_0 = e^{i k d} \quad .
 \end{equation}
@@ -189,7 +189,7 @@ in the focal plane, where $f$ describes the focal length of the lens. A lens thu
 The remaining question is the prefactor $\tilde{h}$. If it would depend of the spatial coordinates $x$ and $y$, this would destroy the Fourier transform. To obtain $\tilde{h}$, we multiply the transfer functions of free space for the distance source plane to lens (length $d$) and lens to target plane (length $f$). And we need to multiply a transfer function for the lens, as the lens has a thickness profile $t(x,y)$ of a material with a certain index of refraction. All together one obtains\sidenote{details in \cite{SalehTeich1991}, chapter 4}
 \begin{equation}
     \tilde{h}(x,y) =  \tilde{h}_0 \exp \left( 
--i \pi \frac{(x^2 - y^2)(d-f)}{\lambda^2 f}
+- i \pi \frac{(x^2 + y^2)(d-f)}{\lambda f^2}
     \right) \quad \text{with} \quad  \tilde{h}_0  = \frac{-i}{\lambda f} \, e^{ik (d+f)} \quad .
 \end{equation}
 This factor becomes spatially constant when the condition $d=f$ is met. A lens thus performs an optical Fourier transform between is two focal planes. In a spectrometer, the grating sits in the front focal plane of the curved mirror (acting as a lens), the detector in its back focal plane.
