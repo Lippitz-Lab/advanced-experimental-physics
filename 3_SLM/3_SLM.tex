@@ -1,4 +1,4 @@
-\renewcommand{\lastmod}{September 18, 2023}
+\renewcommand{\lastmod}{October 27, 2023}
 \renewcommand{\chapterauthors}{Markus Lippitz, Christoph Schnupfhagn}
 
 \chapter{Spatial Light Modulator}
@@ -17,7 +17,7 @@ In general, the electric field $E(x,t)$ results from a superposition of all cavi
 The wave vector $k$ is given by the dispersion relation $k=\omega/c$.
 The spatial dependence is dropped for simplicity. The electric field in time domain is linked to its counterpart in frequency domain by Fourier transform
 \begin{equation}
-	E(\omega) = \mathcal{F}[E(t)] = \int_{-\infty}^{\infty} E(t) e^{- i \omega t} \text{d}t \quad .
+	E(\omega) = \mathcal{F}[E(t)] = \int_{-\infty}^{\infty} E(t) e^{- i \omega t} dt \quad .
 \end{equation}
 Since $E(\omega)$ is complex-valued while $E(t)$ is a real function, it follows $E(\omega) = E^{*}(-\omega)$. Therefore, it is sufficient to look only at the positive frequencies $E^{+}(\omega)$ and  one separates them by writing
 \begin{equation}
@@ -40,7 +40,7 @@ where
 \end{equation}
 The Fourier transform of $E^{+}(\omega)$ is then
 \begin{equation}
-	E^{+}(t) = \frac{1}{2\pi} \int E^{+}(\omega) e^{ i \omega t} \text{d}t \quad .
+	E^{+}(t) = \frac{1}{2\pi} \int E^{+}(\omega) e^{ i \omega t} d\omega \quad .
 \end{equation}
 And of course we can decompose the complex $E^{+}(\omega)$  into phase and amplitude
 \begin{equation}

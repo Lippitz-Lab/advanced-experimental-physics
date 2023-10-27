@@ -1,5 +1,5 @@
 \renewcommand{\chapterauthors}{Markus Lippitz}
-\renewcommand{\lastmod}{September 18, 2023}
+\renewcommand{\lastmod}{October 27, 2023}
 
 
 \chapter{X-Ray Scattering}
@@ -27,11 +27,11 @@ In a Debye-Scherrer powder diffractometer, a monochromatic X-ray beam passes thr
 
 This method is simpler than the historically older Laue method, which uses a single homogeneous crystal as the diffractive element. The powder contains all the orientations of the crystal with respect to the incident beam. As we will see below with the Ewald sphere, it is rather unlikely that the combination of wavelength, incident direction and grating will lead to constructive interference. In the Laue method, therefore, the crystal must be appropriately oriented and/or broad spectrum X-rays must be used.
 
-The formalism presented in this chapter is not restricted to the diffraction of X-rays. You can also diffract visible light, electrons or neutrons in a completely analogous way. The relationship between energy per particle and wavelength is different. Short wavelengths can be obtained with massive particles at lower energies.  The choice of beam also determines whether the distribution of electrons (X-rays) or nuclei (neutrons) is studied.
+The formalism presented in this chapter is not restricted to the diffraction of X-rays. You can also diffract visible light, electrons or neutrons in a completely analogous way. The relationship between energy per particle and wavelength is different. Short wavelengths can be obtained with massive particles at lower energies.  The choice of beam also determines whether  electrons (X-rays) or nuclei (neutrons) are studied.
 
-\section{Basic idea of scattering theory}
+\section{Fundamental idea of scattering theory}
 
-How does a wave interact with a given arrangement of objects? This question is answered by the scattering theory. In this section, we remain general, specifying neither the type of wave (light, electrons, neutrons), nor the type of objects (gaps, electrons, nuclei). The nomenclature follows \cite{Hunklinger2014}.
+How does a wave interact with a given arrangement of objects? This question is answered by the scattering theory. In this section, we remain general, specifying neither the type of wave (light, electrons, neutrons), nor the type of objects (slits, electrons, nuclei). The nomenclature follows \cite{Hunklinger2014}.
 
 A plane, here for simplicity scalar wave $A(t)$ thus
 \begin{equation}
@@ -39,13 +39,13 @@ A plane, here for simplicity scalar wave $A(t)$ thus
 \end{equation}
 is described by the amplitude $A_0$, angular frequency $\omega_0$ and wave vector $\mathbf{k}_0$. This wave falls on the point-like scattering center at the origin of the coordinate system and generates  an outgoing spherical wave of the form
 \begin{equation}
- A_Z(t) = \frac{\tilde{A}}{R} \, e^{- i \, (\omega_0 t - k_0 R)}
+ A_{sc}(t) = \frac{\tilde{A}}{R} \, e^{- i \, (\omega_0 t - k_0 R)}
 \end{equation}
 where the spherical wave depends only on the distance $R = |\mathbf{R}|$ to the center of the sphere and the magnitude $k_0 = | \mathbf{k}_0| $ of the wave vector. The amplitude $\tilde{A}$ depends on the efficiency of the process.
 
 \begin{marginfigure}
 \inputtikz{\currfiledir kugelwelle}
-\caption{Sketch scatter at a point}
+\caption{Scattering at a point}
 \end{marginfigure}
 
 An extended sample thus consists of many scattering centers over which one sums the amplitudes. However, one must consider the phase difference of the individual waves when integrating over many scattering centers. For two scattering centers, one at the origin, the other at $\mathbf{r}$, one finds by geometrical considerations the phase difference
@@ -58,7 +58,7 @@ An extended sample thus consists of many scattering centers over which one sums 
 \begin{equation}
 \delta \phi = ( \mathbf{k} - \mathbf{k}_0 ) \cdot \mathbf{r} \quad ,
 \end{equation}
-if $\mathbf{k}$ is the wave vector of the outgoing scattered plane wave.\sidenote{The spherical wave from above can be written as an integral over plane waves in all spatial directions}. So this gives
+if $\mathbf{k}$ is the wave vector of the outgoing scattered plane wave.\sidenote{The spherical wave from above can be written as an integral over plane waves in all spatial directions} So this gives
 \begin{equation}
   A_S(t) = \frac{\tilde{A}}{R} \, e^{- i \, (\omega_0 t - k_0 R)} \,
   \sum_j e^{- i \, ( \mathbf{k} - \mathbf{k}_0 ) \cdot \mathbf{r}_j} \quad .
@@ -68,12 +68,12 @@ Here we made the assumption that the size of the sample, i.e., the differences b
 Now we go from single scattering centers at positions $\mathbf{r}_j$ to a \emph{scattering density} $\rho(\mathbf{r})$, i.e., to the number of scattering centers in a volume element $dV$. Thus the sum becomes an integral and we obtain for the scattered wave
 \begin{align}
  A_S(t) = & \frac{\tilde{A}}{R} \, e^{- i \, (\omega_0 t - k_0 R)} \,
-  \int_{V_\text{Probe}} \, \rho( \mathbf{r}) \, e^{- i \, ( \mathbf{k} - \mathbf{k}_0 ) \cdot \mathbf{r}} \, dV \
+  \int_{V_\text{sample}} \, \rho( \mathbf{r}) \, e^{- i \, ( \mathbf{k} - \mathbf{k}_0 ) \cdot \mathbf{r}} \, dV \
   = & \frac{\tilde{A}}{R} \, e^{- i \, (\omega_0 t - k_0 R)} \, \mathcal{A}(\mathbf{K}) 
 \end{align}
-with the \emph{scattering amplitude} as Fourier-transformed of the scattering density
+with the \emph{scattering amplitude} as Fourier-transformed scattering density
 \begin{equation}
-\mathcal{A}(\mathbf{K}) = \int_{V_\text{probe}} \, \rho( \mathbf{r}) \, e^{- i \, ( \mathbf{k} - \mathbf{k}_0 ) \cdot \mathbf{r}} \, dV = \mathcal{FT} \left\{ \rho( \mathbf{r}) \right\} \label{eq:4_scattering_amplitude}
+\mathcal{A}(\mathbf{K}) = \int_{V_\text{sample}} \, \rho( \mathbf{r}) \, e^{- i \, ( \mathbf{k} - \mathbf{k}_0 ) \cdot \mathbf{r}} \, dV = \mathcal{FT} \left\{ \rho( \mathbf{r}) \right\} \label{eq:4_scattering_amplitude}
 \end{equation}
 and the \emph{scattering vector} $\mathbf{K} = \mathbf{k} - \mathbf{k}_0$. Thus, in scattering experiments, one measures the Fourier transform of the scattering density. This is valid for diffraction at double slit as well as for diffraction of X-rays at electron distribution in a crystal. 
 
@@ -136,7 +136,7 @@ The Bragg condition only predicts whether there is a peak in a certain direction
 The intensity of a scattering peak is proportional to the square of the scattering amplitude. With Eq.~\ref{eq:4_scattering_amplitude} we get
 \begin{equation}
 I(\mathbf{K}) \propto \left| \mathcal{A}(\mathbf{K}) \right|^2 
-= \left| \int_{V_\text{probe}} \, \rho( \mathbf{r}) \, e^{- i \, \mathbf{K} \cdot \mathbf{r}} \, dV \right|^2 \quad .
+= \left| \int_{V_\text{sample}} \, \rho( \mathbf{r}) \, e^{- i \, \mathbf{K} \cdot \mathbf{r}} \, dV \right|^2 \quad .
 \end{equation}
 We repeat again the steps from the beginning of the chapter and write the scattering density as a Fourier sum with the coefficients $\rho_{hkl}$
 \begin{equation}
@@ -151,7 +151,7 @@ In the following, I sometimes omit the indices at $\mathbf{G}$. Thus we obtain f
 I(\mathbf{K}) \propto \left| \mathcal{A}(\mathbf{K}) \right|^2 
 = \left| 
  \sum_{h,k,l} \, \rho_{hkl}
-  \int_{V_\text{probe}} e^{ i \, (\mathbf{G}- \mathbf{K} )\cdot \mathbf{r}} \, dV \right|^2 \quad .
+  \int_{V_\text{sample}} e^{ i \, (\mathbf{G}- \mathbf{K} )\cdot \mathbf{r}} \, dV \right|^2 \quad .
 \end{equation}
 The integrand oscillates rapidly with $\mathbf{r}$ and averages away unless $\mathbf{G} = \mathbf{K}$. In this case, the integral just gives the sample volume $V_\text{sample}$.
 
@@ -162,7 +162,7 @@ Thus we have obtained the Laue scattering condition
 The difference of the wave vectors must correspond to a lattice vector. Or the other way around: during diffraction at the lattice, a lattice vector is added to the incident wave vector.  The scattering intensity in this case is
 \begin{equation}
 I(\mathbf{K} = \mathbf{G}_{hkl} ) \propto \left| \mathcal{A}(\mathbf{K} = \mathbf{G}_{hkl} ) \right|^2 
-= \left| \rho_{hkl} \right|^2 V_\text{probe}^2 \quad . \label{eq:4_laue_peak}
+= \left| \rho_{hkl} \right|^2 V_\text{sample}^2 \quad . \label{eq:4_laue_peak}
 \end{equation}
 Thus, a single Fourier coefficient determines the intensity of the peak in the $(hkl)$ direction.
 
@@ -215,9 +215,9 @@ But of course there are many Ewald spheres where only the point $(000)$ lies on 
 
 \section{Structure factor}
 
-So far we have considered only the mathematical lattice and its diffraction pattern. Now we also consider the base, so especially if it contains more than one atom. The short version is: The lattice determines in which direction reflections can occur. The base determines the intensity of these reflections, which in particular can be zero. This is due to destructive interference between diffracting atoms in one sublattice and those in the other.
+So far we have considered only the mathematical lattice and its diffraction pattern. Now we also consider the basis, so especially if it contains more than one atom. The short version is: The lattice determines in which direction reflections can occur. The basis determines the intensity of these reflections, which in particular can be zero. This is due to destructive interference between diffracting atoms in one sublattice and those in the other.
 
-At the same time the 'reciprocal' in the reciprocal space becomes clear here also once more. The mathematical lattice is 'larger' in real space in the sense that it is described by integer factors (i.e. $\ge 1$) in front of the primitive unit vectors. The base is described by factors between zero and one. In reciprocal space, everything goes with the reciprocal. The mathematical lattice is then 'smaller' than the Fourier transform of the basis. In units of the primitive reciprocal vector of the lattice, the basis is now responsible for effects not between zero and one, but for those at integers $\ge 1$, i.e. the modulation of the amplitude of the diffraction peaks.
+At the same time the 'reciprocal' in the reciprocal space becomes clear here also once more. The mathematical lattice is 'larger' in real space in the sense that it is described by integer factors (i.e. $\ge 1$) in front of the primitive unit vectors. The basis is described by factors between zero and one. In reciprocal space, everything goes with the reciprocal. The mathematical lattice is then 'smaller' than the Fourier transform of the basis. In units of the primitive reciprocal vector of the lattice, the basis is now responsible for effects not between zero and one, but for those at integers $\ge 1$, i.e. the modulation of the amplitude of the diffraction peaks.
 
 We start from Eq.~\ref{eq:4_scattering_amplitude} and insert the definition of the Fourier components Eq.~\ref{eq:4_rho_hkl}. Thus we obtain
 \begin{equation}
@@ -225,7 +225,7 @@ We start from Eq.~\ref{eq:4_scattering_amplitude} and insert the definition of t
 = \rho_{hkl} V_\text{sample}
 = N_\text{PUC} \, \int_\text{PUC}    \rho(\mathbf{r})\, e^{-i \, \mathbf{G}_{hkl} \cdot \mathbf{r}} \, dV 
 \end{equation}
-with the number of primitive unit cells $ N_\text{PUC} = V_\text{probe} / V_\text{PUC}$.
+with the number of primitive unit cells $ N_\text{PUC} = V_\text{sample} / V_\text{PUC}$.
 We now divide the integral over the primitive unit cell into a sum over the atoms of the unit cell and an integral over the direct environment of the atoms. In the end, we integrate over the whole unit cell again. The old spatial coordinate $\mathbf{r} = \mathbf{r}' + \mathbf{r}_\alpha$ we write as the sum of the position of the atom $\mathbf{r}_\alpha$ and the local coordinate $\mathbf{r}'$ in its vicinity. Thus we obtain
 \begin{equation}
 \mathcal{A}(\mathbf{K} = \mathbf{G}_{hkl} ) 
@@ -256,7 +256,7 @@ with $0 \le u,v,w \le 1$. Together with the definition of $ \mathbf{G}$ we then 
   N_\text{PUC}  \, 
 \sum_\alpha f_\alpha ( \mathbf{G}_{hkl} ) \, e^{-2 \pi \, i \, ( h u_\alpha + k v_\alpha + l w_\alpha ) } \\
  = &
- N_\text{PUC} \, \mathcal{S}_{hkl} = \rho_{hkl} \, V_\text{probe} 
+ N_\text{PUC} \, \mathcal{S}_{hkl} = \rho_{hkl} \, V_\text{sample} 
 \end{align}
 with the \emph{structure factor} $\mathcal{S}_{hkl} $
 \begin{equation}
@@ -266,7 +266,7 @@ with the \emph{structure factor} $\mathcal{S}_{hkl} $
 
 \section{Example: \ch{CsCl}}
 
-Caesium chloride (\ch{CsCl}) forms a cubic-primitive lattice with a diatomic base, for example with the \ch{Cs} atom at the origin and the \ch{Cl} atom at the center of the space diagonal. Thus the structure factor is 
+Caesium chloride (\ch{CsCl}) forms a cubic-primitive lattice with a diatomic basis, for example with the \ch{Cs} atom at the origin and the \ch{Cl} atom at the center of the space diagonal. Thus the structure factor is 
 \begin{equation}
 \mathcal{S}_{hkl} = f_\text{\ch{Cs}} \, e^{-2 \pi \, i \, \mathbf{G} \cdot \mathbf{0}} + f_\text{\ch{Cl}} \, e^{- 2 \pi \, i \, \frac{1}{2}(h + k + l) }   \quad .
 \end{equation}
@@ -274,8 +274,8 @@ The first exponential function is always $1$, the second is $+1$ if the sum $h +
 \begin{equation}
   \mathcal{S}_{hkl} = \left\{
   \begin{array}{@{}ll@{}}
-    f_\text{\ch{Cs}}  + f_\text{\ch{Cl}}  &\text{falls}\ h+k+l \ \text{straight} \\
-     f_\text{\ch{Cs}}  - f_\text{\ch{Cl}} & \text{falls}\ h+k+l \ \text{odd} \\
+    f_\text{\ch{Cs}}  + f_\text{\ch{Cl}}  &\text{if}\ h+k+l \ \text{even} \\
+     f_\text{\ch{Cs}}  - f_\text{\ch{Cl}} & \text{if}\ h+k+l \ \text{odd} \\
   \end{array}\right.  \quad .
 \end{equation} 
 In X-ray scattering $f_\text{\ch{Cs}}  \approx f_\text{\ch{Cl}}$, so only every second reflection can be seen. In neutron scattering, on the other hand, the atomic structure factors are clearly different and all peaks can be seen.
@@ -284,14 +284,14 @@ In X-ray scattering $f_\text{\ch{Cs}}  \approx f_\text{\ch{Cl}}$, so only every 
 
 \section{Example: bcc monatomic and sc diatomic}
 
-A cubic space-centred lattice can be seen as a cubic primitive lattice with a diatomic base. Both describe the same position of the atoms in space. However, they are different mathematical lattices and therefore different $\mathbf{G}_{hkl}$. This apparently results in different peaks in the diffraction pattern, which of course should not be the case.
+A cubic body-centred lattice can be seen as a cubic primitive lattice with a diatomic basis. Both describe the same position of the atoms in space. However, they are different mathematical lattices and therefore different $\mathbf{G}_{hkl}$. This apparently results in different peaks in the diffraction pattern, which of course should not be the case.
 
-The resolution is again found in the structure factor. The base needed to turn a cubic primitive into a cubic space-centred lattice is again half the space diagonal, as in the last section. However, unlike in the last section, both positions are now occupied by the same atoms. So all the peaks at odd $ h+k+l $ disappear. These are just the ones that make the difference between $\mathbf{G}_{bcc} $ and $\mathbf{G}_{sc} $. There is a similar condition for the face-centred cubic lattice.
+The resolution is again found in the structure factor. The basis needed to turn a cubic primitive into a cubic body-centred lattice is again half the space diagonal, as in the last section. However, unlike in the last section, both positions are now occupied by the same atoms. So all the peaks at odd $ h+k+l $ disappear. These are just the ones that make the difference between $\mathbf{G}_{bcc} $ and $\mathbf{G}_{sc} $. There is a similar condition for the face-centred cubic lattice.
 
 
 \begin{figure}
 \inputtikz{\currfiledir strukturfaktor}
-  \caption{If peaks are indexed according to the conventional unit cell, then some are not visible in the centered lattices. }
+  \caption{If peaks are indexed according to the conventional unit cell, then some are not visible in the centred lattices. }
 \end{figure}
 
 
