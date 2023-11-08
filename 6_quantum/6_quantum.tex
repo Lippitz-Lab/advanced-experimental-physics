@@ -1,4 +1,4 @@
-\renewcommand{\lastmod}{September 13, 2023}
+\renewcommand{\lastmod}{November 8, 2023}
 \renewcommand{\chapterauthors}{Markus Lippitz}
 
 \chapter{Hybridization of quantum mechanical systems}
@@ -6,7 +6,7 @@
 
 \section*{Overview}
 
-In this chapter we discuss the coupling of systems to be described by quantum mechanics. We start with a toy mode to get used to the formalism, and then come to the Hückl method, which is close to the chemical hybridization of atomic orbitals. Here the coupling comes from the overlap of the atomic wave functions. As a second example, we will consider coupling due to the interaction of optical transition dipole moments, leading to so-called molecular H- and J-aggregates. This is the quantum mechanical analog of the interaction of scattering particles presented in the previous chapter.
+In this chapter we discuss the coupling of systems to be described by quantum mechanics. We start with a toy model to get used to the formalism, and then come to the Hückl method, which is close to the chemical hybridization of atomic orbitals. Here the coupling comes from the overlap of the atomic wave functions. As a second example, we will consider coupling due to the interaction of optical transition dipole moments, leading to so-called molecular H- and J-aggregates. This is the quantum mechanical analog of the interaction of scattering particles presented in the previous chapter.
 
 %   * exciton polariton ?
 %  * temporal evolution of superposition states ?
@@ -39,14 +39,14 @@ with normalized $\ket{\phi_i}$ and real-valued coefficients $c_i$. This gives
 \braket{\Psi | H | \Psi} &=& \sum_i c_i^2 \underbrace{\braket{\phi_i | H | \phi_i }}_{= H_{ii}} 
                      + \sum_{i,j} c_i c_j \underbrace{\braket{\phi_i | H | \phi_j }}_{= H_{ij}}  \quad .
 \end{eqnarray}
-Where $S_{ij}$ are respective overlap integrals of the two wavefunctions, and $H_{ij}$ the matrix elements of the Hamilton operator.  The diagonal elements $H_{ii}$  give the Coulomb energy, and the off-diagonal elements $H_{ij}$  the exchange energy. With these abbreviations, the self-energy can be written as.
+$S_{ij}$ are the respective overlap integrals of the two wavefunctions and $H_{ij}$ the matrix elements of the Hamilton operator.  The diagonal elements $H_{ii}$  give the Coulomb energy, and the off-diagonal elements $H_{ij}$  the exchange energy. With these abbreviations, the self-energy can be written as
 \begin{equation}
-  E = \frac{\sum_i c_i^2 H_{ii}  + \sum_{i,j} c_i c_j h_{ij}}{1 + \sum_{ij} c_i c_j S_{ij}}
+  E = \frac{\sum_i c_i^2 H_{ii}  + \sum_{i,j} c_i c_j H_{ij}}{1 + \sum_{i,j} c_i c_j S_{ij}}
   \quad . \label{eq:6_e_variation}
 \end{equation}
 For a minimum self-energy $E$, the partial derivatives to $c_i$ must both be zero. This can be written as 
 \begin{equation}
-   \left|   \mathbf{H} - E \mathbf{S} \right| = 0 
+   \left|   \mathbf{H} - E \mathbf{S} \right| = 0  \quad .
 \end{equation}
 The eigen-energies $E$ are solutions to this equation.
 
@@ -70,7 +70,7 @@ The eigen-energies $E$ are solutions to this equation.
 
 
 
-\section{Two Coupled States}
+\section{Two coupled states}
 
 Let us start with only two states $\psi_1$ and $\psi_2$. For simplicity, we label the diagonal entries of $\mathbf{H}$ as $E_i$ and the off-diagonal entries as $H_{ij} = J$, i.e. we assume that both are identical. Without coupling ($J=0$), the Hamiltonian reads as a matrix
 \begin{equation}
@@ -121,7 +121,7 @@ Thus, we consider only a subset of all atomic orbitals, only the $\pi$ orbitals 
 \item exchange takes place only between adjacent orbitals, so $H_{ij} = \beta < 0 $ if atoms $i$ and $j$ are adjacent, otherwise $0$. 
 \end{itemize}
 
-Analogous to equation XXX above, we calculate the self-energy according to the variation principle
+Analogous to equation \ref{eq:6_e_variation} above, we calculate the self-energy according to the variation principle
 \begin{equation}
  E = \frac{ \sum_{i,j} c_i \, c_j \, H_{i,j} }{ \sum_{i,j} c_i \, c_j \, S_{i,j} }
 \end{equation}
@@ -173,20 +173,181 @@ The Hückel approximation in molecular physics corresponds to the \emph{tight bi
 \item Compare the electron eigenfunctions of benzene in the Hückel approximation with those of a (possibly annular) box.
 \end{questions}
 
-\ref{eq:FO_gfh_conv}
+\section*{Tight binding model}
+
+Let us thus repeat the Hückel method, but with the solid state in mind, i.e. many atoms and using plane waves to describe everything. In the following, the tilde denotes variables that apply to a single atom. Let $\tilde{V}$ be the Coulomb-like potential of an atom. We know the solutions $\tilde{\psi}$ of the Schrödinger equation
+\begin{equation}
+    H_A \tilde{\psi} = \left( - \frac{\hbar^2}{2m} \nabla^2 + \tilde{V} \right) \tilde{\psi} = \tilde{E} \tilde{\psi} \quad .
+\end{equation}
+In the crystal there are now atomic nuclei at the lattice points $\mathbf{R}_m$, which cause an additional perturbation term in the Hamilton operator
+\begin{equation}
+    H_S = \sum_{m \neq n} \tilde{V}(\mathbf{r} - \mathbf{R}_m) \quad ,
+\end{equation}
+where the atom at $\mathbf{R}_n$ is already considered in the unperturbed operator. As an ansatz for the wave function, we choose a superposition of atom eigenfunctions at the locations $\mathbf{R}_m$ as in the Hückel method, i.e.
+\begin{equation}
+    \psi = \sum_m a_m \tilde{\psi} (\mathbf{r} - \mathbf{R}_m) \quad .
+\end{equation}
+
+Now we use the Bloch theorem\sidenote{It would also work without, but makes it easier here}: the lattice-periodic part $u_\mathbf{k}$ is provided by the wave functions $\tilde{\psi} (\mathbf{r} - \mathbf{R}_m)$, so the plane wave must be in the coefficients $a_m$, i.e.
+\begin{equation}
+    a_m \propto e^{i \mathbf{k} \cdot \mathbf{R}_m}
+\end{equation}
+with suitable normalization. This means that the wave function is 
+\begin{equation}
+    \psi = \frac{1}{\sqrt{N}} \sum_m \tilde{\psi} (\mathbf{r} - \mathbf{R}_m) \, e^{i \mathbf{k} \cdot \mathbf{R}_m} \quad .
+\end{equation}
+The self-energy is as always
+\begin{equation}
+    E = \frac{\int \psi^\star \, H \, \psi \, dV }{\int \psi^\star \, \psi \, dV} \quad .
+\end{equation}
+The denominator is close to one because the atomic wave functions overlap very little. The numerator is more interesting. We can draw the sums over the atomic positions in front of the integral 
+\begin{equation}
+    E = \frac{1}{N} \sum_{m,n} \, e^{i \mathbf{k} \cdot (\mathbf{R}_m - \mathbf{R}_n) }\,
+    \int \tilde{\psi}^\star (\mathbf{r} - \mathbf{R}_n) \left[ H_A + H_S(\mathbf{r} - \mathbf{R}_m) \right] \tilde{\psi} (\mathbf{r} - \mathbf{R}_m) \quad .
+\end{equation}
+We can distinguish three contributions
+\begin{itemize}
+\item Integrands of the form $\tilde{\psi}^\star_n \, H_A \, \tilde{\psi}_n$. These are the eigen-energies of the atoms that we already know.
+\item Integrands of the form $\tilde{\psi}^\star_n \, H_S \, \tilde{\psi}_n$. This is the influence of the potentials of the other atoms (in $H_S$) on 'our' atom $n$. We abbreviate this Coulomb integral with $-\alpha$.
+\item integrands of the form $\tilde{\psi}^\star_n \, H_S \, \tilde{\psi}_m$. This is the influence of the overlap with the other wave functions. 
+ We abbreviate this transfer integral with $-\beta_m$.
+\end{itemize}    
+In total, we thus have\sidenote{The sums over $\tilde{E}$ and $\alpha$ provide an $N$, which is canceled by the normalization}.
+\begin{equation}
+    E = \tilde{E} - \alpha - \sum_m \beta_m \, e^{i \mathbf{k} \cdot (\mathbf{R}_m - \mathbf{R}_n) }\, \quad .
+\end{equation}
+The Coulomb integral $\alpha$ causes a decrease in energy because the neighboring atoms also contribute some attractive Coulomb potential. The transfer integral $\beta$ can be both positive and negative, and also direction-dependent, as in the case of covalent bonding in molecular physics. There, too, we saw that s and p orbitals can provide attractive or repulsive energy contributions depending on their arrangement. Exactly the same thing happens here. This integral provides the dependence on the wave vector $\mathbf{k}$ and thus the dispersion relation.
+
+
+\section{Example: cubic-primitive lattice}
+
+As an example, we consider a cubic-primitive lattice, only allow interaction between nearest neighbors, and assume the interaction to be direction-independent, as it would be for atomic s-orbitals. For the term $\mathbf{R}_m - \mathbf{R}_n$, only the three (Cartesian) lattice vectors of length $a$, each with both signs, can be considered. Multiplying out the scalar product results in
+\begin{equation}
+    E = \tilde{E} - \alpha - 2 \beta \left[ \cos( k_x a ) + \cos( k_y a ) + \cos( k_z a ) \right] \quad .
+\end{equation}
+In total, this covers a band of width $\tilde{E} - \alpha \pm 6 \beta $. The band is cosine-shaped. At the $\Gamma$ point and at the boundary of the Brillouin zone, it therefore corresponds to the parabolic shape of the empty lattice approximation.
+
+
+
+
+
+\section{Interaction of light with atoms}
+
+\begin{marginfigure}
+\inputtikz{\currfiledir tls_absorption}
+\caption{A light beam induces a transition from $\ket{i}$ to the  $\ket{f}$.}
+\end{marginfigure}
+I would like to discuss how the coupling between two quantum mechanical systems affects their optical absorption spectrum. Before doing so, we need to set the terms for how quantum mechanics describes light-matter interaction.
+
+Fermi's Golden Rule gives the transition rate from the initial state $\ket{i}$ to the final state $\ket{f}$ caused by any time-dependent perturbation $H'$ to the stationary Hamilton operator $H_0$ as
+\begin{equation}
+ \Gamma_{i \rightarrow f} = \frac{2 \pi}{\hbar} \, \left| \bra{f} H' \ket{i} \right|^2 \, \rho(E) \quad ,
+\end{equation}
+where  $\rho(E) = d n / d E = \rho(\omega) / \hbar$ is the density of final states. The idea is that the initial state  $\ket{i}$ is well known, but the outcome of the interaction $\ket{f}$ might have free parameters, for example the direction of the emitted electron or the mode of the absorbed photon. The density of states   $\rho(E)$ thus can describe either electronic or photonic states, or both.
+
+
+
+
+In general, the interaction of a charged particle with an electromagnetic vector potential $\mathbf{A}$ is described by the perturbation
+\begin{equation}
+ H' = - \frac{i \hbar e}{m} \, \mathbf{A \cdot \nabla}  \quad .
+\end{equation}
+As the spatial extent of our wavefunctions is small compared to the wavelength of light, we employ the dipole approximation and assume $\exp( i \mathbf{k \cdot r}) \approx 1$ in the plane-wave description of the vector potential. In this way, the  perturbation operator $H'$ simplifies to\sidenote{see \textcite{bransden_joachain} for details}
+\begin{equation}
+ H' =  e \, \mathbf{E} (t)  \mathbf{\cdot \, r} =  e \,E_0 \,  \mathbf{\hat{x} \cdot \, r} \, \cos(\omega t) \quad ,
+\end{equation}
+where $\mathbf{\hat{x}} $ is a unit vector defining the polarization direction of the light field. We simplify further by using the rotating-wave approximation and keeping only co-rotating parts 
+\begin{equation}
+ \cos(\omega t)
+ = \frac{1}{2} \left( e^{i \omega t}+  e^{-i \omega t} \right)
+ \approx  \frac{1}{2}  e^{i \omega t} 
+\end{equation}
+so that 
+\begin{equation}
+H' =  \frac{ e \,E_0}{2}  \,  \mathbf{\hat{x} \cdot \, r} \,  e^{i \omega t}  \quad .
+\end{equation}
+%
+ We introduce the transition dipole matrix element $\mu_{if}$ as
+\begin{equation}
+\mathbf{\mu}_{if} = -e \, \bra{f}    \mathbf{r} \ket{i}  \quad .
+\end{equation}
+It has the units of an electric dipole moment, i.e., charge times distance, and is the central element of an optical transition in quantum mechanics. For practical reasons, one uses the unit of 1~Debye = 1 electron displaced by 0.208~\AA.
+With this the matrix element  becomes
+\begin{equation}
+\left| \bra{f} H' \ket{i} \right|^2 =  \frac{1}{4} E_0^2  \, |\mathbf{\hat{x}} \cdot \mathbf{\mu}_{if} |^2 \quad .
+\end{equation}
+Plugging everything into Fermi's Golden Rule, we get
+\begin{equation}
+ \Gamma_{i \rightarrow f} = \frac{\pi}{2 \hbar^2} \,  E_0^2  \, |\mathbf{\hat{x}} \cdot \mathbf{\mu}_{if} |^2 \, \rho(\omega) \quad .
+\end{equation}
+Now we have to take into account that we use a incoherent multimode light source. The electric field $E$ is here an incoherent superposition of  modes with the  spectral energy density $u(\omega)$.\sidenote{see \textcite{CT} and \textcite{Fox}   for details}
+The total power is thus
+\begin{equation}
+ \frac{1}{2} \epsilon_0  \, E_0^2  = \int  u(\omega)  \, d\omega \quad .
+\end{equation}
+The  transition rate is thus 
+\begin{equation}
+ \Gamma_{i \rightarrow f} =   \frac{\pi  }{\hbar^2 \epsilon_0}  \, |\mathbf{\hat{x}} \cdot \mathbf{\mu}_{if} |^2 \,
+\int u(\omega)  
+  \rho(\omega)  d \omega \quad .
+\end{equation}
+As the atomic transition is narrow compared with the light spectrum, the density of states $\rho(\omega)$ selects the transition frequency $\omega_{if}$ 
+\begin{equation}
+ \Gamma_{i \rightarrow f} =   \frac{\pi  }{\hbar^2 \epsilon_0}  \, |\mathbf{\hat{x}} \cdot \mathbf{\mu}_{if} |^2 \,
+ u(\omega_{if})   \quad .
+\end{equation}
+Both the absorption and the emission spectrum of an atom or a molecule is connected to the transition rate $\Gamma_{i \rightarrow f}$ via the Einstein coefficients, but with different pre-factors:
+\begin{align}
+   \text{absorption} & \propto \omega_{if} \  |\mathbf{\mu}_{if} |^2 \\
+   \text{emission} & \propto \omega_{if}^3 \  |\mathbf{\mu}_{if} |^2  \quad .
+\end{align}
+
+
+
+\section{Transfer of excitation from one molecule to another}
+
+In a coupled pendulum, energy is transferred from one pendulum to the other (and back again). Here we will investigate this transfer of excitation for a quantum mechanical system\sidenote{More in \cite{KoehlerBaessler2015} and XXX Vaude molecular fluorescence}. We have two molecules and each molecule has a wave function of the ground state ($a$, $b$) and of an excited state ($a^\star$, $b^\star$). Two electrons (1,2) are involved, but we can not distinguish them, so that we need to construct the usual anti-symmetric wavefunctions. Initially, molecule $a$ should be excited and $b$ in the ground state. The initial wavefunction is thus
+\begin{equation}
+   \psi_i = \frac{1}{\sqrt{2}} \left( \psi_{a^\star}(1) \,  \psi_{b}(2) -   \psi_{a^\star}(2) \,  \psi_{b}(1)\right) 
+\end{equation}
+In the final state, the excitation should have swapped, i.e.
+\begin{equation}
+   \psi_f = \frac{1}{\sqrt{2}} \left( \psi_{a}(1) \,  \psi_{b^\star}(2) -   \psi_{a}(2) \,  \psi_{b^\star}(1)\right) 
+\end{equation}
+The two electrons will interact by their Coulomb potential. This is sufficient, as we will see, the swap the excitation. The transition matrix element or interaction energy $J$
+\begin{equation}
+   J \propto \left\langle \psi_f \middle| \frac{e^2}{r_{12}} \middle| \psi_i \right\rangle
+\end{equation}
+where $r_{12}$ is the distance of the electrons and a factor of $4\pi \epsilon_0$ was absorbed in the proportional sign. Multiplying this out, we get two pairs of terms. In each pair, electron 1 and 2 change role. One pair has the form
+\begin{equation}
+   J^C = 2  \left\langle  \psi_{a^\star}(1) \,  \psi_{b}(2)\middle| \frac{e^2}{r_{12}} \middle|  \psi_{a}(1) \,  \psi_{b^\star}(2)\right\rangle
+\end{equation} 
+i.e the electrons stay on 'their' molecule but change between excited and ground state. This is called the Coulomb term. In the second pair
+\begin{equation}
+   J^E = 2  \left\langle \psi_{a^\star}(1) \,  \psi_{b}(2) \middle| \frac{e^2}{r_{12}} \middle|  \psi_{a}(2) \,  \psi_{b^\star}(1) \right\rangle
+\end{equation} 
+%\left\langle \frac{1}{2} \middle| 1 \right\rangle
+%
+the electrons change molecule and take their state (ground vs excited) with them. This is the exchange term. It requires a bond between the molecules for the electrons to move. In the following, we will only look at the first term, the Coulomb term, that acts 'via the air' and drop the $C$ in $J^C$.
+
+
+
 
 
 \section{Coupling of two transition dipole moments}
 
-XXXX needs intro to absorption in QM = Fermis golden rule
-
-
-We consider two molecules, $a$ and $b$, each with a ground ($0$) and an excited ($1$) state. We write the wave function in the form $\ket{ab}$, i.e. $\ket{01}$ is molecule $a$ in the ground state, molecule $b$ in the excited state. In each molecule an optical transition dipole moment couples the ground and excited states, i.e. $\braket{10| \hat{\mu}_a | 00}$ and $\braket{01| \hat{\mu}_b | 00}$ are different from zero and describe an excitation of molecule $a$ and $b$ respectively. In addition, the two transition dipole moments interact and lead to a resonant coupling of the 
-$\ket{01}$ and $\ket{10}$ states\footcite{knoester-book}
+The transition matrix element $M_{if}^C$ is similar to two charge densities that interact. It was the work of Dexter and Förster to apply a multipole-multipole expansion to simplify things. We keep only the lowest term, the dipole-dipole contribution. The dipoles are transition dipole moments of the form
 \begin{equation}
-\hat{H}_{coupling} = J \left( \ket{10}\bra{01} + \ket{01}\bra{10} \right) \quad .
+   \boldsymbol{\mu}_a = \braket{ \psi_{a^\star}(1)| \br |  \psi_{a}(1) }
 \end{equation}
-The coupling energy $J$ depends on the distance $\boldsymbol{r}_{ab}$ and the relative orientation of the transition dipoles $\boldsymbol{\mu}_{a,b}$. It can be thought of as the energy of one dipole in the field of another.\sidenote{does this need more details? See Parson}
+i.e, an electron changes from ground to excited state.
+%
+% We consider two molecules, $a$ and $b$, each with a ground ($0$) and an excited ($1$) state. We write the wave function in the form $\ket{ab}$, i.e. $\ket{01}$ is molecule $a$ in the ground state, molecule $b$ in the excited state. In each molecule an optical transition dipole moment couples the ground and excited states, i.e. $\braket{10| \hat{\mu}_a | 00}$ and $\braket{01| \hat{\mu}_b | 00}$ are different from zero and describe an excitation of molecule $a$ and $b$ respectively. In addition, the two transition dipole moments interact and lead to a resonant coupling of the 
+% $\ket{01}$ and $\ket{10}$ states\footcite{knoester-book}
+% \begin{equation}
+% \hat{H}_{coupling} = J \left( \ket{10}\bra{01} + \ket{01}\bra{10} \right) \quad .
+% \end{equation}
+The coupling energy $J$ depends on the distance $\boldsymbol{r}_{ab}$ and the relative orientation of the transition dipoles $\boldsymbol{\mu}_{a,b}$. It can be thought of as the energy of one dipole in the field of another.
 \begin{eqnarray}
  J & = & \frac{\boldsymbol{\mu}_a \cdot \boldsymbol{\mu}_b }{|\boldsymbol{r}_{ab}|^3} 
   + 3 \frac{ (\boldsymbol{\mu}_a \cdot \boldsymbol{r}_{ab}) (\boldsymbol{\mu}_b \cdot \boldsymbol{r}_{ab})
@@ -202,22 +363,17 @@ where the angles are defined in the sketch.
 The angles used to calculate the coupling factor $\kappa$.}
 \end{marginfigure}
 
-A similar coupling term also exists for the non-resonant coupling\footcite{knoester-book}
-\begin{equation}
-\hat{H}_{non-res} = J \left( \ket{11}\bra{00} + \ket{00}\bra{11} \right)
-\end{equation}
-but this can be ignored, as it is non-resonant. Altogether, the Hamilton operator reads in matrix form
+We now consider three states: both molecules in the ground state, molecule $a$ excited ($\psi_i$ of last section), and molecule $b$ excited ($\psi_f$). In matrix form, the Hamilton operator reads 
 \begin{equation}
 \hat{H} = \begin{pmatrix}
-0 & \mu_a & \mu_b & J  \\
-\mu_a^\star & \hbar \omega_a & J & \mu_b \\
-\mu_b^\star & J^\star & \hbar \omega_b & \mu_a \\
-J^\star & \mu_b^\star & \mu_a^\star & \hbar (\omega_a + \omega_b) \\
+0 & \mu_a & \mu_b  \\
+\mu_a^\star & \hbar \omega_a & J  \\
+\mu_b^\star & J^\star & \hbar \omega_b \\
 \end{pmatrix} \quad .
 \end{equation}
-When we ignore the double-excited state $\bra{11}$, the essence in contained in the center $2 \times 2$ matrix which we discussed already in the preceding section.
+The transition dipole moments couple the ground state to the excited states, and the excited states are coupled by the energy $J$. By measuring for example an absorption spectrum starting from the ground state, we can determine the energies of the excited states, which we can find by diagonalizing the lower  $2 \times 2$ matrix  as discussed above.
 
-When $\ket{\psi}$ is a linear combination of $\ket{01}$ and $\ket{10}$, then also the transition dipole moment from $\ket{00}$ to $\ket{\psi}$ is a linear combination of $\mu_a$ and $\mu_b$ with the same weights. When $J \gg |E_a - E_b| / 2$ then we get
+When $\ket{\psi}$ is a linear combination of $\psi_i$ and $\psi_f$, then also the transition dipole moment from  the ground state to $\ket{\psi}$ is a linear combination of $\mu_a$ and $\mu_b$ with the same weights. When $J \gg |E_a - E_b| / 2$ then we get
 \begin{equation}
  \boldsymbol{\mu}_{\pm} = \sqrt{1/2} \, \left( \boldsymbol{\mu}_a \pm \boldsymbol{\mu}_b \right) \quad .
 \end{equation}
@@ -237,7 +393,7 @@ The spectroscopic signature of coherent coupling between two molecules is thus a
 \caption{J- and H aggregates.}
 \end{marginfigure}
 
-Two important limiting cases are the H- and J-aggregates\footcite[chapters 2.1.4.3, 2.2.5.3]{KoehlerBaessler2015} In a J-aggregate the dipoles are oriented parallel and head-to-tail, i.e. $\alpha = \beta = \theta = 0$ and therefore $\kappa = -2$. A negative $\kappa$ implies that the coupling constant $J$ is negative. The state $\Psi_+$, which carries all the oscillator strength, has an energy $E_+ = (E_a + E_b) / 2 + J$, which is lower than the average energy of the uncoupled states. The absorption line therefore shifts towards the red. The same applies to the fluorescence emission spectrum.
+Two important limiting cases are the H- and J-aggregates.\footcite[chapters 2.1.4.3, 2.2.5.3]{KoehlerBaessler2015} In a J-aggregate the dipoles are oriented parallel and head-to-tail, i.e. $\alpha = \beta = \theta = 0$ and therefore $\kappa = -2$. A negative $\kappa$ implies that the coupling constant $J$ is negative. The state $\Psi_+$, which carries all the oscillator strength, has an energy $E_+ = (E_a + E_b) / 2 + J$, which is lower than the average energy of the uncoupled states. The absorption line therefore shifts towards the red. The same applies to the fluorescence emission spectrum.
 
 In an H-aggregate the dipoles are also parallel, but side by side, i.e. $\alpha = \beta = 90^\circ$ and $\theta = 0$. In this case $\kappa =1$ and $J$ is positive. The absorption line shifts to blue when aggregates form, as the $\Psi_+$ state again gets all the oscillator power. However, as fluorescence emission is slow compared to other relaxation processes, this high energy state does not emit light. H-aggregates appear dark in the emission.
 
@@ -255,6 +411,7 @@ The width of the absorption line of a dye at room temperature is determined by d
 
 
 
-\printbibliography[segment=therefsegment,heading=subbibliography]
+%--------------------
+\printbibliography[segment=\therefsegment,heading=subbibliography]
 
 

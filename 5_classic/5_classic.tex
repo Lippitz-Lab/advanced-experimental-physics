@@ -1,5 +1,5 @@
 \renewcommand{\chapterauthors}{Markus Lippitz}
-\renewcommand{\lastmod}{September 13, 2023}
+\renewcommand{\lastmod}{November 8, 2023}
 
 
 \chapter{Hybridization in classical systems}
@@ -105,10 +105,10 @@ As an example, lets look at the classical chain of coupled masses. We assume all
 \end{equation}
 or
 \begin{equation}
-U = \frac{1}{2} \frac{\kappa}{m} \sum_{n=1}^{N-1}  ( q_n - q_{n+1} )^2
+U = \frac{1}{2} \frac{\kappa}{m} \sum_{n=1}^{N-1}  ( q_n - q_{n+1} )^2 \quad .
 \end{equation}
-When multiply out, we get the squared terms $q_n^2$ twice, except for the first and last mass in the chain. And we get terms of neighboring masses $- 2 q_n q_{n+1}$. 
-The matrix $B$ is thus by distribution the cross-terms the sub- and super-diagonals 
+When multiplied out, we get the squared terms $q_n^2$ twice, except for the first and last mass in the chain. And we get terms of neighboring masses $- 2 q_n q_{n+1}$. 
+By distribution the cross-terms to the sub- and super-diagonals we get the matrix $B$ as 
 \begin{equation}
 B =\frac{\kappa}{m} \begin{pmatrix}
  1 & -1 & 0 &  0 & \cdots & 0 \\
@@ -117,7 +117,7 @@ B =\frac{\kappa}{m} \begin{pmatrix}
 0 & 0  & -1 & 2 &   \cdots & 0 \\
 \vdots  & & &  &  & \vdots \\
 0 &   & \cdots    &    & -1 & 1 \\
-\end{pmatrix}
+\end{pmatrix} \quad .
 \end{equation}
 We determine the eigenvalues $\lambda_n$ and from them the eigen-frequencies $\omega_n = \sqrt{\lambda_n}$. We find that
 \begin{equation}
@@ -127,14 +127,12 @@ We determine the eigenvalues $\lambda_n$ and from them the eigen-frequencies $\o
 and the eigenvectors describe oscillatory patterns.
 
 
-What happened here? We coupled oscillators, and the new hybridized system has new eigen-frequency . When we use many oscillators, we get a continuos band of eigen-frequencies that symmetrically spans around $\omega = \sqrt{2 \kappa / m}$, which is what we would get if a single mass is fixed by two springs to a wall.
-
-
+What happened here? We coupled oscillators, and the new hybridized system has new eigenfrequencies. If we use many oscillators, we get a continuous band of eigenfrequencies that spans symmetrically around $\omega = \sqrt{2 \kappa / m}$, which is what we would get if a single mass were attached to a wall by two springs.
 
 
 \section{Analytic approach}
 
-Matrix diagonalization is fine, but tedious for large matrices. Even the derivation of eq.~\ref{eq:5_omega_diag} is beyond my capabilities. I only knew the end of this section. So let us follow another approach.
+Matrix diagonalization is fine, but tedious for large matrices. Even the derivation of eq.~\ref{eq:5_omega_diag} is beyond my capabilities. I only knew the end of this section. So let us take a different approach.
 
 We now \emph{assume} that the deviation of the masses from their rest position follows a harmonic pattern, which we describe by a wave vector $k = 2 \pi / \lambda$. This way we know what all the masses are doing and we can use an analytical approach.
 Let $u_s$ be the deviation of the mass $s$ from its equilibrium position. The force on the mass $s$ is then
@@ -151,17 +149,17 @@ where we have used that all masses are equal. With the ansatz of a plane wave th
 \end{equation}
 with the length $k$ of the wave vector in reciprocal space and the distance $a$ of the lattice points in real space. The term $a (s+p)$ thus describes the equilibrium position of the mass under consideration in real space. If we insert this ansatz into the equation of motion we get
 \begin{equation}
-- \omega^2 \, m = \sum_p \, \kappa_p \left( e^{i k \, a \, p} - 1 \right)
+- \omega^2 \, m = \sum_p \, \kappa_p \left( e^{i k \, a \, p} - 1 \right) \quad .
 \end{equation}
 Since all masses are identical, $\kappa_p = \kappa_{-p}$ is reasonable and therefore
 \begin{equation}
-    \omega^2 = \frac{2}{m} \, \sum_{p=1}^\infty \, \kappa_p \left( 1 - \cos ( k \, a \, p ) \right)
+    \omega^2 = \frac{2}{m} \, \sum_{p=1}^\infty \, \kappa_p \left( 1 - \cos ( k \, a \, p ) \right) \quad .
 \end{equation}
 Such a relation between frequency $\omega$ and wave vector $k$ is called  \emph{dispersion relation}. It is equivalent to a relation between energy and momentum.
 
 Now we make the additional assumption that only nearest neighbors interact with each other, as in the last section. Thus only $\kappa_{\pm 1} = \kappa $ are different from zero and the sum is omitted. We now also take the root and get
 \begin{equation}
-\omega = \sqrt{\frac{4 \, \kappa}{m}} \left| \sin \left(\frac{1}{2} \, k \, a \right) \right| 
+\omega = \sqrt{\frac{4 \, \kappa}{m}} \left| \sin \left(\frac{1}{2} \, k \, a \right) \right|  \quad .
 \end{equation}
 
 \begin{marginfigure}
@@ -180,16 +178,16 @@ copper. It has  a face-centered cubic (fcc) crystal structure with a monatomic b
 
 Our ansatz for the deviation $\mathbf{u}$ from the equilibrium position now contains vectors, $\mathbf{u}_0$ for the amplitude and direction, and $\mathbf{k}$ for the wave vector:
 \begin{equation}
-  \mathbf{u} = \mathbf{u}_0 \, e^{i ( \mathbf{k} \mathbf{r} - \omega t)}
+  \mathbf{u} = \mathbf{u}_0 \, e^{i ( \mathbf{k} \mathbf{r} - \omega t)} \quad .
 \end{equation}
 We take only displacements of the masses in the direction $\mathbf{\hat{n}}_i$ of the spring into account and sum over all $i=1 \dots 12$ nearest neighbors. In an fcc-lattice, the neighbors are along the diagonal of each cartesian plane. The sum reads
 \begin{equation}
-m \frac{d^2 \mathbf{u}}{dt^2} = \sum \kappa_{i} \, [ (\mathbf{u}(\mathbf{r}_i) - \mathbf{u}(0) ) \cdot \mathbf{\hat{n}}_i ]\,  \mathbf{\hat{n}}_i 
+m \frac{d^2 \mathbf{u}}{dt^2} = \sum \kappa_{i} \, [ (\mathbf{u}(\mathbf{r}_i) - \mathbf{u}(0) ) \cdot \mathbf{\hat{n}}_i ]\,  \mathbf{\hat{n}}_i  \quad .
 \end{equation}
 We insert our ansatz for  $\mathbf{u}$ and get
 \begin{equation}
   - \omega^2 m \, \mathbf{u}_0 
- = \sum \kappa_{i} \,  ( e^{i \mathbf{k} \mathbf{r}_i } - 1) [\mathbf{u}_0 \cdot \mathbf{\hat{n}}_i ]\,  \mathbf{\hat{n}}_i 
+ = \sum \kappa_{i} \,  ( e^{i \mathbf{k} \mathbf{r}_i } - 1) [\mathbf{u}_0 \cdot \mathbf{\hat{n}}_i ]\,  \mathbf{\hat{n}}_i \quad .
 \end{equation}
 
 This is again an eigen-value equation
@@ -207,7 +205,7 @@ where $\mathbf{\hat{n}}_{i, v}$ is the $v$-th cartesian component of the normal 
 \caption{Points of high symmetry in the Brillouin zone are marked by large letters. the $\Gamma$ point is the center of the BZ, so $k=0$. The path $\Gamma$--X--K--$\Gamma$--L takes advantage of the symmetry of the Brillouin zone. \label{fig:5_phonon_path} }
 \end{marginfigure}
 
-For each value of $\mathbf{k}$, we construct the $3 \times 3$ matrix $\mathbf{A}$ and calculate its eigen-values. We thus obtain a function $\omega(\mathbf{k})$ that has at each point three solutions that are  potentially degenerate (see also Pluto script\pluto{phonon_spring_3d}). This is the dispersion relation. This simple model fits rather nicely the measured data (Fig.\ref{fig:5_phonon_copper}). The entire figure represents the frequency of phonons along a path in reciprocal space shown in Figure \ref{fig:5_phonon_path}. One can take advantage of the fact that reciprocal lattice vectors $\mathbf{G}$ can be added without changing anything. There are only acoustic branches because there is only one atom in the base. The transverse modes are doubly degenerate along the highly symmetric directions. In the [110] direction, the degeneracy is cancelled.
+For each value of $\mathbf{k}$, we construct the $3 \times 3$ matrix $\mathbf{A}$ and calculate its eigen-values. We thus obtain a function $\omega(\mathbf{k})$ that has at each point three solutions that are  potentially degenerate (see also Pluto script\pluto{phonon_spring_3d}). This is the dispersion relation. This simple model fits rather nicely the measured data (Fig.\ref{fig:5_phonon_copper}). The entire figure represents the frequency of phonons along a path in reciprocal space shown in Figure \ref{fig:5_phonon_path}. One can take advantage of the fact that reciprocal lattice vectors $\mathbf{G}$ can be added without changing anything. There are only acoustic branches because there is only one atom in the base. The transverse modes are doubly degenerate along the highly symmetric directions. In the [110] direction, the degeneracy is removed.
  
 
 \begin{figure}
@@ -242,7 +240,7 @@ As the electric field oscillates $E(t) = E_0 \, e^{-i \omega t}$, also the polar
     \right\} \quad ,
      \label{eq:5_hybrid_Escat}
 \end{equation}
-where $k = 2 \pi / \lambda$ is the length of the wave vector in the medium. The power that is absorbed by the dipole\footcite[Chapter 8]{Novotny-Hecht2012} is
+where $k = 2 \pi / \lambda$ is the length of the wave vector in the medium. In a driven oscillator, we need a 90 degree phase difference between driving force and oscillator to transfer energy. The power that is absorbed by the dipole\footcite[Chapter 8]{Novotny-Hecht2012} is thus
 \begin{equation}
  P_{abs} = \frac{\omega}{c} \, \Im \left( \mathbf{p} \, \mathbf{E}^\star \right)  \quad ,
 \end{equation}
@@ -251,7 +249,7 @@ so that we get the absorption cross section
  \sigma_{abs} = k \, \Im ( \alpha ) =  4 \pi \, k \; R^3 \; \Im \left( \frac{\epsilon_{in} - \epsilon_{out}}{\epsilon_{in} + 2 \epsilon_{out}} \right) \quad .
  \label{eq:5_hybrid_sigma_abs}
 \end{equation}
-We are in the Rayleigh  limit of a very small particle so that we can neglect the scattered power. 
+%We are in the Rayleigh  limit of a very small particle so that we can neglect the scattered power. 
 
 
 We  assume that the surrounding  medium  is a transparent dielectric, i.e., 
@@ -268,7 +266,7 @@ The plasma frequency depends on the effective electron mass $m^\star$ and number
 
 The polarizability $\alpha$ has a resonance when its denominator equals zero, i.e., at $\epsilon_{in} (\omega_{res}) = -2 \epsilon_{out}$. For a Drude metal with low damping this happens at
 \begin{equation}
-\omega_{res} = \frac{\omega_P}{\sqrt{2 \epsilon_{out} + \epsilon_\infty}}
+\omega_{res} = \frac{\omega_P}{\sqrt{2 \epsilon_{out} + \epsilon_\infty}} \quad .
 \end{equation}
 The resonance wavelength in the absorption spectrum thus depends on 
 the plasma frequency of the metal and  the dielectric function of the environment. 
@@ -295,7 +293,7 @@ has to give in a self-consistent way the dipole moment (see, for example, \cite{
      \mathbf{p}_1 = &  \epsilon_0 \,  \epsilon_{out} \,  \alpha_1 \left[ \mathbf{E}^{\text{inc}} (\mathbf{r}_1) +
 \mathbf{E}^{\text{scat}}_2(\mathbf{r}_1) \right] \\
   \mathbf{p}_2 = &  \epsilon_0 \,  \epsilon_{out} \,  \alpha_2 \left[ \mathbf{E}^{\text{inc}} (\mathbf{r}_2) +
-\mathbf{E}^{\text{scat}}_1(\mathbf{r}_2) \right]  \nonumber
+\mathbf{E}^{\text{scat}}_1(\mathbf{r}_2) \right]  \quad . \nonumber
 \end{align}
 %
 The scattered electrical near-field $ \mathbf{E}^{\text{scat}}$ of the dipole $i$ at position of the dipole $j$ is given by eq.   \ref{eq:5_hybrid_Escat} above. As we aim  for a large influence of this scattered field, we will need short distances between the dipoles and thus can focus on the near-field contribution of the scattered field
@@ -305,7 +303,7 @@ The scattered electrical near-field $ \mathbf{E}^{\text{scat}}$ of the dipole $i
   \quad ,
 \end{equation}
 where $\hat{\mathbf{r}}_{ij}   = \mathbf{r} _j - \mathbf{r} _i$ is a vector of length one pointing from the dipole to the point where
-the field is evaluated, and $d$ is the distance between the particles
+the field is evaluated, and $d$ is the distance between the particles.
 
 
 For simplicity, we assume that both particles have the same dielectric function and are of course embedded in the same medium. 
@@ -335,7 +333,7 @@ R_1^3 \, R_2^3 \, \left( \frac{\epsilon_{in} - \epsilon_{out}} {\epsilon_{in} + 
 \end{equation}
 or,
 \begin{equation}
- \frac{\epsilon_{in} - \epsilon_{out}} {\epsilon_{in} + 2 \epsilon_{out}} \, v = \pm \left( \frac{d}{\sqrt{R_1 R_2}} \right)^3
+ \frac{\epsilon_{in} - \epsilon_{out}} {\epsilon_{in} + 2 \epsilon_{out}} \, v = \pm \left( \frac{d}{\sqrt{R_1 R_2}} \right)^3 \quad .
 \end{equation}
 
 \begin{marginfigure}
@@ -371,10 +369,10 @@ anti-parallel configuration.
 Finally, lets have a look at the amplitudes of the resonance. We evaluate the enumerator of eq.  \ref{eq:5_hybrid_alpha_eff}
  at the resonance condition (eq. \ref{eq:5_hybrid_res_cond}).\sidenote{Without damping, the peaks would diverge, but in real material we have a non-zero $\gamma$ in the Drude model.} It becomes
  \begin{equation}
- \alpha^\text{eff, peak} \propto \alpha_1  + \alpha_2  \pm 2 \sqrt{\alpha_1 \alpha_2} = \left( \sqrt{\alpha_1}  \pm \sqrt{\alpha_2} \right)^2
+ \alpha^\text{eff, peak} \propto \alpha_1  + \alpha_2  \pm 2 \sqrt{\alpha_1 \alpha_2} = \left( \sqrt{\alpha_1}  \pm \sqrt{\alpha_2} \right)^2 \quad .
 \end{equation}
 The absorption cross-section is $\sigma_\text{abs} = k \Im {\alpha}$. Two independent particles would just shown an absorption proportional to $\alpha_1  + \alpha_2$. The near-field coupling leads to the term $\pm 2 \sqrt{\alpha_1 \alpha_2}$. The total absorption is thus redistributed on the two new hybridized states, but in sum remains unchanged.
- For two equal particles ($R_1 = R_2$), the symmetric mode caries twice the absorption strength of a single  particle and the antisymmetric mode does not show up in the absorption spectrum. 
+ For two equal particles ($R_1 = R_2$), the symmetric mode caries twice the absorption strength of a single  particle and the antisymmetric mode does not show up in the absorption spectrum, as its $\alpha_\text{eff}$ vanishes.
 
 \begin{questions}
 
