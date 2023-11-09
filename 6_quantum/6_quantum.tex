@@ -100,6 +100,7 @@ We can distinguish two limiting cases. The coupling energy $J$ can be larger tha
 \begin{figure}
    \inputtikz{\currfiledir anticrossing_v2}
 \caption{Eigen-energies and weights of the eigen-functions as function of the unperturbed energies ($E_2 = 1$).}
+\label{fig:6_anticrossing}
 \end{figure}
 
 
@@ -316,15 +317,15 @@ In the final state, the excitation should have swapped, i.e.
 \end{equation}
 The two electrons will interact by their Coulomb potential. This is sufficient, as we will see, the swap the excitation. The transition matrix element or interaction energy $J$
 \begin{equation}
-   J \propto \left\langle \psi_f \middle| \frac{e^2}{r_{12}} \middle| \psi_i \right\rangle
+   J = \frac{1}{4 \pi \epsilon_0} \left\langle \psi_f \middle| \frac{e^2}{r_{12}} \middle| \psi_i \right\rangle
 \end{equation}
-where $r_{12}$ is the distance of the electrons and a factor of $4\pi \epsilon_0$ was absorbed in the proportional sign. Multiplying this out, we get two pairs of terms. In each pair, electron 1 and 2 change role. One pair has the form
+where $r_{12}$ is the distance of the electrons. Multiplying this out, we get two pairs of terms. In each pair, electron 1 and 2 change role. One pair has the form
 \begin{equation}
-   J^C = 2  \left\langle  \psi_{a^\star}(1) \,  \psi_{b}(2)\middle| \frac{e^2}{r_{12}} \middle|  \psi_{a}(1) \,  \psi_{b^\star}(2)\right\rangle
+   J^C = \frac{2}{4 \pi \epsilon_0}  \left\langle  \psi_{a^\star}(1) \,  \psi_{b}(2)\middle| \frac{e^2}{r_{12}} \middle|  \psi_{a}(1) \,  \psi_{b^\star}(2)\right\rangle
 \end{equation} 
 i.e the electrons stay on 'their' molecule but change between excited and ground state. This is called the Coulomb term. In the second pair
 \begin{equation}
-   J^E = 2  \left\langle \psi_{a^\star}(1) \,  \psi_{b}(2) \middle| \frac{e^2}{r_{12}} \middle|  \psi_{a}(2) \,  \psi_{b^\star}(1) \right\rangle
+   J^E = \frac{2}{4 \pi \epsilon_0}  \left\langle \psi_{a^\star}(1) \,  \psi_{b}(2) \middle| \frac{e^2}{r_{12}} \middle|  \psi_{a}(2) \,  \psi_{b^\star}(1) \right\rangle
 \end{equation} 
 %\left\langle \frac{1}{2} \middle| 1 \right\rangle
 %
@@ -338,7 +339,7 @@ the electrons change molecule and take their state (ground vs excited) with them
 
 The transition matrix element $M_{if}^C$ is similar to two charge densities that interact. It was the work of Dexter and Förster to apply a multipole-multipole expansion to simplify things. We keep only the lowest term, the dipole-dipole contribution. The dipoles are transition dipole moments of the form
 \begin{equation}
-   \boldsymbol{\mu}_a = \braket{ \psi_{a^\star}(1)| \br |  \psi_{a}(1) }
+   \boldsymbol{\mu}_a = \braket{ \psi_{a^\star}(1)| e \, \br |  \psi_{a}(1) }
 \end{equation}
 i.e, an electron changes from ground to excited state.
 %
@@ -349,10 +350,10 @@ i.e, an electron changes from ground to excited state.
 % \end{equation}
 The coupling energy $J$ depends on the distance $\boldsymbol{r}_{ab}$ and the relative orientation of the transition dipoles $\boldsymbol{\mu}_{a,b}$. It can be thought of as the energy of one dipole in the field of another.
 \begin{eqnarray}
- J & = & \frac{\boldsymbol{\mu}_a \cdot \boldsymbol{\mu}_b }{|\boldsymbol{r}_{ab}|^3} 
-  + 3 \frac{ (\boldsymbol{\mu}_a \cdot \boldsymbol{r}_{ab}) (\boldsymbol{\mu}_b \cdot \boldsymbol{r}_{ab})
-  }{ |\boldsymbol{r}_{ab}|^5 } \\
-   & = & \frac{\mu_a \mu_b }{r_{ab}^3} \left( \cos \theta - 3 \cos \alpha \, \cos \beta \right) = \frac{\mu_a \mu_b }{r_{ab}^3} \, \kappa  
+ J & = & \frac{1}{4 \pi \epsilon_0}  \left( \frac{\boldsymbol{\mu}_a \cdot \boldsymbol{\mu}_b }{|\boldsymbol{r}_{ab}|^3} 
+  - 3 \frac{ (\boldsymbol{\mu}_a \cdot \boldsymbol{r}_{ab}) (\boldsymbol{\mu}_b \cdot \boldsymbol{r}_{ab})
+  }{ |\boldsymbol{r}_{ab}|^5 }  \right)\\
+   & = & \frac{\mu_a \mu_b }{4 \pi \epsilon_0 \, r_{ab}^3} \left( \cos \theta - 3 \cos \alpha \, \cos \beta \right) = \frac{\mu_a \mu_b }{4 \pi \epsilon_0 \,r_{ab}^3} \, \kappa  
 \end{eqnarray}
 where the angles are defined in the sketch.
 
@@ -366,14 +367,14 @@ The angles used to calculate the coupling factor $\kappa$.}
 We now consider three states: both molecules in the ground state, molecule $a$ excited ($\psi_i$ of last section), and molecule $b$ excited ($\psi_f$). In matrix form, the Hamilton operator reads 
 \begin{equation}
 \hat{H} = \begin{pmatrix}
-0 & \mu_a & \mu_b  \\
-\mu_a^\star & \hbar \omega_a & J  \\
-\mu_b^\star & J^\star & \hbar \omega_b \\
+0 & \mu_a \mathcal{E}& \mu_b \mathcal{E} \\
+\mu_a^\star \mathcal{E}^\star & \hbar \omega_a & J  \\
+\mu_b^\star \mathcal{E}^\star & J^\star & \hbar \omega_b \\
 \end{pmatrix} \quad .
 \end{equation}
-The transition dipole moments couple the ground state to the excited states, and the excited states are coupled by the energy $J$. By measuring for example an absorption spectrum starting from the ground state, we can determine the energies of the excited states, which we can find by diagonalizing the lower  $2 \times 2$ matrix  as discussed above.
+The transition dipole moments together with an external optical field $\mathcal{E}$ couple the ground state to the excited states. The excited states are coupled by dipole-dipole interaction without the need for an external field. For example, by measuring an absorption spectrum starting from the ground state, we can determine the energies of the excited states, which we can find by diagonalizing the lower $2 \times 2$ matrix as discussed above.
 
-When $\ket{\psi}$ is a linear combination of $\psi_i$ and $\psi_f$, then also the transition dipole moment from  the ground state to $\ket{\psi}$ is a linear combination of $\mu_a$ and $\mu_b$ with the same weights. When $J \gg |E_a - E_b| / 2$ then we get
+The coupling results in new states, which can be written as linear combinations of the uncoupled states. This has an effect on the observables. When $\ket{\psi}$ is a linear combination of $\psi_i$ and $\psi_f$, then also the transition dipole moment from  the ground state to $\ket{\psi}$ is a linear combination of $\mu_a$ and $\mu_b$ with the same weights. When $J \gg |E_a - E_b| / 2$ then we get (see Fig. \ref{fig:6_anticrossing})
 \begin{equation}
  \boldsymbol{\mu}_{\pm} = \sqrt{1/2} \, \left( \boldsymbol{\mu}_a \pm \boldsymbol{\mu}_b \right) \quad .
 \end{equation}
