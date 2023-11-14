@@ -1,4 +1,4 @@
-\renewcommand{\lastmod}{November 8, 2023}
+\renewcommand{\lastmod}{November 14, 2023}
 \renewcommand{\chapterauthors}{Markus Lippitz}
 
 \chapter{Hybridization of quantum mechanical systems}
@@ -124,15 +124,15 @@ Thus, we consider only a subset of all atomic orbitals, only the $\pi$ orbitals 
 
 Analogous to equation \ref{eq:6_e_variation} above, we calculate the self-energy according to the variation principle
 \begin{equation}
- E = \frac{ \sum_{i,j} c_i \, c_j \, H_{i,j} }{ \sum_{i,j} c_i \, c_j \, S_{i,j} }
+ E = \frac{ \sum_{i,j} c_i \, c_j \, H_{i,j} }{ \sum_{i,j} c_i \, c_j \, S_{i,j} } \quad .
 \end{equation}
 The minimum self-energy $E$ is obtained when all partial derivatives to the $c_i$ are zero, or when
 \begin{equation}
- \left| \mathbf{H} - E \, \mathbf{S}\right| = 0
+ \left| \mathbf{H} - E \, \mathbf{S}\right| = 0 \quad .
 \end{equation}
 Since we have assumed $S_{ij} = \delta_{ij}$, this simplifies to 
 \begin{equation}
- \left| \mathbf{H} - E \, \mathds{1} \right| = 0
+ \left| \mathbf{H} - E \, \mathds{1} \right| = 0 \quad .
 \end{equation}
 So we have to determine the eigenvalues and eigenvectors of $H_{i,j}$. The eigenvalues indicate the energy of the state, the eigenvectors the corresponding linear combination of the atomic orbitals.
 
@@ -146,12 +146,12 @@ As an example we consider benzene (\ch{C6H6}). The 6 carbon atoms are sp$^2$ hyb
  & & \beta & \alpha & \beta & \\
 & & & \beta & \alpha & \beta \\
 \beta &  & & & \beta & \alpha 
- \end{pmatrix} 
+ \end{pmatrix}  \quad .
 \end{equation}
 The $\beta$ in the corners close the ring.
 If we assume $E = \alpha + x \beta$, then the eigenvalue equation simplifies to 
 \begin{equation}
-x^6 - 6 x^4 + 9x^2 - 4 = 0 \quad \text{or} \quad x = \pm 1, \pm 1, \pm 2
+x^6 - 6 x^4 + 9x^2 - 4 = 0 \quad \text{or} \quad x = \pm 1, \pm 1, \pm 2 \quad .
 \end{equation}
 How to do this numerically you can see in the  
 Pluto script\pluto{hueckel}.
@@ -307,23 +307,23 @@ Both the absorption and the emission spectrum of an atom or a molecule is connec
 
 \section{Transfer of excitation from one molecule to another}
 
-In a coupled pendulum, energy is transferred from one pendulum to the other (and back again). Here we will investigate this transfer of excitation for a quantum mechanical system\sidenote{More in \cite{KoehlerBaessler2015} and XXX Vaude molecular fluorescence}. We have two molecules and each molecule has a wave function of the ground state ($a$, $b$) and of an excited state ($a^\star$, $b^\star$). Two electrons (1,2) are involved, but we can not distinguish them, so that we need to construct the usual anti-symmetric wavefunctions. Initially, molecule $a$ should be excited and $b$ in the ground state. The initial wavefunction is thus
+In a coupled pendulum, energy is transferred from one pendulum to the other (and back again). Here we will investigate this transfer of excitation for a quantum mechanical system\sidenote{More in \cite{KoehlerBaessler2015} and  \cite{Valeur_mol_fl}}. We have two molecules and each molecule has a wave function of the ground state ($a$, $b$) and of an excited state ($a^\star$, $b^\star$). Two electrons (1,2) are involved, but we can not distinguish them, so that we need to construct the usual anti-symmetric wavefunctions. Initially, molecule $a$ should be excited and $b$ in the ground state. The initial wavefunction is thus
 \begin{equation}
-   \psi_i = \frac{1}{\sqrt{2}} \left( \psi_{a^\star}(1) \,  \psi_{b}(2) -   \psi_{a^\star}(2) \,  \psi_{b}(1)\right) 
+   \psi_i = \frac{1}{\sqrt{2}} \left( \psi_{a^\star}(1) \,  \psi_{b}(2) -   \psi_{a^\star}(2) \,  \psi_{b}(1)\right)  \quad .
 \end{equation}
 In the final state, the excitation should have swapped, i.e.
 \begin{equation}
-   \psi_f = \frac{1}{\sqrt{2}} \left( \psi_{a}(1) \,  \psi_{b^\star}(2) -   \psi_{a}(2) \,  \psi_{b^\star}(1)\right) 
+   \psi_f = \frac{1}{\sqrt{2}} \left( \psi_{a}(1) \,  \psi_{b^\star}(2) -   \psi_{a}(2) \,  \psi_{b^\star}(1)\right)  \quad .
 \end{equation}
-The two electrons will interact by their Coulomb potential. This is sufficient, as we will see, the swap the excitation. The transition matrix element or interaction energy $J$
+The two electrons will interact by their Coulomb potential. This is sufficient, as we will see, to swap the excitation. The transition matrix element or interaction energy $J$ is
 \begin{equation}
-   J = \frac{1}{4 \pi \epsilon_0} \left\langle \psi_f \middle| \frac{e^2}{r_{12}} \middle| \psi_i \right\rangle
+   J = \frac{1}{4 \pi \epsilon_0} \left\langle \psi_f \middle| \frac{e^2}{r_{12}} \middle| \psi_i \right\rangle \quad ,
 \end{equation}
 where $r_{12}$ is the distance of the electrons. Multiplying this out, we get two pairs of terms. In each pair, electron 1 and 2 change role. One pair has the form
 \begin{equation}
-   J^C = \frac{2}{4 \pi \epsilon_0}  \left\langle  \psi_{a^\star}(1) \,  \psi_{b}(2)\middle| \frac{e^2}{r_{12}} \middle|  \psi_{a}(1) \,  \psi_{b^\star}(2)\right\rangle
+   J^C = \frac{2}{4 \pi \epsilon_0}  \left\langle  \psi_{a^\star}(1) \,  \psi_{b}(2)\middle| \frac{e^2}{r_{12}} \middle|  \psi_{a}(1) \,  \psi_{b^\star}(2)\right\rangle \quad ,
 \end{equation} 
-i.e the electrons stay on 'their' molecule but change between excited and ground state. This is called the Coulomb term. In the second pair
+i.e., the electrons stay on 'their' molecule but change between excited and ground state. This is called the Coulomb term. In the second pair
 \begin{equation}
    J^E = \frac{2}{4 \pi \epsilon_0}  \left\langle \psi_{a^\star}(1) \,  \psi_{b}(2) \middle| \frac{e^2}{r_{12}} \middle|  \psi_{a}(2) \,  \psi_{b^\star}(1) \right\rangle
 \end{equation} 
@@ -337,11 +337,11 @@ the electrons change molecule and take their state (ground vs excited) with them
 
 \section{Coupling of two transition dipole moments}
 
-The transition matrix element $M_{if}^C$ is similar to two charge densities that interact. It was the work of Dexter and Förster to apply a multipole-multipole expansion to simplify things. We keep only the lowest term, the dipole-dipole contribution. The dipoles are transition dipole moments of the form
+The transition matrix element $J^C$ is similar to two charge densities that interact. It was the work of Dexter and Förster to apply a multipole-multipole expansion to simplify things. We keep only the lowest term, the dipole-dipole contribution. The dipoles are transition dipole moments of the form
 \begin{equation}
    \boldsymbol{\mu}_a = \braket{ \psi_{a^\star}(1)| e \, \br |  \psi_{a}(1) }
 \end{equation}
-i.e, an electron changes from ground to excited state.
+i.e., an electron changes from ground to excited state.
 %
 % We consider two molecules, $a$ and $b$, each with a ground ($0$) and an excited ($1$) state. We write the wave function in the form $\ket{ab}$, i.e. $\ket{01}$ is molecule $a$ in the ground state, molecule $b$ in the excited state. In each molecule an optical transition dipole moment couples the ground and excited states, i.e. $\braket{10| \hat{\mu}_a | 00}$ and $\braket{01| \hat{\mu}_b | 00}$ are different from zero and describe an excitation of molecule $a$ and $b$ respectively. In addition, the two transition dipole moments interact and lead to a resonant coupling of the 
 % $\ket{01}$ and $\ket{10}$ states\footcite{knoester-book}
