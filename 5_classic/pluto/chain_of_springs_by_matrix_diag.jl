@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.19.26
+# v0.19.30
 
 using Markdown
 using InteractiveUtils
@@ -29,6 +29,8 @@ end
 plot(eigvals(M) .- 2 .* (1 .-  cos.((0:d-1)./d .* pi)))
 
 # ╔═╡ 6099d02b-f200-45e6-ab58-b2404b636c64
+# ╠═╡ disabled = true
+#=╠═╡
 begin
 	
 	ev = eigvecs(M)
@@ -37,8 +39,10 @@ begin
 	plot!(ev[:,3])
 	plot!(ev[:,:],legend=false)
 end
+  ╠═╡ =#
 
 # ╔═╡ 979c9664-e65f-4e86-8379-17e254dd621a
+#=╠═╡
 begin
 	n = 2
 	an = (0:d-1)
@@ -46,18 +50,7 @@ begin
 	plot(ev[:,n])
 	plot!( -0.35 .* real.(exp.( 1im .* (k .* an .+ 0.855) )))
 end
-
-# ╔═╡ 7ac6f87c-dbad-41bb-971d-b78e47e16223
-acos.(ev[:,1] ./ 0.35)
-
-# ╔═╡ 7904f62d-51f8-42e7-b686-a24c7d5377f6
-real(exp(1im .* 1.339))
-
-# ╔═╡ e3f98ceb-2711-4ee4-9a2a-790ccec44e86
-ev[:,1]
-
-# ╔═╡ f4231461-289c-438b-9057-ab3b1af5ec8e
-k
+  ╠═╡ =#
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
@@ -197,6 +190,12 @@ version = "0.9.3"
 deps = ["ArgTools", "FileWatching", "LibCURL", "NetworkOptions"]
 uuid = "f43a241f-c20a-4ad4-852c-f6b1247861c6"
 version = "1.6.0"
+
+[[deps.EpollShim_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl"]
+git-tree-sha1 = "8e9441ee83492030ace98f9789a654a6d0b1f643"
+uuid = "2702e6a9-849d-5ed8-8c21-79e8b8f9ee43"
+version = "0.0.20230411+0"
 
 [[deps.ExceptionUnwrapping]]
 deps = ["Test"]
@@ -818,7 +817,7 @@ uuid = "41fe7b60-77ed-43a1-b4f0-825fd5a5650d"
 version = "0.2.0"
 
 [[deps.Wayland_jll]]
-deps = ["Artifacts", "Expat_jll", "JLLWrappers", "Libdl", "Libffi_jll", "Pkg", "XML2_jll"]
+deps = ["Artifacts", "EpollShim_jll", "Expat_jll", "JLLWrappers", "Libdl", "Libffi_jll", "Pkg", "XML2_jll"]
 git-tree-sha1 = "ed8d92d9774b077c53e1da50fd81a36af3744c1c"
 uuid = "a2964d1f-97da-50d4-b82a-358c7fce9d89"
 version = "1.21.0+0"
@@ -1062,9 +1061,5 @@ version = "1.4.1+0"
 # ╠═95db6674-5685-4986-a57a-230dbf23ec4d
 # ╠═6099d02b-f200-45e6-ab58-b2404b636c64
 # ╠═979c9664-e65f-4e86-8379-17e254dd621a
-# ╠═7ac6f87c-dbad-41bb-971d-b78e47e16223
-# ╠═7904f62d-51f8-42e7-b686-a24c7d5377f6
-# ╠═e3f98ceb-2711-4ee4-9a2a-790ccec44e86
-# ╠═f4231461-289c-438b-9057-ab3b1af5ec8e
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
