@@ -1,0 +1,34 @@
+% \documentclass[margin=0mm]{standalone}
+% \include{../tikz_header}
+
+% \begin{document}
+
+
+\begin{tikzpicture}
+%\useasboundingbox (-1.0,-1.0) rectangle (10.2,4.2);
+%\draw (-1,-1.0) rectangle (10.2,4.2);
+%
+
+
+\begin{axis}[ytick = \empty, yticklabel = \empty,
+ylabel = {log(signal)}, xlabel = {frequency (MHz)},
+%ytick pos = left, ytick = {0}, 
+ %xmin=3.45, xmax = 4.6,
+ width=50mm, height=40mm,
+ ]
+ 
+
+ \addplot[no markers, gray,thick, smooth] table 
+ [x index=0, y index=1,  col sep = comma] {\currfiledir wrigge/data.dat};
+
+\addplot[no markers, red,thin, smooth] table 
+ [x index=0, y index=1,  col sep = comma] {\currfiledir wrigge/model.dat};
+
+
+	 	
+\end{axis}
+
+
+\end{tikzpicture}
+
+%\end{document}

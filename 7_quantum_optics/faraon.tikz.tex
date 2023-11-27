@@ -1,0 +1,32 @@
+% \documentclass[margin=0mm]{standalone}
+% \include{../tikz_header}
+
+% \begin{document}
+
+
+\begin{tikzpicture}
+%\useasboundingbox (-1.0,-1.0) rectangle (10.2,4.2);
+%\draw (-1,-1.0) rectangle (10.2,4.2);
+%
+
+
+\begin{axis}[%ytick = \empty, yticklabel = \empty,
+ylabel = {coincidences ($10^3$)}, xlabel = {delay $\tau / T$ },
+%ytick pos = left, ytick = {0}, 
+ymin=47,% xmax = 4.6,
+ width=50mm, height=40mm,
+ ybar,   bar width=0.1mm,
+ ]
+ 
+
+ \addplot[] table 
+ [x expr=\coordindex - 6, y index=1,  col sep = comma] {\currfiledir faraon/faraon08.csv};
+
+
+	 	
+\end{axis}
+
+
+\end{tikzpicture}
+
+%\end{document}
