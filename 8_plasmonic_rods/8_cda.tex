@@ -1,59 +1,81 @@
-\renewcommand{\lastmod}{November 18, 2021}
+\renewcommand{\lastmod}{December 1, 2023}
 \renewcommand{\chapterauthors}{Markus Lippitz}
 
 
-\chapter{Lattices of plasmonic particles}
+\chapter{Lattice of plasmonic particles}
 
 \section{Overview}
 
+Now we combine everything. We have three ingredients: the plasmonic resonance of a small silver particle, a periodic arrangement of these particles in a two-dimensional lattice, and the narrow optical resonance of the TDBC dye. The particles hybridized with each other, combining the plasmon hybridization of Chapter XXX with lattice modes, as in a chain of masses and in solid-state physics in general. As we will see below, this results in an X-shaped dispersion relation, which we measure using Fourier optics.
 
+In a second step, this lattice plasmon mode hybridizes with the optical transition of the dye, leading to characteristic anti-crossing features in the dispersion relation, where the X crosses the horizontal dye dispersion. Microscopically, we can model the influence of the dye by taking into account the refractive index of the medium.
+
+This chapter is based on the master thesis of Simon Durst\footcite{Durst21}. All figures are taken from his thesis, sometimes slightly modified.
+
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{\currfiledir sample_dye.pdf}
+  \caption{Dispersion relation of a lattice plasmon hybridized (X-shaped) with a dye (horizontal), for different concentrations of the dye (left to right: 1, 10, 60 weight \%). The grey scale gives the extinction. \label{fig:8_intro} }
+  \end{figure}
+  
+
+  
 
 \section{How this is  measured}
 
-\begin{figure}
-\includegraphics[width=\textwidth]{\currfiledir field_ag2.pdf}
-\caption{Angle-dependent extinction spectrum of an array of plasmonic particles (Figure by S. Durst). \label{fig:8_intro} }
-\end{figure}
+The samples consist of a rectangular lattice of silver particles on a glass substrate. It is fabricated by electron beam lithography. An electron sensitive resist is exposed in a (slightly modified) electron microscope and then developed. At the exposed areas, the glass surface is accessible. The unexposed areas are still covered by the resist.  A gold or silver film is deposited by thermal evaporation. When the resist is chemically removed, it takes with it the metal film on the unexposed areas. The metal remains only where it adheres directly to the glass surface. In this way, arbitrary two-dimensional structures can be fabricated with a resolution limited by the electron beam to about 50--80 nm in our case.
 
+We have chosen a particle size of $80 \times 80$ nm. The lattice constant $p_y$ is always 200 nm, $p_x$ varies (see below). The lattice is coated with a polymer film containing the TDBC dye in variable concentration. Everything is covered with immersion oil ($n=1.5$) and a second glass substrate, so that the particles are embedded in a homogeneous dielectric environment.
 
-
-The samples consist of a rectangular lattice of gold particles on a glass substrate. The lattice constant $p_y$ is always 200 nm, $p_x$ varies and is given in the data set. In our data set, the particles are squares with a size of $ 80 \times 80$ nm. To simplify things, we assume them to be small spheres. The lattice is coated with immersion oil ($n=1.5$) and covered by a second glass substrate so that the particles are embedded in a homogeneous dielectric environment.
 
 \begin{marginfigure}
 \includegraphics[width=30mm]{\currfiledir sample.pdf}
-\caption{SEM micrograph of the gold nanorods in the lattice. Indicated are the dimensions of the rods and the lattice constants (Figure by S. Durst).}
+\caption{SEM micrograph of gold nanorods in a lattice. Indicated are the dimensions of the rods and the lattice constants.}
 \end{marginfigure}
 
-We measure transmission spectra for white light as function of angle of incidence. As for technical reasons the lattice has only a finite size of $30 \times 30$ \textmu m, it is difficult to keep the sample in the beam when rotating either the sample or the beam. We thus keep everything fixed and measure all angles at the same time. To this end, we illuminate the sample by a cone of light with large opening angle (NA = 0.9, max. angle = $64^\circ$). The transmitted light is collected by a second microscope objective. In its back focal plane, i.e. at one focal length behind the lens, rays of equal angle of incidence cross at the same point at a height $h$, which is according to the Abbé sine condition
+
+For a dispersion relation we need an energy $E$ and a wave vector $k$. Since the sample is only two-dimensional, this is an in-plane wave vector, which we have chosen to be along the x-direction, i.e. $k_x$. The signal measured as the function of $E$ and $k_x$ is the transmission $T$ or the extinction\sidenote{In this sample, not only absorption but also scattering leads to a reduced transmission. Therefore, we call it extinction and not absorption.} $1-T$.
+We measure transmission spectra for white light as a function of angle of incidence. Electron beam lithography results in a finite size lattice of $30 \times 30$ \textmu m. It is difficult to keep the sample in the beam when rotating either the sample or the beam. So we keep everything fixed and measure all the angles at the same time. To do this, we illuminate the sample with a light cone with a large aperture angle (NA = 0.9, max. angle = $64^\circ$). The transmitted light is collected by a second microscope objective. Fourier optics tells us that the front focal plane is Fourier transformed into the back focal plane. We can no longer use a small angle of incidence, but an ideal imaging system must satisfy the Abbé-Sine condition that rays of equal angle of incidence $\theta$ intersect at the same point at a height $h$ with
 \begin{equation}
  h = f \sin \theta \quad .
 \end{equation}
 
 \begin{marginfigure}
 \includegraphics[width=45mm]{\currfiledir bfp.pdf}
-\caption{The back focal plane sorts rays by their angle in the front focal plane.  (Figure by S. Durst).}
+\caption{The back focal plane sorts rays by their angle in the front focal plane.}
 \end{marginfigure}
 
-We image this back-focal plane (BFP) on the entrance slit of a spectrometer and thus get an image on the CCD camera which in one direction is angle of incidence, in the other wavelength of the light beam. This is converted into a energy-$k_x$ scale, where $k_x$ is the component of the wave vector that is parallel to the sample surface along the x-coordinate. The light beam is polarized before the sample such that we image the s polarization on the entrance slit of the spectrometer, i.e. along the x-direction of the sample coordinate system.
+We image this back-focal plane (BFP) on the entrance slit of a spectrometer and thus get an image on the CCD camera which in one direction is angle of incidence, in the other wavelength of the light beam. This is converted into a $E$-$k_x$ scale. As the maximum angle is fixed, but $k \propto E$, we observable region of the dispersion relation has a trapezoidal shape, i.e, the maximum value of $k_x$ is lower at lower energy. The light beam is polarized before the sample such that we image the s polarization on the entrance slit of the spectrometer, i.e. along the x-direction of the sample coordinate system.
 
 
 \begin{figure}
 \includegraphics[width=\textwidth]{\currfiledir SetupTransmission_v3.pdf}
-\caption{Setup to measure angle-dependent transmission spectra without moving parts.  (Figure by S. Durst). }
+\caption{Setup to measure angle-dependent transmission spectra without moving parts. }
 \end{figure}
 
 
-\section{How to understand the dispersion relation}
+\section{How to understand the dispersion relation (without dye)}
 
-Each panel in Fig. \ref{fig:8_intro} shows a dispersion relation, i.e., the relation between (in-plane) momentum and energy. Two features combine: the particle plasmon resonance and a lattice resonance. The particle resonance is at a given eigen-frequency (or energy), spectrally rather broad, and independent of the angle of incidence or $k_x$, as the particles are rather spherical. This gives the broad, medium gray band around an energy of 2~eV. The second feature is the lattice resonance.  An optical wave travels parallel to the interface. Its dispersion relation is
+\begin{figure}
+  \includegraphics[width=\textwidth]{\currfiledir field_ag2.pdf}
+  \caption{Angle-dependent extinction spectrum of an array of plasmonic particles. \label{fig:8_without_dye} }
+  \end{figure}
+  
+
+  
+
+Each panel in Fig. \ref{fig:8_without_dye} shows a dispersion relation, i.e., the relation between (in-plane) momentum and energy. Two features combine: the particle plasmon resonance and a lattice resonance. The particle resonance is at a given eigen-frequency (or energy), spectrally rather broad, and independent of the angle of incidence or $k_x$, as the particles are rather spherical. This gives the broad, medium gray band around an energy of 2~eV. The second feature is the lattice resonance.  An optical wave travels parallel to the interface. Its dispersion relation is
 \begin{equation}
  E =   \hbar  \, \left(  k_x + m \cdot G \right)
 \end{equation}
-where $G = 2 \pi / p_x$ is the fundamental reciprocal lattice vector and $m$ an integer. The lattice resonance is spatially extended over the whole lattice and spectrally narrow. The interaction of a broad and a narrow resonance leads to characteristic spectral features that are visible in Fig. \ref{fig:8_intro}  and could be described in a Fano model. But that is (currently) beyond the scope of this chapter.
+where $G = 2 \pi / p_x$ is the fundamental reciprocal lattice vector and $m$ an integer. This results in the X-shaped feature for $m = \pm 1$. With varying $p_x$ the crossing point, i.e., the energy $E$ at $k_x = 0$ varies, as
+\begin{equation}
+  E(k_x = 0) = m \frac{2 \pi}{p_x} \quad .
+\end{equation}
+In the right-most panel of  Fig. \ref{fig:8_without_dye} we see the second order $m= \pm 2 $.
 
-Here we follow a more microscopic approach. We calculate the extinction spectrum of a  arrangement of  many small particles at positions $\mathbf{r}_i$.
-Each  particle is modelled as sphere  with a  polarizability $\alpha_i$ given by the material properties and the volume of the small particle. We want to calculate the absorption, scattering and extinction spectrum of this  ensemble.
-
+The eigenmode of the lattice resonance is spatially extended over the whole lattice and spectrally narrow. The interaction of a broad (particle)  and a narrow (lattice) resonance leads to characteristic spectral features that are visible in Fig. \ref{fig:8_without_dye}  and could be described as Fano resonance\sidenote{Ugo Fano, 1912--2001 }. But that is beyond the scope of this chapter. Here we follow a more microscopic approach. We calculate the extinction spectrum of an  arrangement of  many small particles at positions $\mathbf{r}_i$.
+Each  particle is modelled as sphere  with a  polarizability $\alpha_i$ given by the material properties and the volume of the small particle. 
 
 \section{Radiating electric dipole}
 
@@ -94,7 +116,7 @@ This is a convenient method to describe the full vectorial field emitted by a di
 
 \section{Scattering sphere}
 
-We need to know the oscillation amplitude of the emitting dipole $\mathbf{p}$ to use eq. \ref{eq:8_greens_dipole}. It is related by the  polarizability $\alpha$  to the incoming optical field $\mathbf{E}_{inc}$
+We need to know the oscillation amplitude of the emitting dipole $\mathbf{p}$ to use eq. \ref{eq:8_greens_dipole}. As in chapter 6, it is related by the  polarizability $\alpha$  to the incoming optical field $\mathbf{E}_{inc}$
 \begin{equation}
 \mathbf{p} = \epsilon_0 \, \epsilon_{out} \, \alpha \, \mathbf{E}_{inc}
 \end{equation}
@@ -149,65 +171,25 @@ where $\mathbf{p}$ and $ \mathbf{E}_{inc} $ are column vectors containing the in
  \end{align}
 Some publications put the minus sign of the last equation into the Greens function. 
 
-\begin{questions} 
-\item Which size / dimension have $ \mathbf{A}$ and $\mathbf{p}$ in eq. \ref{eq:8_eq_system_EAP} ?
-\item Sketch the interaction matrix $ \mathbf{A}$ and its components.
-\end{questions}
 
-\section{Absorption, scattering and extinction} 
- 
 The extinction cross-section can be calculated by the optical theorem from the interference of the forward-scattered wave with the incident wave. We get\footcite{Draine88,Yurkin07}
 \begin{equation}
 \sigma_{ext} = \frac{k}{\epsilon_0 \epsilon_{out}  \, |\mathbf{E}_{inc}|^2} \, \sum_i \, \Im ( \mathbf{p}_i \cdot \mathbf{E}_{i, inc}^\star ) \quad .
 \end{equation}
- The absorption can be calculated from the field acting on each dipole\footcite{Yurkin07}, i.e., replacing $\mathbf{E}_{i, inc} $ by $\mathbf{E}_{i, loc} $ 
- \begin{equation}
-\sigma_{abs} = \frac{k}{\epsilon_0 \epsilon_{out}  \, |\mathbf{E}_{0}|^2} \, \sum_i \, \Im ( \mathbf{p}_i \cdot \mathbf{E}_{i, loc}^\star ) \quad .
-\end{equation}
-The scattering cross section is the difference of both
-\begin{equation}
-\sigma_{scat} = \sigma_{ext}  - \sigma_{abs} \quad .
-\end{equation}
- 
-With this we have now everything at hand to calculate the absorption, scattering and extinction cross-sections and spectra of arrangements  of small scattering spheres or dipoles. We solve eq. \ref{eq:8_eq_system_EAP} for $\mathbf{p}$ and then calculate the cross-sections. Depending on the community (and the distance between the dipoles) this is called discrete dipole approximation (DDA) or coupled dipole approximate (CDA).
- 
- 
-\begin{questions}
-\item Why do $\sigma_{ext}$ and $\sigma_{abs}$ differ only in  the choice of the field that is multiplied on $\mathbf{p}_i$? How can we understand this choice?
-\end{questions}
+The term $\Im ( \mathbf{p} \cdot \mathbf{E}_{inc}^\star )$ is very similar to the term for absorption, in which not the incident field $\mathbf{E}_{inc} $ but the local field $\mathbf{E}_{loc} $ would be used.
+
+
 
  
-% \section{Improvements: Radiation reaction} 
-
-% When we would have only a single dipole, then $\sigma_{scat}$ as defined above would vanish. This problem finds its roots in our definition of the polarizability $\alpha$. We need to take the radiation reaction into account\sidenote{see chapter 8.4.2. in \cite{Novotny-Hecht2012}}. When we call the 'old' definition $\alpha^{CM}$, as Clausius-Mossotti, then we define\sidenote{here in SI, in contrast to \cite{Yurkin07}} 
-% \begin{equation}
-% \alpha^{RR} = \frac{\alpha^{CM}}{1 - \frac{i k^3}{6 \pi} \alpha^{CM}}
-% \approx
-% \alpha^{CM} -  \frac{i k^3}{6 \pi} \left(\alpha^{CM}\right)^2 \quad .
-% \end{equation}
-
-% Along the same lines, an improved relation for the absorption cross-section should be used\sidenote{see \cite{Draine88}  for a derivation, and \cite{Yurkin07} for a discussion}
-%  \begin{equation}
-% \sigma_{abs} = \frac{k}{\epsilon_0 \epsilon_{out}  \, |\mathbf{E}_{0}|^2} \, \sum_i \, \Im \left( \mathbf{p}_i \cdot \left( \frac{\mathbf{p}_i}{\epsilon_0 \epsilon_{out}  \, \alpha_{RR}} \right) ^\star \right) 
-% - \frac{2}{3} \, \frac{1}{4 \pi \epsilon_0 \epsilon_{out}} \,  k^3 \, |  \mathbf{p}_i |^2 \quad .
-% \end{equation}
-
-
-% \section{Side note: Polarizability of  a Lorentz oscillator}
-
-% We started above with the polarizability $\alpha$ of a sphere
-% \begin{equation}
-%  \alpha = 3V \, \frac{\epsilon_{in} - \epsilon_{out}}{\epsilon_{in} + 2 \epsilon_{out}} \quad .
-% \end{equation}
-% We could also assume a Lorentz oscillator, taking into account our definition 
-%  \begin{equation}
-% \mathbf{p} = \epsilon_0 \, \epsilon_{out} \, \alpha_L \, \mathbf{E}_{inc} = e \, \mathbf{x} \quad .
-% \end{equation}
-% With this we find 
-%  \begin{equation}
-%  \alpha_L = \frac{e^2 }{ \epsilon_0 \, \epsilon_{out}  \, m} \,  \, \frac{1}{\omega_0^2 - \omega^2 +2  i \gamma \omega }  \quad 
-% \end{equation}
-% with the eigen-frequency $\omega_0$, the damping $\gamma$ and the mass $m$ of the oscillator.
+With this we have now everything at hand to calculate the  extinction spectra of arrangements  of small scattering spheres or dipoles. We solve eq. \ref{eq:8_eq_system_EAP} for $\mathbf{p}$ and then calculate the cross-section. Depending on the community (and the distance between the dipoles) this is called discrete dipole approximation (DDA) or coupled dipole approximate (CDA).
+ 
+ 
+\begin{questions} 
+  \item Which size / dimension have $ \mathbf{A}$ and $\mathbf{p}$ in eq. \ref{eq:8_eq_system_EAP} ?
+  \item Sketch the interaction matrix $ \mathbf{A}$ and its components.
+  \end{questions}
+  
+ 
 
 \section{Lattice sum}
 
@@ -243,17 +225,38 @@ or  we define an effective (lattice) polarizability
 \begin{equation}
 \alpha_\text{lattice} = \frac{\alpha}{ 1 -     \alpha  \, S }  \quad .
 \end{equation} 
-The extinction cross-section becomes then\sidenote{somehow a $4 \pi$ is missing here....}
+The extinction cross-section then becomes\sidenote{somehow a $4 \pi$ is missing here....}
 \begin{equation}
 \sigma_{ext} = k \, \Im(\alpha_\text{lattice})  \quad .
 \end{equation}
+The simulated dispersion relations agree well with the measured ones, as Fig.\ref{fig:8_sim_without_dye} shows.
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{\currfiledir sim_field_ag2.pdf}
+  \caption{Simulations compared to experiment. \label{fig:8_sim_without_dye} }
+\end{figure}
+  
+
+  \section{Coupling to a dye}
+
+  \begin{figure}
+    \includegraphics[width=\textwidth]{\currfiledir sample_dye_anticross.pdf}
+    \caption{Anticrossing. \label{fig:8_sample_dye_anticross} }
+  \end{figure}
+    
+
+
+  \begin{figure}
+    \includegraphics[width=\textwidth]{\currfiledir sample_dye_sim.pdf}
+    \caption{Full sim. \label{fig:8_sample_dye_sim} }
+  \end{figure}
+    
 
 %-------------------
 
 
 \printbibliography[segment=\therefsegment,heading=subbibliography]
 
-%\printbibliography
 
 
 
