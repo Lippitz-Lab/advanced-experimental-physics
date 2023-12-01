@@ -6,7 +6,7 @@
 
 \section{Overview}
 
-Now we combine everything. We have three ingredients: the plasmonic resonance of a small silver particle, a periodic arrangement of these particles in a two-dimensional lattice, and the narrow optical resonance of the TDBC dye. The particles hybridized with each other, combining the plasmon hybridization of Chapter XXX with lattice modes, as in a chain of masses and in solid-state physics in general. As we will see below, this results in an X-shaped dispersion relation, which we measure using Fourier optics.
+Now we combine everything. We have three ingredients: the plasmonic resonance of a small silver particle, a periodic arrangement of these particles in a two-dimensional lattice, and the narrow optical resonance of the TDBC dye. The particles hybridized with each other, combining the plasmon hybridization of Chapter \ref{chap:hybrid_classic} with lattice modes, as in a chain of masses and in solid-state physics in general. As we will see below, this results in an X-shaped dispersion relation, which we measure using Fourier optics.
 
 In a second step, this lattice plasmon mode hybridizes with the optical transition of the dye, leading to characteristic anti-crossing features in the dispersion relation, where the X crosses the horizontal dye dispersion. Microscopically, we can model the influence of the dye by taking into account the refractive index of the medium.
 
@@ -116,7 +116,7 @@ This is a convenient method to describe the full vectorial field emitted by a di
 
 \section{Scattering sphere}
 
-We need to know the oscillation amplitude of the emitting dipole $\mathbf{p}$ to use eq. \ref{eq:8_greens_dipole}. As in chapter 6, it is related by the  polarizability $\alpha$  to the incoming optical field $\mathbf{E}_{inc}$
+We need to know the oscillation amplitude of the emitting dipole $\mathbf{p}$ to use eq. \ref{eq:8_greens_dipole}. As in chapter \ref{chap:hybrid_quantum}, it is related by the  polarizability $\alpha$  to the incoming optical field $\mathbf{E}_{inc}$
 \begin{equation}
 \mathbf{p} = \epsilon_0 \, \epsilon_{out} \, \alpha \, \mathbf{E}_{inc}
 \end{equation}
@@ -178,7 +178,7 @@ The extinction cross-section can be calculated by the optical theorem from the i
 \end{equation}
 The term $\Im ( \mathbf{p} \cdot \mathbf{E}_{inc}^\star )$ is very similar to the term for absorption, in which not the incident field $\mathbf{E}_{inc} $ but the local field $\mathbf{E}_{loc} $ would be used.
 
-
+ 
 
  
 With this we have now everything at hand to calculate the  extinction spectra of arrangements  of small scattering spheres or dipoles. We solve eq. \ref{eq:8_eq_system_EAP} for $\mathbf{p}$ and then calculate the cross-section. Depending on the community (and the distance between the dipoles) this is called discrete dipole approximation (DDA) or coupled dipole approximate (CDA).
@@ -227,7 +227,7 @@ or  we define an effective (lattice) polarizability
 \end{equation} 
 The extinction cross-section then becomes\sidenote{somehow a $4 \pi$ is missing here....}
 \begin{equation}
-\sigma_{ext} = k \, \Im(\alpha_\text{lattice})  \quad .
+\sigma_{ext} = k \, \Im(\alpha_\text{lattice})  \quad . \label{eq:8_lattice_ext}
 \end{equation}
 The simulated dispersion relations agree well with the measured ones, as Fig.\ref{fig:8_sim_without_dye} shows.
 
@@ -238,19 +238,67 @@ The simulated dispersion relations agree well with the measured ones, as Fig.\re
   
 
   \section{Coupling to a dye}
+  Now that we have described the dispersion relation of the plasmonic lattice, we also include the TDBC dye. The dye molecules are embedded in the polymer film on top of the sample. The film covers the plasmonic particles and the area between them. The thickness of the film was chosen to be about 50~nm, roughly the height of the plasmonic nanostructure. The plasmonic near-fields are concentrated in a region of a few 10 nanometers around the particle. A film that is too thick would contain many dye molecules that are too far away to interact with the lattice plasmon.
+
+  The dye film leads to strong absorption around an energy $E \approx 2.1$~eV that is independent of the in-plane wave vector $k_x$. To better visualize the effect of the plasmon-dye coupling, we subtract the extinction of a dye film without plasmonic particles. This is shown in the figure \ref{fig:8_intro} at the beginning of this chapter. We see a reduced absorption at the dye resonance energy, i.e. a dark horizontal line in the dispersion plot. In the 'particle plus dye' sample, we have less dye because some volume is taken up by the particle. This effect reverses the sign of the dye feature at 2.1~eV.
+  
+  Apart from the sign of the dye feature, we observe that the lattice plasmon feature changes from an X shape. When the lattice plasmon crosses the dye resonance, the lattice resonance bends away. This bending can be observed especially at the highest dye concentration (right panel). At higher energies, the lattice plasmon feature continues unperturbed.
+
+  We can model the coupling between the lattice plasmon and the dye using the usual coupled oscillator approach. The uncoupled oscillators have the eigenenergies
+\begin{align}
+  E_\text{dye} = &  \text{const.} \\
+  E_\text{LP}(k_x) = &  \hbar  \, \left(  k_x + m \cdot G \right) \quad .
+\end{align}
+With the coupling energy $J$ we have to diagonalize the matrix
+\begin{equation}
+  \begin{pmatrix}
+    E_\text{dye} & J \\
+    J & E_\text{LP}(k_x) 
+  \end{pmatrix}
+\end{equation}
+and get
+\begin{equation}
+  E_\pm = \frac{E_\text{dye}  +E_\text{LP}(k_x)}{2}  \pm \sqrt{ \left( \frac{E_\text{dye} - E_\text{LP}(k_x)}{2} \right)^2 + J^2 } \quad .
+\end{equation}
+This model for $E_-$ is superimposed on the measured data in Fig.\ref{fig:8_sample_dye_anticross}. The blue symbols mark the minima of the extinction spectra at a given value of $k_x$ to indicate the dispersion of the coupled mode.\sidenote{In a Fano resonance, the position of the resonance is close to, but not always at, the minimum, which is ignored here.} Both agree well. We find coupling energies of 10, 40, and 86~meV, respectively.
 
   \begin{figure}
     \includegraphics[width=\textwidth]{\currfiledir sample_dye_anticross.pdf}
-    \caption{Anticrossing. \label{fig:8_sample_dye_anticross} }
+    \caption{Anticrossing of lattice plasmon and dye. The data is a zoomed version of Fig.\ref{fig:8_intro}. Superimposed are the lattice dispersion (green), the minima of the spectra (blue) and the coupled oscillator model (red). \label{fig:8_sample_dye_anticross} }
   \end{figure}
     
 
+\section{Dielectric model}
+
+The model discussed above is fine, but we could look at this experiment from a completely different direction. We ignore all quantum mechanics, two-level systems, and coupling, and use only Maxwell's equations. We consider the TDBC dye and its polymer matrix as a dielectric material surrounding the plasmonic lattice. We get its index of refraction from the absorption spectrum, related to the imaginary part of the refractive index of the film. 
+
+The extinction coefficient $\alpha$ describes how the intensity of a beam decreases as it travels through absorbing media.
+\begin{equation}
+  I(x) = I_0 T = I_0 e^{- \alpha x}
+\end{equation}
+with the transmission $T$.
+It is wavelength depended and connected to the imaginary part of the index of refraction 
+\begin{equation}
+  \alpha(\lambda) = \frac{4 \pi n_2(\lambda)}{ \lambda}
+\end{equation}
+All together we get with a film thickness $d$
+\begin{equation}
+  n_2(\lambda) = - \frac{\lambda}{4 \pi \, d} \log T
+\end{equation}
+So we can measure $n_2(\lambda)$ and calculate the real part $n_1$ by a Kramers-Kronig relation. Then we set the dielectric function of the embedding medium $\epsilon_{out} = (n_1 + i n_2)^2$ and again use the formalism that led to eq. \ref{eq:8_lattice_ext}. Of course, $\epsilon_{out}$ now depends on the dye concentration.  The result of this simulation is shown in figure 
+\ref{fig:8_sample_dye_sim}. It is in good agreement with the data. The depth of the horizontal pure dye absorption line is not fully recovered, which means that the ratio of interacting to non-interacting dye molecules in the model is wrong, or the reference film in the experiment differs a bit from the film at the plasmonic array.
+
+The upper branch of the coupled mode has more contrast, is better visible in the simulation than in the experiment. In is not that it does not bend in the experiment, is just seems to fade out.\sidenote{See \cite{Wang2014} for an explanation.} This is not fully captured by the model, but the model also in general shows sharper features than the experiment.
 
   \begin{figure}
     \includegraphics[width=\textwidth]{\currfiledir sample_dye_sim.pdf}
-    \caption{Full sim. \label{fig:8_sample_dye_sim} }
+    \caption{The left half of each panel shows the same data as Fig. \ref{fig:8_intro}. The right half is calculated using the lattice sum and a wavelength dependent dielectric function describing the dye.\label{fig:8_sample_dye_sim} }
   \end{figure}
     
+We do not need to use a coupling model to describe the bending of the lattice plasmon dispersion. Classical electrodynamics is good enough. The microscopic description of matter in terms of quantum mechanics and oscillating transition dipoles has to smoothly merge into the description of classical electrodynamics, as required by the correspondence principle.
+
+
+
 
 %-------------------
 
