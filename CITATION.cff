@@ -1,0 +1,27 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: >-
+  Lecture notes 'Selected topics in advanced experimental
+  physics'
+message: >-
+  If you use this text, please cite it using the metadata
+  from this file.
+type: software
+authors:
+  - given-names: Markus
+    family-names: Lippitz
+    orcid: 'https://orcid.org/0000-0003-1218-6511'
+repository-code: >-
+  https://github.com/Lippitz-Lab/advanced-experimental-physics
+url: 'https://www.ep3.uni-bayreuth.de/en/teaching/FEP/index.html'
+abstract: >-
+  These are my lecture notes on some advanced topics in
+  experimental physics. We discuss the concept of Fourier
+  transform, which is used in optics and X-ray scattering,
+  and the concept of hybridization with examples from
+  classical physics, quantum physics and quantum optics. In
+  the concluding chapter, we discuss lattices of plasmonic
+  particles that unify everything.
+license: CC-BY-SA-4.0

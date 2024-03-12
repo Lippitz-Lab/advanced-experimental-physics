@@ -1,0 +1,37 @@
+'@context': https://schema.org/
+creativeWorkStatus: Published
+type: LearningResource
+name: Selected topics in advanced experimental physics
+description: >-
+  These are my lecture notes on some advanced topics in experimental physics. We
+  discuss the concept of Fourier transform, which is used in optics and X-ray
+  scattering, and the concept of hybridization with examples from classical
+  physics, quantum physics and quantum optics. In the concluding chapter, we
+  discuss lattices of plasmonic particles that unify everything. 
+license: https://creativecommons.org/licenses/by-sa/4.0/deed.de
+id: https://github.com/Lippitz-Lab/advanced-experimental-physics
+creator:
+  - givenName: Markus
+    familyName: Lippitz
+    id: https://orcid.org/0000-0003-1218-6511
+    type: Person
+    affiliation:
+      name: Universität Bayreuth
+      id: https://ror.org/0234wmv40
+      type: Organization
+keywords:
+  - Fourier transform
+  - hybridization
+  - quantum mechanics
+  - lecture notes
+inLanguage:
+  - en
+about:
+  - https://w3id.org/kim/hochschulfaechersystematik/n0128
+image: https://www.ep3.uni-bayreuth.de/pool/bilder/fep-banner.png
+learningResourceType:
+  - https://w3id.org/kim/hcrt/script
+educationalLevel:
+  - https://w3id.org/kim/educationalLevel/level_A
+  - https://w3id.org/kim/educationalLevel/level_7
+datePublished: '2023-12-19'

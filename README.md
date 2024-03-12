@@ -10,7 +10,7 @@ This work is licensed under a
 
 # Selected topics in advanced experimental physics
 
-These are my lecture notes on some advanced topics in experimental physics
+These are my lecture notes on some advanced topics in experimental physics. We discuss the concept of Fourier transform, which is used in optics and X-ray scattering, and the concept of hybridization with examples from classical physics, quantum physics and quantum optics. In the concluding chapter, we discuss lattices of plasmonic particles that unify everything. More resources, including 'bookcast' type of videos, can be found on the [website](https://www.ep3.uni-bayreuth.de/en/teaching/FEP/index.html).
 
 The lecture notes are typeset using the LaTeX class ['tufte-book'](https://tufte-latex.github.io/tufte-latex/) by Bil Kleb, Bill Wood, and Kevin Godby, which approximates the work of [Edward Tufte](https://www.edwardtufte.com/). I applied many of the modifications introduced by Dirk Eddelbuettel in the ['tint'](https://dirk.eddelbuettel.com/code/tint.html}) R package. For the time being, the source is LaTeX, not markdown.
 
