@@ -1,4 +1,4 @@
-\renewcommand{\lastmod}{October 11, 2023}
+\renewcommand{\lastmod}{October 23, 2024}
 \renewcommand{\chapterauthors}{Markus Lippitz}
 
 \chapter{Fourier Optics}
@@ -218,6 +218,26 @@ An often used transfer function is a circular aperture. It removes all spatial f
 
 The inverse filter, i.e. a opaque disc, acts as high-pass filter, increasing the edges in an optical image. A vertical slit lets only pass horizontal features in the image.
 
+
+
+\section{Resolution of a microscope}
+
+In an optical microscope, a sample is imaged on a detector by a system of lenses. Not all spatial frequencies are transmitted equally well. A fundamental limit is the transfer function of free space (eq. \ref{eq:3_transfer_free_space}), which limits the spatial frequencies to $\nu_{x,y} \le n / \lambda_0$. A short vacuum wavelength $\lambda_0$, i.e. blue or ultraviolet light, or a high refractive index $n$, i.e. immersion oil instead of air, shifts the limit to higher spatial frequencies. The highest observable spatial frequency is the wavelength of light in the medium.
+
+A technical limitation sets in earlier. High spatial frequencies correspond to plane waves with a large angle $\theta$ to the optical axis. In the limiting case, the plane wave propagates perpendicular to the optical axes, i.e. parallel to the sample surface. The microscope objective has to capture as many of these rays as possible, i.e. it has to have a large aperture angle $\theta_\text{objective}$. This is quantified in the \emph{numerical aperture} 
+\begin{equation}
+    NA = n \sin \theta_\text{objective}
+\end{equation}
+so that the maximum spatial frequencies are $\nu_{x,y} \le NA / \lambda_0$. Numerical apertures greater than one require the use of an immersion medium. Glycerin ($n=1.47$) allows to obtain NA $\approx 1.3 \dots 1.45$.
+
+Another approach to the resolution of a microscope is the \emph{point spread function} (PSF). It is the impulse response of the imaging system, i.e., the image of a point source in the sample plane. Diffraction at the circular aperture of the microscope objective leads to the Airy-pattern of the Bessel function $J_1$ (see \ref{chap:appendix_Fourier})
+\begin{equation}
+    PSF(\rho) = \left( \frac{J_1( k_0 \, {NA} \, \rho )}{ k_0 \, {NA} \, \rho}  \right)^2
+\end{equation}
+where $\rho$ is the radial coordinate in the sample plane, i.e., the point placed there appears to be larger. Two points are said to be resolvable if they are separated so that the image of one point falls into the first zero of the PSF of the second point. This results in the value 
+\begin{equation}
+    \Delta x = 0.61 \frac{\lambda_0}{{NA}} \quad .
+\end{equation}
 
 
 %--------------------
