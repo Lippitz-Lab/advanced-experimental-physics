@@ -1,0 +1,60 @@
+\renewcommand{\chapterauthors}{Markus Lippitz}
+\renewcommand{\lastmod}{November 7, 2025}
+
+
+\chapter{Mössbauer Spectroscopy [WIP] }
+
+
+\section{Overview}
+
+We close the part on oscillations and Fourier transforms by the Mössbauer effect, which describes the recoil-less emission and absorption of a gamma photon by a atomic nucleus. It leads to the most narrow spectral lines in physics with $\Delta E / E \approx 10^{-18}$ XXX check. 
+
+During his PhD thesis work in Munich and Heidelberg in the years 1955 -- 1958, Rudolf Mössbauer investigated the emission and reabsorption of gamma radiation by \ch{191Ir}. He discovered an unexpected increase in absorption when cooling the absorber material. This observation and its explanation led to his receiving the Nobel Prize in 1961 at the age of 32 XXX. Today, Mössbauer spectroscopy is a common tool used to study materials. One example is the Mars rovers, which use Mössbauer spectroscopy to search for water.
+
+The structure of this chapter follows that of the Nobel Prize lecture by Rudolf Mössbauer (see reference XXX). Other good sources are XXX.
+
+
+\section{Resonance fluorescence}
+
+At room temperature, the fluorescence emission peak of dye molecules is displaced from the absorption peak due to the Stokes shift. The molecules lose energy between absorption and emission, for example, through the reorientation of the surrounding solvent or matrix molecules. 
+
+This is different for atoms in the gas phase. When yellow light from a sodium lamp shines on sodium vapor, the atoms in the vapor absorb the light and re-emit it a few nanoseconds later. The emission of photons by the sodium atoms in the lamp and the absorption of photons by the sodium atoms in the vapor occur at the same energy or wavelength. This process is called resonance fluorescence. It is fluorescence, not scattering, because an excited state is populated.
+
+The width of the transition in emission and absorption is determined by several processes: the natural linewidth is given by the decay rate to the ground state via Fourier transform. This is the ultimate limit. The line can be broadened by other processes, for example by collisions with other atoms, by Doppler shifts due to thermal motion, or  by saturation due to high excitation rate.  A typical relative linewidth is $\Delta E /E \approx XXX$ with $E \approx 2$~eV and $\Delta E $ given by a decay rate of 1~ns$^{-1}$.
+
+
+\section{Recoil in resonance absorption}
+
+When a photon of frequency $\nu$ is emitted, it carries a momentum $\hbar k = h \nu / c$ with it. If the atom was at rest before emission, then momentum conservation requires that also the atom must move afterwards. This movement carries kinetic energy $\Delta E_\text{recoil}$, which has to be taken from the transitions energy $E_0$. We find
+\begin{equation}
+    \Delta E_\text{recoil} = \frac{|p_\text{atom}|^2}{2 M}
+    = \frac{E_0^2}{2 M c^2}
+\end{equation}
+with the mass of the atom $M$ and $c$ the velocity of light. For the D-line of sodium, this is about  $\Delta E_\text{recoil} \approx XXX$, i.e. much smaller than the natural linewidth of the transition. For an optical transition involving atoms or molecules, the recoil effect can be neglected.
+
+This is different for atomic nuclei that emit gamma radiation. After a nuclear reaction such as an alpha- oder beta-decay, the nucleus will most likely end up in an excited state. It will decay to its ground state by emission of a gamma photon with an energy in the range of a few keV to MeV. $E_0$ and thus $ \Delta E_\text{recoil}$ are  much larger than for visible light emission. Since metastable nuclear states have  lifetimes of nanoseconds or longer,  the natural linewidth is comparable to that of dye molecules
+
+The recoil acts twice. First, the spectrum of the emitted gamma photon shifts to lower energies because some energy remains at the emitting nucleus. Second, absorption requires an additional amount of energy, equal to the recoil energy, because the absorbed photon must supply the energy necessary for the nucleus to move afterward. Thus, there is a $2\Delta E_\text{recoil}$ mismatch between the emitted photon and gamma absorption. Depending on thermal broadening, some overlap is found (Fig. \ref{fig:4b_overlap}). Unlike resonance fluorescence in the visible spectrum, resonance absorption of gamma radiation should not or only extremely weakly occur when source and absorber are identical.
+
+
+\begin{marginfigure}
+    \caption{Thermal motion causes emission and absorption lines to broaden. Recoil leads to a relative shift. Only the overlapping region contributes to resonance absorption. The sketch is to scale for the 129~keV transition of \ch{^{191}Ir} at room temperature.  }XXX \label{fig:4b_overlap} 
+\end{marginfigure}
+
+
+\section{Doppler shifting of transitions}
+
+Things changed in 1951 when P. B. Moon published  an experiment  (XXX REF), in which he supplied the missing energy of $2\Delta E_\text{recoil}$ through a Doppler shift. One needs an excited nuclear state that decays in the emitter by gamma radiation to the ground state. In the absorber, all nuclei are in the ground state and thus able to absorb a gamma photon when the recoil mismatch is compensated. The tips of a high-speed rotor were coated with gold that had been treated in a nuclear reactor. The   \ch{^{198}Au} isotope decays into an excited  \ch{^{198}Hg} which in turn decays by gamma emission of 412~keV into the \ch{^{198}Hg} ground state. At a speed of 63~m/s of the gold tip toward the mercury absorber, the Doppler shift should compensate for $2\Delta E_\text{recoil}$. Moon found the expected increase in absorption.
+
+
+\section{Temperature tuning of transitions}
+
+Mössbauer investigated\footcite{moessbauer58_zfp} the isotope \ch{^{191}Ir},  which decays by emitting a 129-keV gamma photon to the ground state. This choice simplifies resonance absorption because the nucleus is heavy and the photon has low energy. One can learn something about the linewidth by tuning the temperature of either the emitter or the absorber. In both cases, the overlap region in Fig. \ref{fig:4b_overlap} changes. Mössbauer kept the absorber at room temperature and 
+switched the emitter temperature between 88~K and 303~K. From the difference in absorption he derived a line with in terms of excited state lifetime of $\tau = 360$~ps.
+
+
+Mössbauer also wanted to determine how the chemical bond influences the transition linewidth. In a second series of experiments, he kept the absorber at 88 K and adjusted the temperature of the source from 370 K to 88 K. One might expect a significant decrease in resonance absorption when both the emission and absorption lines narrow and the recoil remains constant. However, this is not what Mössbauer found. The absorption increased by about a factor of 10. Initially, he considered this to be an experimental flaw, as he mentioned in his Nobel Lecture.
+
+\begin{figure}
+    \caption{Data from \cite{moessbauer58_zfp} fig.8 a and b, replotted: transmitted intensity and absorption cross section.}
+\end{figure}

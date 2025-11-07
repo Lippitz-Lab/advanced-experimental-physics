@@ -1,0 +1,55 @@
+% \documentclass[margin=0mm]{standalone}
+
+%\input{tikz_header.tex}
+% %\font\nullfont=cmr10
+
+
+% \begin{document}
+
+%\begin{tikzpicture}
+\begin{blochsphere}[radius=1.5cm,tilt=15,rotation=-20,opacity=0.1]
+    \drawBallGrid[style={opacity=0.3}]{30}{30}
+
+
+
+  \drawStatePolar{x-Achse}{90}{90}
+    \drawStatePolar{y-Achse}{90}{0}
+    \drawStatePolar{z-Achse}{0}{0}
+    \node[right, xshift=2.5mm,yshift=+1.2mm] at (x-Achse) { $u$};
+    \node[right,xshift=-6mm,yshift=+2mm] at (y-Achse) {  $v$};
+    \node[left,xshift=0mm,yshift=-4mm] at (z-Achse) {  $w$};
+
+  \labelLatLon{up}{90}{0}
+  \labelLatLon{down}{-90}{90}
+    \draw[fill=black] (up) circle (0.5mm);
+      \draw[fill=black] (down) circle (0.5mm);
+
+ \node[above] at (up) {{ $\left|0\right>$ }};
+ \node[below] at (down) {{ $\left|1\right>$}};
+%   
+ 
+   
+ \labelLatLon{right}{0}{0}
+   \labelLatLon{front}{0}{90}
+      \draw[fill=black] (front) circle (0.5mm);
+      \draw[fill=black] (right) circle (0.5mm);
+
+   \node[left] at (front) {{\small $\frac{1}{\sqrt{2}}\left(\left|0\right> + \left|1\right>\right)$ }};
+   \node[below] at (right) {{ \small $\frac{1}{\sqrt{2}}\left(\left|0\right> +i \left|1\right>\right)$ }};
+    
+   
+
+ 
+%   \drawAxis{0}{0};
+%   \drawAxis{90}{90};
+%   \drawAxis{90}{0};
+%
+%    \labelLatLon[labelmark=false]{d}{15}{90};
+%    \node at (d) {\color{gray}\fontsize{0.15cm}{1em}\selectfont $60^\circ$};
+%
+%    \labelLatLon[labelmark=false]{d2}{5}{78};
+%    \node at (d2) {\color{gray}\fontsize{0.15cm}{1em}\selectfont $60^\circ$};
+\end{blochsphere}
+%\end{tikzpicture}
+
+%\end{document}

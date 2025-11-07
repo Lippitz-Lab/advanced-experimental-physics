@@ -1,0 +1,32 @@
+
+\begin{tikzpicture}
+
+
+\begin{axis}[no markers, 
+        domain=0:2.3, ymin=0, ymax=1.1, xmax =2.4,
+        axis lines = left, height=3cm,
+           width= 5.5cm,ylabel={population $\rho_{11}$},xlabel=time $t$,           xticklabels = {0, $2 \pi / \Omega$, $4 \pi / \Omega$}, xtick = {0,1,2}           
+           ]
+\addplot [line width=1pt,samples=100]    {(sin(180* x)^2};
+
+\coordinate (p1) at (0.5,1);
+    \coordinate (p2) at (1,0);
+    \coordinate (p3) at (0.25,0 .5);
+           \coordinate (ls) at (1.5,1);
+
+       
+\end{axis}
+
+\draw[fill] (p1) circle (1mm);
+\node[above] at (p1) {$\pi$ pulse};
+    
+\draw[fill] (p2) circle (1mm);
+\node[xshift=8mm, yshift=2mm] at (p2) {$2\pi$ pulse};
+
+\draw[fill] (p3) circle (1mm);
+\node[xshift=3mm, yshift=-2mm] at (p3) {$\pi/2$ };
+
+\node[right] at (ls) {\ $\sin (\Omega t / 2)^2$};
+
+\end{tikzpicture}
+
