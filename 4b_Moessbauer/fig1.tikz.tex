@@ -1,0 +1,42 @@
+% \documentclass[margin=0mm]{standalone}
+% \input{../tikz_header}
+
+% \begin{document}
+
+
+\begin{tikzpicture}
+
+%\draw(0,0) rectangle (5,3);
+
+  \begin{axis}[
+  axis x line=center,
+  axis y line=none,
+  %xtick={-5,-4,...,5},
+  ytick={-5,-4,...,5},
+  xlabel={\  E (eV)},
+  ylabel={$y$},
+  xlabel style={below},
+  ylabel style={above left},
+  xmin=-0.25,
+  xmax=0.29,
+  ymin=0,
+  ymax=1.4,
+  font=\footnotesize,
+  width=55mm,
+  ]
+    % plot two gaussians shifted by delta E
+    \pgfmathsetmacro{\sig}{0.0490174}
+    \pgfmathsetmacro{\deltaE}{0.04647}
+
+    \addplot[blue,domain=-1:1,samples=201,thick,mark=none] {exp(-((x+\deltaE)^2)/(2*\sig*\sig))};
+
+    \addplot[red,domain=-1:1,samples=201,thick,mark=none] {exp(-((x-\deltaE)^2)/(2*\sig*\sig))};
+
+    \draw[dashed] (0,0) -- (0,1.2) node[right]{$E_0$};
+    \draw[|-|] (-\deltaE, 1.05) -- (\deltaE, 1.05) node [right] {$2 E_{recoil}$ };
+
+   % \node at (-0.1, 0.5) {emission};
+    \end{axis}
+\end{tikzpicture}
+
+%\end{document}
