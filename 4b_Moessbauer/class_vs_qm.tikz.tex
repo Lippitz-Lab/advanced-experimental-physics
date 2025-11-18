@@ -1,0 +1,66 @@
+% \documentclass[margin=0mm]{standalone}
+% \input{../tikz_header}
+
+% \begin{document}
+
+
+\begin{tikzpicture}[font=\footnotesize]
+
+\node at (0,3.3) {classic};
+\node at (4.2,3.3) {quantum};
+
+\begin{scope}
+    \node at (-1.3,2.5) {$T = 0$};
+    \draw(-2,0)--(2,0);
+    \draw[thick] (0,0) node[below] {$E_0$} -- (0,3);
+    \draw[dashed](-2,3)--(2,3);
+\end{scope}    
+
+\begin{scope}[xshift=42mm]
+        \node at (-1.3,2.5) {$T = 0$};
+
+    \draw[fill=gray] (-2,0) .. controls (-1.5,0) and (-1.5,1) .. (-1,1) 
+    .. controls (-0.5,1) and (-0.5,0) .. (0,0);
+
+    \draw(-2,0)--(2,0);
+    \draw[thick] (0,0) node[below] {$E_0$} -- (0,2.2);
+    \draw[dashed](-2,3)--(2,3);
+
+
+\end{scope}   
+
+\begin{scope}[yshift=-39mm]
+    \node at (-1.3,2.5) {$T > 0$};
+
+  
+
+    \pgfmathsetmacro{\yamp}{0.5} 
+    \draw[fill=gray] (-2,0) .. controls (-1.5,0) and (-1.5,\yamp) .. (-1,\yamp) 
+    .. controls (-0.5,\yamp) and (-0.5,0.5*\yamp) .. (0,0.5*\yamp)
+    .. controls (0.5,0.5*\yamp) and (0.5,\yamp) .. (1,\yamp) 
+    .. controls (1.5,\yamp) and (1.5,0) .. (2,0); 
+
+  \draw(-2,0)--(2,0);
+    \draw[thick] (0,0) node[below] {$E_0$} -- (0,2.2);
+    \draw[dashed](-2,3)--(2,3);
+\end{scope}    
+
+\begin{scope}[xshift=42mm, yshift=-39mm]
+        \node at (-1.3,2.5) {$T > 0$};
+
+        \pgfmathsetmacro{\yamp}{0.8} 
+    \draw[fill=gray] (-2,0) .. controls (-1.5,0) and (-1.5,\yamp) .. (-1,\yamp) 
+    .. controls (-0.5,\yamp) and (0.5,0) .. (1,0);
+
+    \draw(-2,0)--(2,0);
+    \draw[thick] (0,0) node[below] {$E_0$} -- (0,1.5);
+    \draw[dashed](-2,3)--(2,3);
+
+\end{scope}   
+
+
+
+\end{tikzpicture}
+
+
+%\end{document}

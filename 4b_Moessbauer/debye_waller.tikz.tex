@@ -1,0 +1,46 @@
+% \documentclass[margin=0mm]{standalone}
+% \input{../tikz_header}
+
+% \begin{document}
+
+\pgfkeys{/pgf/number format/.cd,1000 sep={\,}}
+
+\begin{tikzpicture}
+\begin{axis}[
+  width=55mm,
+  height=40mm,
+  /pgfplots/every axis/.append style={font=\footnotesize},
+  scaled ticks=false,
+  xmode=log,ymode=log,
+  ymin=0.01,
+  xmin = 10,
+  xmax = 10000,
+  xlabel = {temperature $T$ (K)},
+  ylabel = {Debye Waller factor},
+  %ytick = {0.01, 0.1, 1},
+  log ticks with fixed point,
+  width = 55mm,
+]
+
+
+
+\addplot[black,thick]
+    table[col sep=space, x index=0, y index=1] {\currfiledir matlab/data_dwf.dat};
+  
+  \node at (4e3,0.2) {Fe};
+
+\addplot[blue,thick]
+    table[col sep=space, x index=0, y index=2] {\currfiledir matlab/data_dwf.dat};
+  \node at (6e1,0.2) {Au};
+
+
+\addplot[red,thick]
+    table[col sep=space, x index=0, y index=3] {\currfiledir matlab/data_dwf.dat};
+  \node at (4.5e2,0.2) {Ir};
+
+
+\end{axis}
+\end{tikzpicture}
+
+
+%\end{document}

@@ -1,0 +1,50 @@
+% \documentclass[margin=0mm]{standalone}
+% \input{../tikz_header}
+
+% \begin{document}
+
+
+\begin{tikzpicture}
+\begin{groupplot}[
+  group style={group size=2 by 1, horizontal sep=15mm},
+  width=55mm,
+  height=40mm,
+  /pgfplots/every axis/.append style={font=\footnotesize},
+  scaled ticks=false
+]
+
+\nextgroupplot[
+ % title={Emission},
+  xlabel={temperature $T$ (K)},
+  ylabel={transm. change (\%)},
+  %xmin=-0.25, xmax=0.29,
+  %ymin=0,
+]
+
+\addplot[blue, only marks, mark=*, mark size = 1,
+    error bars/.cd, y dir=both, y explicit]
+    table[col sep=comma, x index=0, y index=1, 
+   y error expr={abs(\thisrowno{2}-\thisrowno{1})}
+    ] {\currfiledir data/ir192_paper1a.csv};
+
+\draw[gray, dashed] (0,0) -- (500,0);
+    
+\nextgroupplot[
+  xlabel={temperature $T$ (K)},
+  ylabel={cross section (barn)},
+   % xmin=-0.25, xmax=0.29,
+ ymin=0,
+]
+\addplot[blue, only marks, mark=*, mark size = 1,
+    error bars/.cd, y dir=both, y explicit]
+    table[col sep=comma, x index=0, y index=1, 
+   y error expr={abs(\thisrowno{2}-\thisrowno{1})}
+    ] {\currfiledir data/ir192_paper1b.csv};
+
+%\draw[gray, dashed] (0,0) -- (500,0);
+
+\end{groupplot}
+\end{tikzpicture}
+
+
+%\end{document}
