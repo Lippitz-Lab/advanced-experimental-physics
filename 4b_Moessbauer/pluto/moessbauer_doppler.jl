@@ -19,7 +19,20 @@ md"""
 """
 
 # ╔═╡ bc759f4f-cc24-4da7-9dcf-af35b9242956
-import PhysicalConstants.CODATA2022: c_0, k_B
+import PhysicalConstants.CODATA2022: c_0, k_B, h
+
+# ╔═╡ c5c8a1de-e61e-457f-b758-09695d8eb62e
+begin
+	M_Na = elements[:Na].atomic_mass
+	E_Na = 1240/ 589 * u"eV"
+	Erecoil_Na = E_Na^2 / (2 * M_Na * c_0^2) |> u"neV"
+end
+
+# ╔═╡ 9f30219e-f83b-42bd-a282-fca602229791
+E_Na / h |> u"THz"
+
+# ╔═╡ ca3ad9b8-deca-4856-8b38-1c1f3380fc4f
+500u"THz" / (1u"GHz") / 5e5 |> NoUnits 
 
 # ╔═╡ 957c794d-14d6-4404-8cc0-a210b93924b6
 M = elements[:Ir].atomic_mass
@@ -1332,6 +1345,9 @@ version = "1.9.2+0"
 # ╠═e163419e-192a-4275-8e2f-7545cc9c796c
 # ╠═bc759f4f-cc24-4da7-9dcf-af35b9242956
 # ╠═7a2a3bdf-d92a-4108-b54f-c3319c64b661
+# ╠═c5c8a1de-e61e-457f-b758-09695d8eb62e
+# ╠═9f30219e-f83b-42bd-a282-fca602229791
+# ╠═ca3ad9b8-deca-4856-8b38-1c1f3380fc4f
 # ╠═957c794d-14d6-4404-8cc0-a210b93924b6
 # ╠═52bea663-1772-4fbf-95f9-99dcd68f458c
 # ╠═26119924-b255-42ff-92e8-069ab65e7f4e

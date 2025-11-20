@@ -1,0 +1,50 @@
+%  \documentclass[margin=0mm]{standalone}
+%  \input{../tikz_header}
+
+% \begin{document}
+
+
+\begin{tikzpicture}[font=\footnotesize]
+
+
+        \pgfmathsetmacro{\sc}{0.75} 
+        \pgfmathsetmacro{\dx}{0.1} 
+        \pgfmathsetmacro{\dk}{-0.7} 
+
+
+\draw[->] (0,-0.7*\sc) -- (0,4.8*\sc) node[left] {$E_I$ (mm/s)};
+
+\pgfmathsetmacro{\n}{4.06} 
+\draw(0,\n * \sc) node[left]{\n} -- (\dx, \n*\sc) node[right] {SnCl$_2$};
+
+\pgfmathsetmacro{\n}{3.50} 
+\draw(0,\n * \sc) node[left]{\n} -- (\dx, \n*\sc) node[right] {SnF$_2$};
+
+
+\draw[decoration={brace,mirror,raise=5pt},decorate]
+  (\dk,\sc*4.2) -- node[left=6pt] {Sn$^{2+}$: 5s$^2$} (\dk, \sc*3.3);
+
+\pgfmathsetmacro{\n}{2.63} 
+\draw(0,\n * \sc) node[left]{\n} -- (\dx, \n*\sc) node[right] {$\beta$-Sn};
+
+\pgfmathsetmacro{\n}{1.92} 
+\draw(0,\n * \sc) node[left]{\n} -- (\dx, \n*\sc) node[right] {$\alpha$-Sn};
+
+ \node[left=6pt] at (\dk, 1.92*\sc) {$\approx$ 5s$^1$p$^3$};
+
+\pgfmathsetmacro{\n}{0.84} 
+\draw(0,\n * \sc) node[left]{\n} -- (\dx, \n*\sc) node[right] {SnCl$_4$};
+
+\pgfmathsetmacro{\n}{0.08} 
+\draw(0,\n * \sc) node[left]{\n} -- (\dx, \n*\sc) node[right] {SnO$_2$};
+
+\pgfmathsetmacro{\n}{-0.39} 
+\draw(0,\n * \sc) node[left]{\n} -- (\dx, \n*\sc) node[right] {K$_2$SnF$_6$};
+
+\draw[decoration={brace,mirror,raise=5pt},decorate]
+  (\dk,\sc*1) -- node[left=6pt] {Sn$^{4+}$: 4d$^{10}$} (\dk, \sc*-0.6);
+
+\end{tikzpicture}
+
+
+%\end{document}

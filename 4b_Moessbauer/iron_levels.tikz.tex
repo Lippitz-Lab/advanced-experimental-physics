@@ -1,0 +1,116 @@
+% \documentclass[margin=0mm]{standalone}
+% \input{../tikz_header}
+
+% \begin{document}
+
+
+\begin{tikzpicture}[
+    font=\footnotesize,
+    level/.style={line width=1.6pt},
+    ]
+
+% column x positions
+\def\xA{0}
+\def\xB{2.3}
+\def\xC{4.6}
+\def\xD{6.9}
+\def\dx{1.6}
+
+% vertical positions for main levels
+\def\gnd{0}           % ground baseline
+\def\gndB{0.6}        % small offset for split ground in D
+\def\excA{3.5}        % excited in A/B
+\def\excB{4.0}        % excited in A/B
+\def\excCtop{4.4}     % quadrupole doublet top
+\def\excCbot{3.6}     % quadrupole doublet bottom
+
+
+
+% % titles above groups
+\node[] at ( \xB ,5.2) {isomeric shift};
+\node[] at (\xC,5.2) {quadrupole splitting};
+\node[] at (\xD,5.2) {hyperfine splitting};
+
+% Leftmost spin labels
+\node[left,xshift=-2mm] at (\xA-0.6,\excA) {$I_a=\frac{3}{2}$ };
+\node[left,xshift=-2mm] at (\xA-0.6,\gnd)   {$I_g=\frac{1}{2}$ };
+
+% Column A: simple two levels and transition
+\draw[level] (\xA-0.8,\excA) --  ++(\dx,0);
+\draw[level] (\xA-0.8,\gnd) --  ++(\dx,0);
+%\draw[trans] (\xA,\excA-0.1) -- (\xA,\gnd+0.1);
+
+
+% connection lines A->B
+\draw[gray] (\xA+0.8,\gnd) -- (\xB-0.8,\gnd+0.25);
+\draw[gray] (\xA+0.8,\excA) -- (\xB-0.8,\excB);
+
+
+% Column B: shifted by isomer shift (same splitting)
+\draw[level] (\xB-0.8,\excB) --  ++(\dx,0);
+\draw[level] (\xB-0.8,\gnd+0.25) --  ++(\dx,0);
+%\draw[trans] (\xB,\excA+0.15) -- (\xB,\gnd+0.35);
+
+% connections from B->C
+\draw[gray] (\xB+0.8,\excB) -- (\xC-0.9,\excCtop);
+\draw[gray] (\xB+0.8,\excB) -- (\xC-0.9,\excCbot);
+\draw[gray] (\xB+0.8,\gnd+0.25) -- (\xC-0.9,\gnd+0.25);
+
+
+% Column C: quadrupole doublet (two excited levels)
+\draw[level] (\xC-0.9,\excCtop) --  ++(\dx,0);
+\draw[level] (\xC-0.9,\excCbot) --  ++(\dx,0);
+\draw[level] (\xC-0.9,\gnd+0.25) -- ++(\dx,0); % ground (before D split)
+
+\node[] at (\xC,\excCtop+0.2) {\tiny $M_I = \pm3/2$};
+\node[] at (\xC,\excCbot-0.2) {\tiny $M_I = \pm1/2$};
+\node[] at (\xC,\gnd+0.05) {\tiny $M_I = \pm1/2$};
+
+
+% connection from b-> D
+\draw[gray,dashed] (\xB+0.8,\excB) -- (\xD+0.8,\excB) ;
+\draw[gray,dashed] (\xB+0.8,\gnd+0.25) -- (\xD+0.8,\gnd+0.25) ;
+
+% Column D: magnetic hyperfine splitting
+% excited manifold (four levels)
+
+\def\DexcStep{0.4}
+\def\DgrdStep{0.6}
+\def\DexcTop{\excB+1.5*\DexcStep}
+
+\foreach \i [evaluate=\i as \y using \DexcTop-(\i-1)*\DexcStep] in {1,2,3,4} {
+  \draw[level] (\xD-0.9,\y) -- ++(\dx,0);
+  \draw[gray] (\xC+1,\excB) -- (\xD-0.9,\y);
+}
+
+% transitions
+\foreach \i [evaluate=\i as \y using \DexcTop-(\i-1)*\DexcStep] in {2,3,4} {
+  \draw[<->] (\xD+\i*-0.15, \y) -- (\xD+\i*-0.15,\gnd+0.25 + \DgrdStep);
+}
+\foreach \i [evaluate=\i as \y using \DexcTop-(\i-1)*\DexcStep] in {1,2,3} {
+  \draw[<->] (\xD+\i*-0.15 +0.5, \y) -- (\xD+\i*-0.15 + 0.5,\gnd+0.25 - \DgrdStep);
+}
+
+% ground manifold (two levels)
+\draw[level] (\xD-0.9,\gnd+0.25 + \DgrdStep) -- ++(\dx,0); % upper ground
+\draw[level] (\xD-0.9,\gnd+0.25 - \DgrdStep) -- ++(\dx,0); % lower ground
+
+% small connectors from C->D
+\draw[gray] (\xC+1,\gnd+0.25) -- (\xD-0.9,\gnd+0.25 + \DgrdStep);
+\draw[gray] (\xC+1,\gnd+0.25) -- (\xD-0.9,\gnd+0.25 - \DgrdStep);
+
+
+
+% annotate spin projections at D levels (example labels)
+\node[right] at (\xD+0.8,\DexcTop)             {\tiny $+3/2$};
+\node[right] at (\xD+0.8,\DexcTop-\DexcStep)  {\tiny $+1/2$};
+\node[right] at (\xD+0.8,\DexcTop-2*\DexcStep) {\tiny $-1/2$};
+\node[right] at (\xD+0.8,\DexcTop-3*\DexcStep)  {\tiny $-3/2$};
+
+\node[right] at (\xD+0.8,\gnd+0.25 + \DgrdStep)  {\tiny $-1/2$};
+\node[right] at (\xD+0.8,\gnd+0.25 - \DgrdStep)  {\tiny $+1/2$};
+
+\end{tikzpicture}
+
+
+%\end{document}

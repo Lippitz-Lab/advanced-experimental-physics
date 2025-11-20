@@ -1,0 +1,61 @@
+% \documentclass[margin=0mm]{standalone}
+% \input{../tikz_header}
+
+% \begin{document}
+
+% \pgfkeys{/pgf/number format/.cd,1000 sep={\,}}
+
+\begin{tikzpicture}
+
+
+\begin{axis}[
+  width=95mm,
+  height=35mm, 
+  scale only axis,
+  /pgfplots/every axis/.append style={font=\footnotesize},
+  scaled ticks=false,
+%  ymin=0.01,
+ xmin = -8,
+ xmax = 8,
+  xlabel = {speed $v$ (mm/s)},
+  ylabel = {rel. transmission},
+  %ytick = {-1, 0},
+axis x line*=bottom,
+ font=\footnotesize,
+]
+
+
+
+\addplot[black,mark=*, only marks, mark size = 0.6pt]
+    table[col sep=comma, x index=0, y index=1] {\currfiledir data/iron.csv};
+
+
+\end{axis}
+  % % create a second (top) x axis showing the Doppler energy shift in µeV
+    \begin{axis}[%
+      at={(current axis.north west)}, anchor=south west,
+      width=95mm,
+      height=0.1pt,
+       scale only axis,
+       xmin = -8,
+      xmax = 8,
+      ymin = 1,ymax=2,
+      axis y line=none,
+      axis x line*=top,
+      xtick = {-6.9 , -4.6, -2.3,0,2.3, 4.6, 6.9}, font=\footnotesize,
+      enlarge x limits=false,
+      scaled ticks = false,
+      xticklabel={\pgfmathparse{\tick*0.43}%
+                  \pgfmathprintnumber[fixed,precision=1]{\pgfmathresult}},
+     % x tick label style={font=\footnotesize, yshift=2pt},
+       font=\footnotesize,
+       xlabel = {energy $E$ ($\mu$eV)}
+    ]
+  %\addplot {x^2};
+  \end{axis}%
+\end{tikzpicture}
+ 
+
+%\end{document}
+
+
