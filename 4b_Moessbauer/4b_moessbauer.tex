@@ -1,5 +1,5 @@
 \renewcommand{\chapterauthors}{Markus Lippitz}
-\renewcommand{\lastmod}{November 20, 2025}
+\renewcommand{\lastmod}{November 21, 2025}
 
 
 \chapter{Mössbauer Spectroscopy}
@@ -7,7 +7,7 @@
  
 \section{Overview}
 
-We close the part on oscillations and Fourier transforms by the Mössbauer effect, which describes the recoil-less emission and absorption of a gamma photon by an atomic nucleus. It leads to  very narrow spectral lines  with $\Delta E / E \approx 10^{-15}$ (\cite{Potzel92}).
+We close the part on oscillations and Fourier transforms by the Mössbauer effect, which describes the recoil-less emission and absorption of a gamma photon by an atomic nucleus. It leads to  very narrow spectral lines  with $\Delta E / E \approx 10^{-15}$ (\cite{Potzel92}). The cited work by Potzel et al.\ is an improved version of the seminal work of Pound and Rebka on the 'apparent weight of  photons' (\cite{Pound_Rebka_60}).
 
 During his PhD thesis work in Munich and Heidelberg in the years 1955 -- 1958, Rudolf Mössbauer investigated the emission and reabsorption of gamma radiation by \ch{^{191}Ir}. He discovered an unexpected increase in absorption when cooling both the emitter and the absorber material. This observation and its explanation led to his receiving the Nobel Prize in 1961 at the age of 32. Today, Mössbauer spectroscopy is a common tool used to study materials. One example is the Mars rovers, which use Mössbauer spectroscopy to search for water (\cite{Klingelhofer2006}).
 
@@ -34,13 +34,12 @@ with the mass of the atom $M$ and $c$ the velocity of light. For the D-line of s
 
 This is different for atomic nuclei that emit gamma radiation. After a nuclear reaction such as an alpha- oder beta-decay, the nucleus will most likely end up in an excited state. It can decay to its ground state by emission of a gamma photon with an energy in the range of a few keV to MeV. $E_0$ and thus $ \Delta E_\text{recoil}$ are  much larger than for visible light emission. Since metastable nuclear states have  lifetimes of nanoseconds or longer,  the natural linewidth is comparable to that of dye molecules
 
-The recoil acts twice. First, the spectrum of the emitted gamma photon shifts to lower energies because some energy remains at the emitting nucleus. Second, absorption requires an additional amount of energy, equal to the recoil energy, because the absorbed photon must supply the energy necessary for the nucleus to move afterward. Thus, there is a $2\Delta E_\text{recoil}$ mismatch between the emitted photon and gamma absorption. Depending on thermal broadening, some overlap is found (Fig. \ref{fig:4b:overlap}). Unlike resonance fluorescence in the visible spectrum, resonance absorption of gamma radiation should not or only extremely weakly occur when source and absorber are identical.
-
-
 \begin{marginfigure}
     \inputtikz{\currfiledir shift_by_recoil}
     \caption{Thermal motion causes emission (blue) and absorption (red) lines to broaden. Recoil leads to a relative shift. Only the overlapping region contributes to resonance absorption. The sketch is to scale for the 129~keV transition of \ch{^{191}Ir} at room temperature.  } \label{fig:4b:overlap} 
 \end{marginfigure}
+
+The recoil acts twice. First, the spectrum of the emitted gamma photon shifts to lower energies because some energy remains at the emitting nucleus. Second, absorption requires an additional amount of energy, equal to the recoil energy, because the absorbed photon must supply the energy necessary for the nucleus to move afterward. Thus, there is a $2\Delta E_\text{recoil}$ mismatch between the emitted photon and gamma absorption. Depending on thermal broadening, some overlap is found (Fig. \ref{fig:4b:overlap}). Unlike resonance fluorescence in the visible spectrum, resonance absorption of gamma radiation should not or only extremely weakly occur when source and absorber are identical.
 
 
 \section{Doppler shifting of transitions}
@@ -52,8 +51,17 @@ Things changed in 1951 when P. B. Moon published\footcite{Moon51}  an experiment
 
 For this to work, one needs an excited nuclear state that decays in the emitter by gamma radiation to the ground state. In the absorber, all nuclei are in the ground state and thus able to absorb a gamma photon when the recoil mismatch is compensated. In Moons experiment, the tips of a high-speed rotor were coated with gold that had been treated in a nuclear reactor. The   \ch{^{198}Au} isotope decays into an excited  \ch{^{198}Hg} which in turn decays by gamma emission of 412~keV into the \ch{^{198}Hg} ground state. At a speed of $v = 630$~m/s of the gold tip toward the mercury absorber, the Doppler shift should compensate for $2\Delta E_\text{recoil}$. Moon found the expected increase in absorption.
 
+\begin{marginfigure}
+    \inputtikz{\currfiledir Hg198_decay}
+    \caption{Transitions involved in the \ch{^{198}Hg} experiments.}
+\end{marginfigure}
 
 \section{Temperature tuning of transitions}
+
+\begin{marginfigure}
+    \inputtikz{\currfiledir ir191_decay}
+    \caption{Transitions involved in the \ch{^{191}Ir} experiments.}
+\end{marginfigure}
 
 Mössbauer investigated\footcite{moessbauer58_zfp} the isotope \ch{^{191}Ir},  which decays by emitting a 129-keV gamma photon to the ground state. This choice simplifies resonance absorption because the nucleus is heavy and the photon has low energy. One can learn something about the linewidth by tuning the temperature of either the emitter or the absorber. In both cases, the overlap region in Fig. \ref{fig:4b:overlap} changes. Mössbauer kept the absorber at room temperature and 
 switched the emitter temperature between 88~K and 303~K. From the difference in absorption he derived a line with in terms of excited state lifetime of $\tau = 360$~ps.
@@ -62,7 +70,7 @@ switched the emitter temperature between 88~K and 303~K. From the difference in 
 In a second series of experiments, he kept the absorber at 88 K and adjusted the temperature of the source from 370 K to 88 K. One might expect a significant decrease in resonance absorption when both the emission and absorption lines narrow and the recoil remains constant. However, this is not what Mössbauer found. The absorption increased by about a factor of 10. Initially, he considered this to be an experimental flaw, as he mentioned in his Nobel Lecture.
 
 \begin{figure}
-    \inputtikz{\currfiledir ir192_zfp}
+    \inputtikz{\currfiledir ir191_zfp}
     \caption{Left: Transmission reduction when the source and absorber are both cooled.
 Right: Absorption cross section calculated from the data on the left. Data from \cite{moessbauer58_zfp} }
 \end{figure}
@@ -153,7 +161,7 @@ At all temperatures, a fraction $f(T)$ of all emission and absorption events  oc
 
 \begin{marginfigure}
     \inputtikz{\currfiledir debye_waller}
-    \caption{Debye Waller factors for the elementary crystals of \ch{^{57}Fe}, \ch{^{197}Au} and \ch{^{192}Ir} with transition energies of 14.3, 77 and 129~keV. Data from \cite{rmsd_param}. } \label{fig:4b:debye_waller}  
+    \caption{Debye Waller factors for the elementary crystals of \ch{^{57}Fe}, \ch{^{197}Au} and \ch{^{191}Ir} with transition energies of 14.3, 77 and 129~keV. Data from \cite{rmsd_param}. } \label{fig:4b:debye_waller}  
 \end{marginfigure}
 
 Fig.~\ref{fig:4b:debye_waller} shows an example for 3 different materials. Soft materials with high gamma energy have a low Debye-Waller factor. Iron is much better suited for Mössbauer spectroscopy.
@@ -175,11 +183,11 @@ In a classical model without zero-point motion, the spectrum of emitted gamma ra
 
 
  
-So far, our discussion has covered the situation of Walter Mössbauer when he submitted his first article, \cite{moessbauer58_zfp}. Only upon rereading his own article in the journal, he realized that measuring the gamma emission spectrum as sketched in Fig.~\ref{fig:4b:class_vs_qm} would be both convincing and technically feasible (\cite{Moessbauer00}). The idea is to use the  Doppler shifting technique to scan an isotope's emission line against its own absorption line. Unlike the original experiment discussed above, the energy scale is no longer $E_\text{recoil} \approx 0.1$~eV, but rather the lifetime-limited linewidth of about 10~\textmu eV. Thus, the velocity of the source can be about four orders of magnitude slower. Fearing that his competitors would realize this as well, Mössbauer set out to conduct the experiment himself, using toy mechanical gears to rotate the source at a speed of a few centimeters per second. Figure \ref{fig:4b:ir192_spectrum}  shows the data.
+So far, our discussion has covered the situation of Walter Mössbauer when he submitted his first article, \cite{moessbauer58_zfp}. Only upon rereading his own article in the journal, he realized that measuring the gamma emission spectrum as sketched in Fig.~\ref{fig:4b:class_vs_qm} would be both convincing and technically feasible (\cite{Moessbauer00}). The idea is to use the  Doppler shifting technique to scan an isotope's emission line against its own absorption line. Unlike the original experiment discussed above, the energy scale is no longer $E_\text{recoil} \approx 0.1$~eV, but rather the lifetime-limited linewidth of about 10~\textmu eV. Thus, the velocity of the source can be about four orders of magnitude slower. Fearing that his competitors would realize this as well, Mössbauer set out to conduct the experiment himself, using toy mechanical gears to rotate the source at a speed of a few centimeters per second. Figure \ref{fig:4b:ir191_spectrum}  shows the data.
 
 \begin{marginfigure}
-    \inputtikz{\currfiledir ir192_spectrum}
-    \caption{First spectrum of the Mössbauer line of \ch{^{192}Ir}. Data form \cite{moessbauer58_NW} }\label{fig:4b:ir192_spectrum} 
+    \inputtikz{\currfiledir ir191_spectrum}
+    \caption{First spectrum of the Mössbauer line of \ch{^{191}Ir}. Data form \cite{moessbauer58_NW} }\label{fig:4b:ir191_spectrum} 
 \end{marginfigure}
 
 
@@ -188,13 +196,12 @@ This is the first observation of  a recoilless transition, i.e. nuclear resonanc
 
 \section{Effects influencing the gamma energy}
 
-Several effects influence the position of the gamma absorption line or cause line splitting in high-resolution Mössbauer spectroscopy. In the following discussion, we will examine some of these effects using \ch{^{57}Fe} as an example. This isotope is relatively abundant (about 2.5\%) and stable in natural iron. Therefore, it is easy to produce gamma absorbers containing \ch{^{57}Fe}.
+\begin{marginfigure}
+    \inputtikz{\currfiledir fe57_decay}
+    \caption{Transitions involved in the \ch{^{57}Fe} experiments.}
+\end{marginfigure}
 
-\begin{figure}
-\inputtikz{\currfiledir iron_levels}
-\caption{Splitting of the nuclear levels in iron.}
-\label{fig:4b:iron_levels}
-\end{figure}
+Several effects influence the position of the gamma absorption line or cause line splitting in high-resolution Mössbauer spectroscopy. In the following discussion, we will examine some of these effects using \ch{^{57}Fe} as an example. This isotope is relatively abundant (about 2.5\%) and stable in natural iron. Therefore, it is easy to produce gamma absorbers containing \ch{^{57}Fe}.
 
 
 Figure \ref{fig:4b:iron_levels} shows the level scheme. The transition to the ground state has an energy of 14.41 keV and a lifetime of 97.8~ns. The ground state has a nuclear spin of $I = 1/2$, while the excited state has $I = 3/2$. We will discuss three effects.
@@ -203,6 +210,12 @@ Figure \ref{fig:4b:iron_levels} shows the level scheme. The transition to the gr
     \item[electric quadrupole splitting] Line splitting occurs when an electric field gradient is combined with a nuclear quadrupole moment.
     \item[magentic hyperfine splitting] In a ferromagnetic material, such as \ch{^{57}Fe}, the 'external' magnetic field splits the degenerate lines similar to the Zeeman effect.
 \end{description}
+
+\begin{figure}
+\inputtikz{\currfiledir iron_levels}
+\caption{Splitting of the nuclear levels in iron.}
+\label{fig:4b:iron_levels}
+\end{figure}
 
 The first two have the same origin. Electrons generate an electric potential at the nucleus's position, resulting in Coulomb energy. This potential can be expressed\footcite{Schatz_Weidinger} as a Taylor series and in terms of the electron wave function $\Psi$. The lowest order contains two contributions: the isomeric shift and the electric quadrupole splitting.
 

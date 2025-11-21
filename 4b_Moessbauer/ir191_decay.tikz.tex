@@ -1,0 +1,37 @@
+%  \documentclass[margin=0mm]{standalone}
+%  \input{../tikz_header}
+
+% \begin{document}
+
+
+\begin{tikzpicture}[font=\footnotesize]
+
+
+        \pgfmathsetmacro{\L}{0} 
+        \pgfmathsetmacro{\R}{2} 
+        \pgfmathsetmacro{\dx}{1} 
+
+        \draw[thick](\R,0)  -- node[below]{$^{191}$Ir} ++(\dx,0);
+
+        \draw[<-](\R + \dx/2,0) -- node[right]{129 keV} ++(0,1);
+
+        \draw[thick](\R,1) -- ++(\dx,0) node[right] {123 ps};
+
+        \draw[<-](\R + \dx/2,1) -- node[right]{42 keV} ++(0,1);
+
+        \draw[thick](\R,2) -- ++(\dx,0) node[right] {4.9 s};
+
+        \draw[<-](\R + \dx/2,2) -- (\L + \dx/2,3);
+
+        \draw[thick](\L,3) -- node[above]{$^{191}$Os} ++(\dx,0) node[right] {16 d};
+
+
+
+
+
+
+
+\end{tikzpicture}
+
+
+%\end{document}

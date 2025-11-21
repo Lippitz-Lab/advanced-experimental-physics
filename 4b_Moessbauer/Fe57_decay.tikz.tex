@@ -1,0 +1,37 @@
+%  \documentclass[margin=0mm]{standalone}
+%  \input{../tikz_header}
+
+% \begin{document}
+
+
+\begin{tikzpicture}[font=\footnotesize]
+
+
+        \pgfmathsetmacro{\L}{0} 
+        \pgfmathsetmacro{\R}{2} 
+        \pgfmathsetmacro{\dx}{1} 
+
+        \draw[thick](\R,0)  -- node[below]{$^{57}$Fe} ++(\dx,0);
+
+        \draw[<-](\R + \dx/2,0) -- node[right]{14.4 keV} ++(0,1);
+
+        \draw[thick](\R,1) -- ++(\dx,0) node[right] {98 ns};
+
+        \draw[<-](\R + \dx/2,1) -- node[right]{122 keV} ++(0,1);
+
+        \draw[thick](\R,2) -- ++(\dx,0) node[right] {9 ns};
+
+        \draw[<-](\R + \dx/2,2) -- (\L + \dx/2,3);
+
+        \draw[thick](\L,3) -- node[above]{$^{57}$Co} ++(\dx,0) node[right] {270 d};
+
+
+
+
+
+
+
+\end{tikzpicture}
+
+
+%\end{document}

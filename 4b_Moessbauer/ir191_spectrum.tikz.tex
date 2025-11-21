@@ -25,13 +25,13 @@ axis x line*=bottom,
 
 
 \addplot[black,thick]
-    table[col sep=comma, x index=0, y index=1] {\currfiledir data/ir192_spectrum_fit.csv};
+    table[col sep=comma, x index=0, y index=1] {\currfiledir data/ir191_spectrum_fit.csv};
   
 \addplot[blue, only marks, mark=*, mark size = 1,
     error bars/.cd, y dir=both, y explicit]    table[col sep=comma, x index=0,
      y expr={(\thisrowno{2}+ \thisrowno{1})/2},
      y error expr={abs(\thisrowno{2} - \thisrowno{1})/2}]
-      {\currfiledir data/ir192_spectrum.csv};
+      {\currfiledir data/ir191_spectrum.csv};
 
 
 
