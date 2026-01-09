@@ -1,8 +1,8 @@
 \renewcommand{\chapterauthors}{Markus Lippitz}
-\renewcommand{\lastmod}{November 7, 2025}
+\renewcommand{\lastmod}{Janaury 9, 20256}
 
 
-\chapter{Bloch Formalism [WIP] }
+\chapter{Digression: Bloch formalism of spin-1/2 systems}
 
 
 
@@ -10,25 +10,15 @@
 \section{Overview}
 
 
+Many physical systems can be considered spin-1/2 systems. These systems can be real spins, such as electron or nuclear spins. A central property of spin-1/2 systems is that they can only exist in an up or down state, i.e., $m_s = +1/2$ or $-1/2$. This is why all two-level systems can be described as spin-1/2 systems. As we will discuss below, an atom with ground and excited states behaves similarly to an electron spin in certain respects.
 
 
-
-
-\begin{figure}[h!]
-  \inputtikz{\currfiledir fig_rabi}
-  \caption{Rabi oscillations in \ch{Rb} atoms detected by fluorescence emission. The pulse area $\theta$ is proportional to the amplitude of the driving electric field. Data from \cite{Gibbs1973}.}
-\end{figure}
-
-
-Many experimental realizations show Rabi oscillations. We will discuss them in terms of a two-level system interacting with an optical field, such as an atom in a vacuum or a molecule or quantum dot in a solid state at low temperature. But the same description applies to many other systems. In fact, a two-level system is equivalent to a spin $1/2$ system, such as an electron spin or a nuclear spin. So the same concepts are used in electron spin resonance or nuclear magnetic resonance experiments (ESR and NMR).
-
-We shine a laser beam on an atom, a molecule, a quantum dot. The laser frequency is close to the optical transition. We measure the populations of the excited state, e.g. by fluorescence emission or tunneling of the electron out of this state. We turn on the laser for a given time $t$ and measure the signal amplitude as a function of $t$. This somewhat indirect experiment is necessary because in many cases $t$ is short compared to the emission or tunneling rate. Only in theory can we measure the population of the state as it evolves. We find periodic oscillations of the signal amplitude, the Rabi oscillations.\footcite{Rabi1939}
-
+In 1946, Felix Bloch\footcite{Bloch46} developed a formalism to describe the time evolution of nuclear spin $1/2$ system. Here, we will introduce the Bloch equations, vector, and sphere using an atomic two-level system as an example. First, we will start with the density matrix and the Liouville--von Neumann equation. Then, we will discuss how the atomic wave function evolves under laser excitation. This will ultimately lead us to an example of Rabi oscillations.
 
 \section{Density Matrix}
 
 
-We start by introducing the density matrix.\footcite{Rand2016,Parson,Hamm-dummies}
+We start by introducing the density matrix.\footcite{Rand2016,Parson,Hamm-dummies,Nolting-QM}
 It is a tool in quantum mechanics to describe not only purely coherent states, but also statistical mixtures, as we will see below. The density matrix is a bit at the edge of the classical canon of quantum mechanics lectures.
 
 When  writing our wave function $\ket{\psi}$ in  a basis $\ket{n}$ as
@@ -329,6 +319,19 @@ Excited state populations decay exponentially with a lifetime $T_1$. The coheren
 \end{equation}
 where $T_2^\star$ is called pure dephasing time. The $T_1$ time enters, as a decaying population also removes coherence. The prefactor of $2$ is a consequence of effective spin-$1/2$-system. On the Bloch sphere, these processes let the Bloch vector move back to the north pole, but not along the surface of the sphere but with varying length of the vector.\sidenote{In the original work of Bloch this scheme was applied to the magnetization of a spin-$1/2$ system which decays towards the center of the sphere, as thermal energy leads to almost equal population of both states.}
 
+
+
+
+
+\section{Example: Rabi-Oscillations in Rb}
+
+\begin{figure}[h!]
+  \inputtikz{\currfiledir fig_rabi}
+  \caption{Rabi oscillations in \ch{Rb} atoms detected by fluorescence emission. The pulse area $\theta$ is proportional to the amplitude of the driving electric field. Data from \cite{Gibbs1973}.}
+\end{figure}
+
+
+We shine a laser beam on an atom, a molecule, a quantum dot. The laser frequency is close to the optical transition. We measure the populations of the excited state, e.g. by fluorescence emission or tunneling of the electron out of this state. We turn on the laser for a given time $t$ and measure the signal amplitude as a function of $t$. This somewhat indirect experiment is necessary because in many cases $t$ is short compared to the emission or tunneling rate. Only in theory can we measure the population of the state as it evolves. We find periodic oscillations of the signal amplitude, the Rabi oscillations.\footcite{Rabi1939}
 
 
 \printbibliography[segment=\therefsegment,heading=subbibliography]
