@@ -1,4 +1,4 @@
-\renewcommand{\lastmod}{September 18, 2023}
+\renewcommand{\lastmod}{October 23, 2026}
 \renewcommand{\chapterauthors}{Markus Lippitz}
 
 \chapter{Fourier transformation}
@@ -24,7 +24,7 @@ and the Fourier coefficients
 \begin{equation}
  C_k = \frac{1}{T} \, \int_{-T/2}^{T/2} \, f(t) \, \, e^{-i \, \omega_k \, t} \, dt \quad .
 \end{equation}
-Note the negative sign in the exponential function in contrast to the equation before. For reel-valued functions $f(t)$, 'opposite' $C_k$ are conjugate-complex, so $C_k = C_{-k}^\star$. For $k<0$ the frequencies $\omega_k$ are negative, but this is not a problem.\sidenote{One could alternatively require $k\ge 0$ and apply a $\sin$ and $\cos$ series.} Thus, the zeroth coefficient $C_0$ is just the time average of the function $f(t)$.
+Note the negative sign in the exponential function in contrast to the equation before. For real-valued functions $f(t)$, 'opposite' $C_k$ are conjugate-complex, so $C_k = C_{-k}^\star$. For $k<0$ the frequencies $\omega_k$ are negative, but this is not a problem.\sidenote{One could alternatively require $k\ge 0$ and apply a $\sin$ and $\cos$ series.} Thus, the zeroth coefficient $C_0$ is just the time average of the function $f(t)$.
 
 
 
@@ -129,20 +129,20 @@ and it is therefore complex-valued. Its magnitude squared is again a Lorentz fun
 \begin{equation}
 | F(\omega)|^2 = \frac{1}{\lambda^2 + \omega^2}
 \end{equation}
-and the phase is $\phi = - \omega / \lambda$.
+and the phase is $\phi = - \arctan(\omega / \lambda)$.
 
 
-\paragraph{One-dimensional point lattice} An equidistant chain of points or delta functions remains an equidistant chain under Fourier transform. The distances take  the reciprocal value. So from
+\paragraph{One-dimensional point lattice} An equidistant chain of points, or equivalently a lattice of Dirac delta functions, remains an equidistant lattice under Fourier transformation. The spacing in time is converted into the reciprocal spacing in frequency. So from
 \begin{equation}
- f(t) = \sum_n \, \delta (t - \delta t \, n)
+ f(t) = \sum_n \, \delta (t - \Delta t \, n)
 \end{equation}
 we get
 \begin{equation}
- F(\omega) = \frac{2 \pi}{\delta t} \, \sum_n \, \delta \left(\omega - n\frac{2 \pi}{\Delta t} \right). \quad .
+ F(\omega) = \frac{2 \pi}{\Delta t} \, \sum_n \, \delta \left(\omega - n\frac{2 \pi}{\Delta t} \right). \quad .
 \end{equation}
 
 
-\paragraph{Three-dimensional cubic lattice} A three-dimensional primitive cubic lattice of side length $a$ makes the transitions to a primitive cubic lattice of side length $2 \pi/a$. A face-centered cubic lattice with lattice constant $a$ of conventional unit cell is converted  to a space-centered cubic lattice with lattice constant $4 \pi / a$ and vice versa. 
+\paragraph{Three-dimensional cubic lattice} A three-dimensional primitive cubic lattice of side length $a$ makes the transitions to a primitive cubic lattice of side length $2 \pi/a$. A face-centered cubic lattice with lattice constant $a$ of conventional unit cell is converted  to a body-centered cubic lattice with lattice constant $4 \pi / a$ and vice versa. 
 
 
 \section{Theorems and properties of the Fourier transform}
@@ -265,14 +265,14 @@ One important function can not be separated into a product of one-dimensional fu
     \begin{equation}
     f(x,y)  = \left\{ 
     \begin{array}{ll}
-    1 & \text{for} \quad x^2+y^2 < a \\
+    1 & \text{for} \quad x^2+y^2 < a^2 \\
     0 & \text{other} \\
     \end{array}
     \right.
    \end{equation}
 is transformed into 
 \begin{equation}
-  F(k_x, k_y) = a \, \frac{J_1(\pi \, a \, \rho )}{\rho}
+  F(k_x, k_y) = 2 \pi \, a \, \frac{J_1( a \, \rho )}{\rho}
   \quad \text{width} \quad \rho = \sqrt{k_x^2 + k_y^2}
 \end{equation}
 and the (cylindrical) Bessel function of the first kind $J_1(x)$

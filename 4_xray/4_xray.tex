@@ -1,5 +1,5 @@
 \renewcommand{\chapterauthors}{Markus Lippitz}
-\renewcommand{\lastmod}{October 27, 2023}
+\renewcommand{\lastmod}{October 23, 2026}
 
 
 \chapter{X-Ray Scattering}
@@ -118,9 +118,9 @@ In which direction $\mathbf{K} = \mathbf{k} - \mathbf{k}_0$ do strong peaks occu
 
 From geometrical considerations one finds that constructive interference occurs exactly when the \emph{Bragg condition} is satisfied
 \begin{equation}
-n \, \lambda = 2 \, d \, \sin \Theta \quad .
+n \, \lambda = 2 \, d \, \sin \theta \quad .
 \end{equation}
-Here $n$ denotes the diffraction order, $\lambda$ the wavelength of the (matter) wave, $d$ the distance of the planes and $\Theta$ the angle between incident ray and lattice plane. Of course, since specular reflection is involved, this is also the angle of the outgoing ray with the plane.\sidenote{but not that to the surface normal} The difference 
+Here $n$ denotes the diffraction order, $\lambda$ the wavelength of the (matter) wave, $d$ the distance of the planes and $\theta$ the angle between incident ray and lattice plane. Of course, since specular reflection is involved, this is also the angle of the outgoing ray with the plane.\sidenote{but not that to the surface normal} The difference 
 $\mathbf{K}$ of the wave vectors is perpendicular to the reflecting lattice planes. For the magnitude we find
 \begin{equation}
 |\mathbf{K}| = |\mathbf{k} - \mathbf{k}_0| = 2 | \mathbf{k}_0| \, \sin \theta \quad .
@@ -174,9 +174,9 @@ A side note on the shape of the peaks in reciprocal space. The position is deter
 
 We start from the Laue condition $\mathbf{G} = \mathbf{K}$ and derive the Bragg condition from it:
 \begin{equation}
- | \mathbf{K} | = |\mathbf{k} - \mathbf{k}_0| = 2 | \mathbf{k}_0| \, \sin \Theta = \frac{4 \pi}{ \lambda} \, \sin \Theta = | \mathbf{G} | = n \, | \mathbf{G} | \quad .
+ | \mathbf{K} | = |\mathbf{k} - \mathbf{k}_0| = 2 | \mathbf{k}_0| \, \sin \theta = \frac{4 \pi}{ \lambda} \, \sin \theta = | \mathbf{G} | = n \, |\mathbf{G}_0| \quad .
 \end{equation}
-The first steps are Eq.~\ref{eq:4_def_k_sin_theta} and pure geometric considerations for reflection, so not yet the Bragg condition. In the last step, we exploited the fact that any integer multiple of a lattice vector is also a lattice vector again.\sidenote{$\mathbf{G}$ is, after all, fully named $\mathbf{G}_{hkl}$, i.e., a set of vectors}
+The first steps are Eq.~\ref{eq:4_def_k_sin_theta} and pure geometric considerations for reflection, so not yet the Bragg condition. In the last step, we exploited the fact that any integer multiple of a lattice vector is also a lattice vector again; thus one may write $|\mathbf{G}| = n |\mathbf{G}_0|$ for the reciprocal-lattice vector of order $n$.\sidenote{$\mathbf{G}$ is, after all, fully named $\mathbf{G}_{hkl}$, i.e., a set of vectors}
 
 Each lattice vector describes a plane wave and thus a set of planes at a distance of 
 \begin{equation}
@@ -184,8 +184,8 @@ Each lattice vector describes a plane wave and thus a set of planes at a distanc
 \end{equation}
  All together this gives the Bragg condition
  \begin{align}
-   \frac{4 \pi}{ \lambda} \, \sin \Theta & = n \frac{2 \pi}{d } \\
-   2 d \, \sin \Theta & = n \lambda \quad .
+   \frac{4 \pi}{ \lambda} \, \sin \theta & = n \frac{2 \pi}{d } \\
+   2 d \, \sin \theta & = n \lambda \quad .
  \end{align}
  
 
@@ -297,19 +297,19 @@ The resolution is again found in the structure factor. The basis needed to turn 
 
 \section{Evaluation of powder diffractometry}
 
-The experiment gives the position of the peaks as a function of the double scattering angle $2\Theta$ with known wavelength $\lambda$ of the radiation. From this one would like to determine the possible values of the length of the lattice vector $|\mathbf{G}|$ and thus make a statement about the Bravais lattice, the basis and the lattice constant. In general this is not trivial. In simple cases, like the example at the beginning of the chapter, one can proceed as follows:
+The experiment gives the position of the peaks as a function of the double scattering angle $2\theta$ with known wavelength $\lambda$ of the radiation. From this one would like to determine the possible values of the length of the lattice vector $|\mathbf{G}|$ and thus make a statement about the Bravais lattice, the basis and the lattice constant. In general this is not trivial. In simple cases, like the example at the beginning of the chapter, one can proceed as follows:
 
 We consider the reciprocal distance of the lattice planes
 \begin{equation}
-\frac{1}{d} = \frac{|\mathbf{G}|}{2 \pi} = \frac{2 \sin \Theta}{ \lambda}  \quad .
+\frac{1}{d} = \frac{|\mathbf{G}|}{2 \pi} = \frac{2 \sin \theta}{ \lambda}  \quad .
 \end{equation}
 In cubic lattices this is
 \begin{equation}
- \sqrt{h^2 + k^2 + l^2} = \frac{2 a \, \sin \Theta}{ \lambda}
+ \sqrt{h^2 + k^2 + l^2} = \frac{2 a \, \sin \theta}{ \lambda}
 \end{equation}
 with the lattice constant $a$ of the conventional unit cell in real space, thus 
 \begin{equation}
- h^2 + k^2 + l^2 = \left(\frac{2 a }{ \lambda} \right)^2 \, \sin^2 \Theta \quad .
+ h^2 + k^2 + l^2 = \left(\frac{2 a }{ \lambda} \right)^2 \, \sin^2 \theta \quad .
 \end{equation}
 So one tries to describe the position of all peaks by a single choice of $a/\lambda$ and a set of integers $(hkl)$ each. Thus one obtains the lattice constant $a$ and from the presence or absence of the peaks the structure factor and thus the lattice.
 
